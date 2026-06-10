@@ -1,0 +1,1029 @@
+{
+  "date": "2026-03-26",
+  "boards": [
+    {
+      "board_id": "ai_compute",
+      "board_name": "AI算力",
+      "members": [
+        {
+          "code": "000016.SZ",
+          "name": "*ST康佳A",
+          "source": "provider"
+        },
+        {
+          "code": "000021.SZ",
+          "name": "深科技",
+          "source": "provider"
+        },
+        {
+          "code": "000034.SZ",
+          "name": "神州数码",
+          "source": "provider"
+        },
+        {
+          "code": "000620.SZ",
+          "name": "盈新发展",
+          "source": "provider"
+        },
+        {
+          "code": "000670.SZ",
+          "name": "盈方微",
+          "source": "provider"
+        },
+        {
+          "code": "000818.SZ",
+          "name": "航锦科技",
+          "source": "provider"
+        },
+        {
+          "code": "001287.SZ",
+          "name": "中电港",
+          "source": "provider"
+        },
+        {
+          "code": "001298.SZ",
+          "name": "好上好",
+          "source": "provider"
+        },
+        {
+          "code": "001309.SZ",
+          "name": "德明利",
+          "source": "provider"
+        },
+        {
+          "code": "001389.SZ",
+          "name": "广合科技",
+          "source": "provider"
+        },
+        {
+          "code": "002049.SZ",
+          "name": "紫光国微",
+          "source": "provider"
+        },
+        {
+          "code": "002077.SZ",
+          "name": "大港股份",
+          "source": "provider"
+        },
+        {
+          "code": "002119.SZ",
+          "name": "康强电子",
+          "source": "provider"
+        },
+        {
+          "code": "002156.SZ",
+          "name": "通富微电",
+          "source": "provider"
+        },
+        {
+          "code": "002185.SZ",
+          "name": "华天科技",
+          "source": "provider"
+        },
+        {
+          "code": "002213.SZ",
+          "name": "大为股份",
+          "source": "provider"
+        },
+        {
+          "code": "002371.SZ",
+          "name": "北方华创",
+          "source": "provider"
+        },
+        {
+          "code": "002409.SZ",
+          "name": "雅克科技",
+          "source": "provider"
+        },
+        {
+          "code": "002413.SZ",
+          "name": "雷科防务",
+          "source": "provider"
+        },
+        {
+          "code": "002415.SZ",
+          "name": "海康威视",
+          "source": "provider"
+        },
+        {
+          "code": "002559.SZ",
+          "name": "亚威股份",
+          "source": "provider"
+        },
+        {
+          "code": "002654.SZ",
+          "name": "万润科技",
+          "source": "provider"
+        },
+        {
+          "code": "002916.SZ",
+          "name": "深南电路",
+          "source": "provider"
+        },
+        {
+          "code": "002935.SZ",
+          "name": "天奥电子",
+          "source": "provider"
+        },
+        {
+          "code": "002975.SZ",
+          "name": "博杰股份",
+          "source": "provider"
+        },
+        {
+          "code": "300042.SZ",
+          "name": "朗科科技",
+          "source": "provider"
+        },
+        {
+          "code": "300054.SZ",
+          "name": "鼎龙股份",
+          "source": "provider"
+        },
+        {
+          "code": "300131.SZ",
+          "name": "英唐智控",
+          "source": "provider"
+        },
+        {
+          "code": "300236.SZ",
+          "name": "上海新阳",
+          "source": "provider"
+        },
+        {
+          "code": "300302.SZ",
+          "name": "同有科技",
+          "source": "provider"
+        },
+        {
+          "code": "300308.SZ",
+          "name": "中际旭创",
+          "source": "include"
+        },
+        {
+          "code": "300398.SZ",
+          "name": "飞凯材料",
+          "source": "provider"
+        },
+        {
+          "code": "300455.SZ",
+          "name": "航天智装",
+          "source": "provider"
+        },
+        {
+          "code": "300475.SZ",
+          "name": "香农芯创",
+          "source": "provider"
+        },
+        {
+          "code": "300487.SZ",
+          "name": "蓝晓科技",
+          "source": "provider"
+        },
+        {
+          "code": "300551.SZ",
+          "name": "古鳌科技",
+          "source": "provider"
+        },
+        {
+          "code": "300567.SZ",
+          "name": "精测电子",
+          "source": "provider"
+        },
+        {
+          "code": "300604.SZ",
+          "name": "长川科技",
+          "source": "provider"
+        },
+        {
+          "code": "300650.SZ",
+          "name": "太龙股份",
+          "source": "provider"
+        },
+        {
+          "code": "300655.SZ",
+          "name": "晶瑞电材",
+          "source": "provider"
+        },
+        {
+          "code": "300661.SZ",
+          "name": "圣邦股份",
+          "source": "provider"
+        },
+        {
+          "code": "300666.SZ",
+          "name": "江丰电子",
+          "source": "provider"
+        },
+        {
+          "code": "300671.SZ",
+          "name": "富满微",
+          "source": "provider"
+        },
+        {
+          "code": "300672.SZ",
+          "name": "国科微",
+          "source": "provider"
+        },
+        {
+          "code": "300842.SZ",
+          "name": "帝科股份",
+          "source": "provider"
+        },
+        {
+          "code": "300857.SZ",
+          "name": "协创数据",
+          "source": "provider"
+        },
+        {
+          "code": "301099.SZ",
+          "name": "雅创电子",
+          "source": "provider"
+        },
+        {
+          "code": "301265.SZ",
+          "name": "华新科技",
+          "source": "provider"
+        },
+        {
+          "code": "301269.SZ",
+          "name": "华大九天",
+          "source": "provider"
+        },
+        {
+          "code": "301306.SZ",
+          "name": "西测测试",
+          "source": "provider"
+        },
+        {
+          "code": "301308.SZ",
+          "name": "江波龙",
+          "source": "provider"
+        },
+        {
+          "code": "301348.SZ",
+          "name": "蓝箭电子",
+          "source": "provider"
+        },
+        {
+          "code": "301592.SZ",
+          "name": "六九一二",
+          "source": "provider"
+        },
+        {
+          "code": "600171.SH",
+          "name": "上海贝岭",
+          "source": "provider"
+        },
+        {
+          "code": "600183.SH",
+          "name": "生益科技",
+          "source": "provider"
+        },
+        {
+          "code": "600206.SH",
+          "name": "有研新材",
+          "source": "provider"
+        },
+        {
+          "code": "600584.SH",
+          "name": "长电科技",
+          "source": "provider"
+        },
+        {
+          "code": "600667.SH",
+          "name": "太极实业",
+          "source": "provider"
+        },
+        {
+          "code": "601133.SH",
+          "name": "柏诚股份",
+          "source": "provider"
+        },
+        {
+          "code": "603019.SH",
+          "name": "中科曙光",
+          "source": "include"
+        },
+        {
+          "code": "603078.SH",
+          "name": "江化微",
+          "source": "provider"
+        },
+        {
+          "code": "603203.SH",
+          "name": "快克智能",
+          "source": "provider"
+        },
+        {
+          "code": "603283.SH",
+          "name": "赛腾股份",
+          "source": "provider"
+        },
+        {
+          "code": "603316.SH",
+          "name": "诚邦股份",
+          "source": "provider"
+        },
+        {
+          "code": "603353.SH",
+          "name": "和顺石油",
+          "source": "provider"
+        },
+        {
+          "code": "603650.SH",
+          "name": "彤程新材",
+          "source": "provider"
+        },
+        {
+          "code": "603688.SH",
+          "name": "石英股份",
+          "source": "provider"
+        },
+        {
+          "code": "603690.SH",
+          "name": "至纯科技",
+          "source": "provider"
+        },
+        {
+          "code": "603776.SH",
+          "name": "永安行",
+          "source": "provider"
+        },
+        {
+          "code": "603938.SH",
+          "name": "三孚股份",
+          "source": "provider"
+        },
+        {
+          "code": "603986.SH",
+          "name": "兆易创新",
+          "source": "provider"
+        },
+        {
+          "code": "605178.SH",
+          "name": "时空科技",
+          "source": "provider"
+        },
+        {
+          "code": "688008.SH",
+          "name": "澜起科技",
+          "source": "provider"
+        },
+        {
+          "code": "688012.SH",
+          "name": "中微公司",
+          "source": "provider"
+        },
+        {
+          "code": "688019.SH",
+          "name": "DR安集科",
+          "source": "provider"
+        },
+        {
+          "code": "688110.SH",
+          "name": "东芯股份",
+          "source": "provider"
+        },
+        {
+          "code": "688120.SH",
+          "name": "DR华海清",
+          "source": "provider"
+        },
+        {
+          "code": "688123.SH",
+          "name": "聚辰股份",
+          "source": "provider"
+        },
+        {
+          "code": "688126.SH",
+          "name": "沪硅产业",
+          "source": "provider"
+        },
+        {
+          "code": "688135.SH",
+          "name": "利扬芯片",
+          "source": "provider"
+        },
+        {
+          "code": "688206.SH",
+          "name": "概伦电子",
+          "source": "provider"
+        },
+        {
+          "code": "688262.SH",
+          "name": "国芯科技",
+          "source": "provider"
+        },
+        {
+          "code": "688328.SH",
+          "name": "深科达",
+          "source": "provider"
+        },
+        {
+          "code": "688347.SH",
+          "name": "华虹宏力",
+          "source": "provider"
+        },
+        {
+          "code": "688380.SH",
+          "name": "中微半导",
+          "source": "provider"
+        },
+        {
+          "code": "688385.SH",
+          "name": "复旦微电",
+          "source": "provider"
+        },
+        {
+          "code": "688403.SH",
+          "name": "汇成股份",
+          "source": "provider"
+        },
+        {
+          "code": "688416.SH",
+          "name": "恒烁股份",
+          "source": "provider"
+        },
+        {
+          "code": "688432.SH",
+          "name": "有研硅",
+          "source": "provider"
+        },
+        {
+          "code": "688439.SH",
+          "name": "振华风光",
+          "source": "provider"
+        },
+        {
+          "code": "688449.SH",
+          "name": "XD联芸科",
+          "source": "provider"
+        },
+        {
+          "code": "688525.SH",
+          "name": "佰维存储",
+          "source": "provider"
+        },
+        {
+          "code": "688596.SH",
+          "name": "正帆科技",
+          "source": "provider"
+        },
+        {
+          "code": "688611.SH",
+          "name": "杭州柯林",
+          "source": "provider"
+        },
+        {
+          "code": "688627.SH",
+          "name": "精智达",
+          "source": "provider"
+        },
+        {
+          "code": "688652.SH",
+          "name": "京仪装备",
+          "source": "provider"
+        },
+        {
+          "code": "688709.SH",
+          "name": "成都华微",
+          "source": "provider"
+        },
+        {
+          "code": "688727.SH",
+          "name": "恒坤新材",
+          "source": "provider"
+        },
+        {
+          "code": "688783.SH",
+          "name": "西安奕材-U",
+          "source": "provider"
+        },
+        {
+          "code": "688981.SH",
+          "name": "中芯国际",
+          "source": "provider"
+        },
+        {
+          "code": "920139.BJ",
+          "name": "华岭股份",
+          "source": "provider"
+        },
+        {
+          "code": "920186.BJ",
+          "name": "中科仪",
+          "source": "provider"
+        }
+      ],
+      "excluded_members": [],
+      "invalid_members": [
+        {
+          "code": "000021.SZ",
+          "name": "深科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "000034.SZ",
+          "name": "神州数码",
+          "reason": "no_quote"
+        },
+        {
+          "code": "000620.SZ",
+          "name": "盈新发展",
+          "reason": "no_quote"
+        },
+        {
+          "code": "000670.SZ",
+          "name": "盈方微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "000818.SZ",
+          "name": "航锦科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "001287.SZ",
+          "name": "中电港",
+          "reason": "no_quote"
+        },
+        {
+          "code": "001298.SZ",
+          "name": "好上好",
+          "reason": "no_quote"
+        },
+        {
+          "code": "001309.SZ",
+          "name": "德明利",
+          "reason": "no_quote"
+        },
+        {
+          "code": "001389.SZ",
+          "name": "广合科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002049.SZ",
+          "name": "紫光国微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002077.SZ",
+          "name": "大港股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002119.SZ",
+          "name": "康强电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002156.SZ",
+          "name": "通富微电",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002185.SZ",
+          "name": "华天科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002213.SZ",
+          "name": "大为股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002371.SZ",
+          "name": "北方华创",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002409.SZ",
+          "name": "雅克科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002413.SZ",
+          "name": "雷科防务",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002415.SZ",
+          "name": "海康威视",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002559.SZ",
+          "name": "亚威股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002654.SZ",
+          "name": "万润科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002916.SZ",
+          "name": "深南电路",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002935.SZ",
+          "name": "天奥电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "002975.SZ",
+          "name": "博杰股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300042.SZ",
+          "name": "朗科科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300054.SZ",
+          "name": "鼎龙股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300131.SZ",
+          "name": "英唐智控",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300236.SZ",
+          "name": "上海新阳",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300302.SZ",
+          "name": "同有科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300308.SZ",
+          "name": "中际旭创",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300398.SZ",
+          "name": "飞凯材料",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300455.SZ",
+          "name": "航天智装",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300475.SZ",
+          "name": "香农芯创",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300487.SZ",
+          "name": "蓝晓科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300551.SZ",
+          "name": "古鳌科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300567.SZ",
+          "name": "精测电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300604.SZ",
+          "name": "长川科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300650.SZ",
+          "name": "太龙股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300655.SZ",
+          "name": "晶瑞电材",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300661.SZ",
+          "name": "圣邦股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300666.SZ",
+          "name": "江丰电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300671.SZ",
+          "name": "富满微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300672.SZ",
+          "name": "国科微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300842.SZ",
+          "name": "帝科股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "300857.SZ",
+          "name": "协创数据",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301099.SZ",
+          "name": "雅创电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301265.SZ",
+          "name": "华新科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301269.SZ",
+          "name": "华大九天",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301306.SZ",
+          "name": "西测测试",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301308.SZ",
+          "name": "江波龙",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301348.SZ",
+          "name": "蓝箭电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "301592.SZ",
+          "name": "六九一二",
+          "reason": "no_quote"
+        },
+        {
+          "code": "600171.SH",
+          "name": "上海贝岭",
+          "reason": "no_quote"
+        },
+        {
+          "code": "600183.SH",
+          "name": "生益科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "600206.SH",
+          "name": "有研新材",
+          "reason": "no_quote"
+        },
+        {
+          "code": "600584.SH",
+          "name": "长电科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "600667.SH",
+          "name": "太极实业",
+          "reason": "no_quote"
+        },
+        {
+          "code": "601133.SH",
+          "name": "柏诚股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603019.SH",
+          "name": "中科曙光",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603078.SH",
+          "name": "江化微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603203.SH",
+          "name": "快克智能",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603283.SH",
+          "name": "赛腾股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603316.SH",
+          "name": "诚邦股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603353.SH",
+          "name": "和顺石油",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603650.SH",
+          "name": "彤程新材",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603688.SH",
+          "name": "石英股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603690.SH",
+          "name": "至纯科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603776.SH",
+          "name": "永安行",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603938.SH",
+          "name": "三孚股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "603986.SH",
+          "name": "兆易创新",
+          "reason": "no_quote"
+        },
+        {
+          "code": "605178.SH",
+          "name": "时空科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688008.SH",
+          "name": "澜起科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688012.SH",
+          "name": "中微公司",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688019.SH",
+          "name": "DR安集科",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688110.SH",
+          "name": "东芯股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688120.SH",
+          "name": "DR华海清",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688123.SH",
+          "name": "聚辰股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688126.SH",
+          "name": "沪硅产业",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688135.SH",
+          "name": "利扬芯片",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688206.SH",
+          "name": "概伦电子",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688262.SH",
+          "name": "国芯科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688328.SH",
+          "name": "深科达",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688347.SH",
+          "name": "华虹宏力",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688380.SH",
+          "name": "中微半导",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688385.SH",
+          "name": "复旦微电",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688403.SH",
+          "name": "汇成股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688416.SH",
+          "name": "恒烁股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688432.SH",
+          "name": "有研硅",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688439.SH",
+          "name": "振华风光",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688449.SH",
+          "name": "XD联芸科",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688525.SH",
+          "name": "佰维存储",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688596.SH",
+          "name": "正帆科技",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688611.SH",
+          "name": "杭州柯林",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688627.SH",
+          "name": "精智达",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688652.SH",
+          "name": "京仪装备",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688709.SH",
+          "name": "成都华微",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688727.SH",
+          "name": "恒坤新材",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688783.SH",
+          "name": "西安奕材-U",
+          "reason": "no_quote"
+        },
+        {
+          "code": "688981.SH",
+          "name": "中芯国际",
+          "reason": "no_quote"
+        },
+        {
+          "code": "920139.BJ",
+          "name": "华岭股份",
+          "reason": "no_quote"
+        },
+        {
+          "code": "920186.BJ",
+          "name": "中科仪",
+          "reason": "no_quote"
+        }
+      ]
+    }
+  ]
+}

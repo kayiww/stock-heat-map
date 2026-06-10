@@ -95,7 +95,7 @@ boards:
 
     def test_fixture_pipeline_outputs_static_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            output = Path(tmp) / "public"
+            output = Path(tmp) / "docs"
             result = build_pipeline(
                 Namespace(
                     config="boards.yml",

@@ -1249,7 +1249,7 @@ def build_pipeline(args: argparse.Namespace) -> int:
 def make_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build static A-share board heat dashboard")
     parser.add_argument("--config", default="boards.yml")
-    parser.add_argument("--output", default="public")
+    parser.add_argument("--output", default="docs")
     parser.add_argument("--history-days", type=int, default=DEFAULT_HISTORY_DAYS)
     parser.add_argument("--timeout", type=int, default=20)
     parser.add_argument("--retries", type=int, default=3)

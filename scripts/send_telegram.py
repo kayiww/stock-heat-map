@@ -61,7 +61,7 @@ def send_message(token: str, chat_id: str, text: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Send Telegram summary")
-    parser.add_argument("--latest", default="public/data/latest.json")
+    parser.add_argument("--latest", default="docs/data/latest.json")
     parser.add_argument("--site-url", default="")
     args = parser.parse_args()
 

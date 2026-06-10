@@ -1,6 +1,6 @@
 # A股重点板块热度记录器
 
-这是一个静态自动化复盘项目：GitHub Actions 在 A 股收盘后抓取行情、解析重点板块、计算热度指标和状态，随后生成 GitHub Pages 静态网页、`latest.json`、`history.json` 与 `history.csv`。网页打开时只读取已经生成好的静态文件，不实时请求行情接口，也不依赖服务端 API。
+这是一个静态自动化复盘项目：GitHub Actions 在 A 股收盘后抓取行情、解析重点板块、计算热度指标和状态，随后生成 `docs/` 目录下的 GitHub Pages 静态网页、`latest.json`、`history.json` 与 `history.csv`。网页打开时只读取已经生成好的静态文件，不实时请求行情接口，也不依赖服务端 API。
 
 本项目只用于板块热度记录、复盘和观察，不提供买入或卖出建议。
 
@@ -43,7 +43,7 @@ boards:
     custom_members: []
 ```
 
-每日会保存实际参与计算的成分股快照到 `public/data/members/日期.json`，保证历史复盘口径可追溯。
+每日会保存实际参与计算的成分股快照到 `docs/data/members/日期.json`，保证历史复盘口径可追溯。
 
 ## 指标口径
 
@@ -61,7 +61,12 @@ GitHub Actions 使用 UTC cron：
 - `35 7 * * 1-5`：北京时间 15:35。
 - `10 8 * * 1-5`：北京时间 16:10 校准。
 
-同时支持 `workflow_dispatch` 手动触发。第一次启用 GitHub Pages 时，请在仓库设置中允许 Actions 部署 Pages。
+同时支持 `workflow_dispatch` 手动触发。GitHub Pages 使用分支目录部署：
+
+- 进入仓库 `Settings` -> `Pages`。
+- `Source` 选择 `Deploy from a branch`。
+- `Branch` 选择 `main`。
+- `Folder` 选择 `/docs`。
 
 Telegram 推送需要配置仓库 Secrets：
 
@@ -72,7 +77,7 @@ Telegram 推送需要配置仓库 Secrets：
 
 ```bash
 python -m unittest discover -s tests
-python scripts/build_static.py --config boards.yml --output public --history-days 180 --fixture
+python scripts/build_static.py --config boards.yml --output docs --history-days 180 --fixture
 ```
 
 去掉 `--fixture` 后会尝试请求真实行情源。

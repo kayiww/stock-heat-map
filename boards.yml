@@ -1,0 +1,47 @@
+boards:
+  - id: ai_compute
+    name: AI算力
+    enabled: true
+    priority: 10
+    note: 重点观察算力基础设施、服务器、光模块和相关硬件链。
+    provider_board:
+      source: eastmoney
+      code: BK1137
+      type: concept
+      name: 算力概念
+    include:
+      - 300308.SZ
+      - 603019.SH
+    exclude: []
+    custom_members: []
+
+  - id: semiconductor
+    name: 半导体
+    enabled: true
+    priority: 20
+    note: 观察国产替代、设备、材料、设计和制造链。
+    provider_board:
+      source: eastmoney
+      code: BK1036
+      type: concept
+      name: 半导体概念
+    include: []
+    exclude: []
+    custom_members: []
+
+  - id: custom_watch
+    name: 我的观察池
+    enabled: true
+    priority: 99
+    note: 示例自定义股票池，可替换为自己的重点股票组合。
+    provider_board:
+      source: eastmoney
+      code:
+      type: custom
+      name:
+    include: []
+    exclude: []
+    custom_members:
+      - 600519.SH
+      - 300750.SZ
+      - 000001.SZ

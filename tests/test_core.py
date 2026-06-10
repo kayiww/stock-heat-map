@@ -6,11 +6,13 @@ from argparse import Namespace
 from pathlib import Path
 
 from scripts.ashare_static import (
+    FetchResult,
     FixtureClient,
     build_latest_payload,
     build_pipeline,
     classify_status,
     enabled_boards,
+    fetch_members_with_cache,
     load_config,
     merge_board_members,
     normalize_stock_code,
@@ -66,6 +68,46 @@ boards:
         self.assertIn("000001.SZ", codes)
         self.assertIn("300750.SZ", codes)
         self.assertTrue(excluded[0]["was_present"])
+
+    def test_provider_failure_uses_manual_members(self) -> None:
+        class FailingProviderClient:
+            logs: list[str] = []
+
+            def fetch_board_members(self, provider: dict[str, object]) -> FetchResult:
+                return FetchResult(ok=False, members=[], error="HTTPError status=502 body=Bad Gateway")
+
+        board = {
+            "id": "manual_fallback",
+            "name": "Manual Fallback",
+            "provider_board": {"source": "eastmoney", "code": "BK0001", "type": "concept"},
+            "include": ["000001.SZ"],
+            "exclude": [],
+            "custom_members": ["300750.SZ"],
+        }
+        errors: list[str] = []
+        members, _excluded, meta = fetch_members_with_cache(board, FailingProviderClient(), {}, errors)
+        self.assertTrue(meta["stale"])
+        self.assertEqual([member["code"] for member in members], ["000001.SZ", "300750.SZ"])
+        self.assertIn("HTTPError status=502", errors[0])
+
+    def test_custom_board_does_not_request_provider_members(self) -> None:
+        class NoProviderClient:
+            logs: list[str] = []
+
+            def fetch_board_members(self, provider: dict[str, object]) -> FetchResult:
+                raise AssertionError("custom board should not request provider members")
+
+        board = {
+            "id": "custom_only",
+            "name": "Custom Only",
+            "provider_board": {"source": "eastmoney", "code": "BK0001", "type": "custom"},
+            "include": [],
+            "exclude": [],
+            "custom_members": ["600519.SH", "300750.SZ"],
+        }
+        members, _excluded, meta = fetch_members_with_cache(board, NoProviderClient(), {}, [])
+        self.assertEqual(meta["source"], "custom")
+        self.assertEqual([member["code"] for member in members], ["300750.SZ", "600519.SH"])
 
     def test_status_skips_low_coverage(self) -> None:
         record = {

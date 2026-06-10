@@ -12,6 +12,7 @@ import re
 import statistics
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -26,6 +27,10 @@ DEFAULT_HISTORY_DAYS = 180
 
 
 class PipelineError(RuntimeError):
+    pass
+
+
+class FetchRequestError(RuntimeError):
     pass
 
 
@@ -49,6 +54,18 @@ def read_json(path: Path, default: Any) -> Any:
 def write_json(path: Path, payload: Any) -> None:
     ensure_dir(path.parent)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def compact_text(value: str, limit: int = 220) -> str:
+    text = " ".join(str(value).replace("\r", " ").replace("\n", " ").split())
+    if len(text) <= limit:
+        return text
+    return text[:limit].rstrip() + "..."
+
+
+def append_log(logs: list[str], message: str) -> None:
+    logs.append(message)
+    print(message)
 
 
 def parse_scalar(value: str) -> Any:
@@ -256,13 +273,25 @@ class EastmoneyClient:
     def __init__(self, timeout: int = 20, retries: int = 3) -> None:
         self.timeout = timeout
         self.retries = max(1, retries)
+        self.logs: list[str] = []
 
-    def request_json(self, url: str, params: dict[str, Any]) -> dict[str, Any]:
+    def request_json(self, url: str, params: dict[str, Any], source: str, operation: str, target: str) -> dict[str, Any]:
+        text = self.request_text(url, params, source, operation, target)
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as exc:
+            message = f"{source} {operation} {target} JSONDecodeError: {exc}; body={compact_text(text)}"
+            append_log(self.logs, message)
+            raise FetchRequestError(message) from exc
+
+    def request_text(self, url: str, params: dict[str, Any], source: str, operation: str, target: str) -> str:
         query = urllib.parse.urlencode(params)
         last_error: Exception | None = None
+        request_url = f"{url}?{query}" if query else url
+        append_log(self.logs, f"FETCH start source={source} operation={operation} target={compact_text(target, 120)}")
         for attempt in range(self.retries):
             request = urllib.request.Request(
-                f"{url}?{query}",
+                request_url,
                 headers={
                     "User-Agent": "Mozilla/5.0 (compatible; AShareBoardHeat/1.0)",
                     "Referer": "https://quote.eastmoney.com/",
@@ -271,13 +300,35 @@ class EastmoneyClient:
             )
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                    return json.loads(response.read().decode("utf-8", errors="replace"))
-            except (OSError, TimeoutError, json.JSONDecodeError, http.client.HTTPException) as exc:
+                    body = response.read().decode("utf-8", errors="replace")
+                    append_log(
+                        self.logs,
+                        f"FETCH ok source={source} operation={operation} target={compact_text(target, 120)} "
+                        f"status={response.status} bytes={len(body)} attempt={attempt + 1}",
+                    )
+                    return body
+            except urllib.error.HTTPError as exc:
+                body = exc.read().decode("utf-8", errors="replace")
                 last_error = exc
+                message = (
+                    f"FETCH fail source={source} operation={operation} target={compact_text(target, 120)} "
+                    f"status={exc.code} error=HTTPError body={compact_text(body)} attempt={attempt + 1}"
+                )
+                append_log(self.logs, message)
                 if attempt + 1 >= self.retries:
-                    break
+                    raise FetchRequestError(message) from exc
                 time.sleep(0.8 * (attempt + 1))
-        raise last_error or RuntimeError("request failed")
+            except (OSError, TimeoutError, http.client.HTTPException) as exc:
+                last_error = exc
+                message = (
+                    f"FETCH fail source={source} operation={operation} target={compact_text(target, 120)} "
+                    f"status=NA error={type(exc).__name__}: {compact_text(str(exc))} attempt={attempt + 1}"
+                )
+                append_log(self.logs, message)
+                if attempt + 1 >= self.retries:
+                    raise FetchRequestError(message) from exc
+                time.sleep(0.8 * (attempt + 1))
+        raise FetchRequestError(str(last_error) if last_error else "request failed")
 
     def fetch_board_members(self, provider: dict[str, Any]) -> FetchResult:
         code = str(provider.get("code") or "").strip().upper()
@@ -298,6 +349,9 @@ class EastmoneyClient:
                     "fs": f"b:{code}",
                     "fields": self.quote_fields,
                 },
+                "eastmoney",
+                "board_members",
+                code,
             )
             rows = payload.get("data", {}).get("diff") or []
             members = []
@@ -330,6 +384,9 @@ class EastmoneyClient:
                     "secid": f"90.{code}",
                     "fields": "f3,f12,f14",
                 },
+                "eastmoney",
+                "board_latest_change",
+                code,
             )
             return to_float(payload.get("data", {}).get("f3"))
         except Exception:
@@ -339,42 +396,60 @@ class EastmoneyClient:
         quotes: dict[str, dict[str, Any]] = {}
         for chunk in chunks(codes, 80):
             secids = ",".join(code_to_secid(code) for code in chunk)
-            payload = self.request_json(
-                "https://push2.eastmoney.com/api/qt/ulist.np/get",
-                {
-                    "ut": "bd1d9ddb04089700cf9c27f6f7426281",
-                    "fltt": 2,
-                    "invt": 2,
-                    "secids": secids,
-                    "fields": self.quote_fields,
-                },
-            )
-            for row in payload.get("data", {}).get("diff") or []:
-                parsed = parse_eastmoney_quote_row(row)
-                if parsed:
-                    quotes[parsed["code"]] = parsed
+            try:
+                payload = self.request_json(
+                    "https://push2.eastmoney.com/api/qt/ulist.np/get",
+                    {
+                        "ut": "bd1d9ddb04089700cf9c27f6f7426281",
+                        "fltt": 2,
+                        "invt": 2,
+                        "secids": secids,
+                        "fields": self.quote_fields,
+                    },
+                    "eastmoney",
+                    "stock_quotes",
+                    ",".join(chunk),
+                )
+                for row in payload.get("data", {}).get("diff") or []:
+                    parsed = parse_eastmoney_quote_row(row)
+                    if parsed:
+                        quotes[parsed["code"]] = parsed
+            except Exception as exc:  # noqa: BLE001
+                append_log(self.logs, f"FALLBACK source=tencent operation=stock_quotes target={','.join(chunk)} reason={compact_text(str(exc))}")
+            missing = [code for code in chunk if code not in quotes]
+            if missing:
+                quotes.update(self.fetch_tencent_quotes(missing))
         return quotes
 
     def fetch_stock_klines(self, code: str, limit: int) -> list[dict[str, Any]]:
-        payload = self.request_json(
-            "https://push2his.eastmoney.com/api/qt/stock/kline/get",
-            {
-                "secid": code_to_secid(code),
-                "fields1": self.kline_fields1,
-                "fields2": self.kline_fields2,
-                "klt": 101,
-                "fqt": 1,
-                "end": "20500101",
-                "lmt": limit,
-            },
-        )
-        rows = payload.get("data", {}).get("klines") or []
-        parsed_rows = []
-        for row in rows:
-            parsed = parse_kline_row(row)
-            if parsed:
-                parsed_rows.append(parsed)
-        return parsed_rows
+        try:
+            payload = self.request_json(
+                "https://push2his.eastmoney.com/api/qt/stock/kline/get",
+                {
+                    "secid": code_to_secid(code),
+                    "fields1": self.kline_fields1,
+                    "fields2": self.kline_fields2,
+                    "klt": 101,
+                    "fqt": 1,
+                    "end": "20500101",
+                    "lmt": limit,
+                },
+                "eastmoney",
+                "stock_history",
+                code,
+            )
+            rows = payload.get("data", {}).get("klines") or []
+            parsed_rows = []
+            for row in rows:
+                parsed = parse_kline_row(row)
+                if parsed:
+                    parsed_rows.append(parsed)
+            if parsed_rows:
+                return parsed_rows
+            append_log(self.logs, f"FALLBACK source=tencent operation=stock_history target={code} reason=eastmoney returned empty rows")
+        except Exception as exc:  # noqa: BLE001
+            append_log(self.logs, f"FALLBACK source=tencent operation=stock_history target={code} reason={compact_text(str(exc))}")
+        return self.fetch_tencent_stock_klines(code, limit)
 
     def fetch_board_klines(self, provider: dict[str, Any], limit: int) -> dict[str, float]:
         code = str(provider.get("code") or "").strip().upper()
@@ -392,6 +467,9 @@ class EastmoneyClient:
                     "end": "20500101",
                     "lmt": limit,
                 },
+                "eastmoney",
+                "board_history",
+                code,
             )
             rows = payload.get("data", {}).get("klines") or []
             result: dict[str, float] = {}
@@ -403,10 +481,64 @@ class EastmoneyClient:
         except Exception:
             return {}
 
+    def fetch_tencent_quotes(self, codes: list[str]) -> dict[str, dict[str, Any]]:
+        if not codes:
+            return {}
+        symbols = ",".join(to_tencent_symbol(code) for code in codes)
+        try:
+            raw_text = self.request_text("https://qt.gtimg.cn/q=" + urllib.parse.quote(symbols, safe=","), {}, "tencent", "stock_quotes", ",".join(codes))
+        except Exception:
+            return {}
+        quotes: dict[str, dict[str, Any]] = {}
+        pattern = re.compile(r'v_([a-z]{2}\d{6})="([^"]*)";')
+        for match in pattern.finditer(raw_text):
+            parsed = parse_tencent_quote(match.group(1), match.group(2))
+            if parsed:
+                quotes[parsed["code"]] = parsed
+        return quotes
+
+    def fetch_tencent_stock_klines(self, code: str, limit: int) -> list[dict[str, Any]]:
+        symbol = to_tencent_symbol(code)
+        payload = self.request_json(
+            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
+            {"param": f"{symbol},day,,,{limit},qfq"},
+            "tencent",
+            "stock_history",
+            code,
+        )
+        data = payload.get("data", {}).get(symbol, {})
+        rows = data.get("qfqday") or data.get("day") or []
+        parsed: list[dict[str, Any]] = []
+        previous_close: float | None = None
+        for row in rows:
+            if not isinstance(row, list) or len(row) < 5:
+                continue
+            close = to_float(row[2])
+            if close is None:
+                continue
+            if previous_close and previous_close > 0:
+                change_pct = ((close - previous_close) / previous_close) * 100
+            else:
+                change_pct = to_float(row[8] if len(row) > 8 else None) or 0
+            parsed.append(
+                {
+                    "date": str(row[0]),
+                    "open": to_float(row[1]),
+                    "close": close,
+                    "high": to_float(row[3]),
+                    "low": to_float(row[4]),
+                    "turnover_amount": to_float(row[5]) or 0,
+                    "change_pct": change_pct,
+                }
+            )
+            previous_close = close
+        return parsed[-limit:]
+
 
 class FixtureClient:
     def __init__(self) -> None:
         self.start = dt.date(2025, 1, 2)
+        self.logs: list[str] = []
 
     def fetch_board_members(self, provider: dict[str, Any]) -> FetchResult:
         code = str(provider.get("code") or "")
@@ -499,6 +631,35 @@ def parse_eastmoney_quote_row(row: dict[str, Any]) -> dict[str, Any] | None:
     }
 
 
+def to_tencent_symbol(code: str) -> str:
+    symbol, exchange = normalize_stock_code(code).split(".")
+    prefix = "sh" if exchange == "SH" else "bj" if exchange == "BJ" else "sz"
+    return f"{prefix}{symbol}"
+
+
+def parse_tencent_quote(raw_symbol: str, payload: str) -> dict[str, Any] | None:
+    fields = payload.split("~")
+    if len(fields) < 4:
+        return None
+    symbol = raw_symbol[2:]
+    exchange = "SH" if raw_symbol.startswith("sh") else "BJ" if raw_symbol.startswith("bj") else "SZ"
+    code = normalize_stock_code(f"{symbol}.{exchange}")
+    change_pct = to_float(fields[32] if len(fields) > 32 else None)
+    price = to_float(fields[3] if len(fields) > 3 else None)
+    turnover_amount = to_float(fields[37] if len(fields) > 37 else None)
+    total_market_cap = to_float(fields[45] if len(fields) > 45 else None)
+    float_market_cap = to_float(fields[46] if len(fields) > 46 else None)
+    return {
+        "code": code,
+        "name": fields[1] if len(fields) > 1 else "",
+        "price": price,
+        "change_pct": change_pct,
+        "turnover_amount": (turnover_amount or 0) * 10_000,
+        "total_market_cap": (total_market_cap or 0) * 100_000_000,
+        "float_market_cap": (float_market_cap or 0) * 100_000_000,
+    }
+
+
 def parse_kline_row(row: str) -> dict[str, Any] | None:
     fields = str(row).split(",")
     if len(fields) < 7:
@@ -514,6 +675,21 @@ def parse_kline_row(row: str) -> dict[str, Any] | None:
         "low": to_float(fields[4]),
         "volume": to_float(fields[5]) or 0,
         "turnover_amount": to_float(fields[6]) or 0,
+        "change_pct": change_pct,
+    }
+
+
+def quote_to_daily_row(quote: dict[str, Any]) -> dict[str, Any] | None:
+    change_pct = to_float(quote.get("change_pct"))
+    if change_pct is None:
+        return None
+    return {
+        "date": dt.datetime.now(CN_TZ).date().isoformat(),
+        "open": None,
+        "close": to_float(quote.get("price")),
+        "high": None,
+        "low": None,
+        "turnover_amount": to_float(quote.get("turnover_amount")) or 0,
         "change_pct": change_pct,
     }
 
@@ -540,6 +716,15 @@ def merge_board_members(
     return sorted(merged.values(), key=lambda item: item["code"]), excluded
 
 
+def board_is_custom(board: dict[str, Any]) -> bool:
+    provider = board.get("provider_board") or {}
+    return str(provider.get("type") or "").strip().lower() == "custom"
+
+
+def board_has_manual_members(board: dict[str, Any]) -> bool:
+    return bool(board.get("include") or board.get("custom_members"))
+
+
 def fetch_members_with_cache(
     board: dict[str, Any],
     client: Any,
@@ -549,7 +734,10 @@ def fetch_members_with_cache(
     provider = board.get("provider_board") or {}
     provider_members: list[dict[str, Any]] = []
     provider_meta = {"source": provider.get("source") or "custom", "stale": False, "error": None}
-    if provider.get("code"):
+    if board_is_custom(board):
+        provider_meta["source"] = "custom"
+    elif provider.get("code"):
+        append_log(getattr(client, "logs", []), f"BOARD {board['name']} requesting standard members source={provider.get('source') or 'eastmoney'} code={provider.get('code')}")
         result = client.fetch_board_members(provider)
         if result.ok:
             provider_members = result.members
@@ -563,9 +751,9 @@ def fetch_members_with_cache(
             provider_members = cached.get("members") or []
             provider_meta["stale"] = True
             provider_meta["error"] = result.error or "provider fetch failed"
-            run_errors.append(f"{board['name']} standard members stale: {provider_meta['error']}")
-            if not provider_members:
-                raise PipelineError(f"{board['name']} has no provider members and no cache")
+            run_errors.append(f"{board['name']} 成分股抓取失败: {provider_meta['error']}")
+            if not provider_members and not board_has_manual_members(board):
+                raise PipelineError(f"{board['name']} has no provider members, no cache, and no include/custom_members")
     members, excluded = merge_board_members(board, provider_members)
     if not members:
         raise PipelineError(f"{board['name']} resolved to an empty member list")
@@ -840,6 +1028,7 @@ def build_latest_payload(
     run_errors: list[str],
     update_failed: bool,
     previous_latest: dict[str, Any] | None,
+    fetch_logs: list[str] | None = None,
 ) -> dict[str, Any]:
     data_date, records = latest_records(history)
     status = "ok"
@@ -861,6 +1050,7 @@ def build_latest_payload(
             "by_board": {record["board_id"]: record.get("coverage") for record in records},
         },
         "error_flags": sorted(set(run_errors + [flag for record in records for flag in (record.get("error_flags") or [])])),
+        "fetch_logs": (fetch_logs or [])[-300:],
         "boards": records,
         "rankings": build_rankings(records),
     }
@@ -1181,13 +1371,18 @@ def build_pipeline(args: argparse.Namespace) -> int:
     run_errors: list[str] = []
     incoming_records: list[dict[str, Any]] = []
     member_snapshots_by_date: dict[str, dict[str, Any]] = {}
-    source = {"provider": "fixture" if args.fixture else "eastmoney", "mode": "github_actions_static"}
+    source = {"provider": "fixture" if args.fixture else "eastmoney", "fallback_provider": None if args.fixture else "tencent", "mode": "github_actions_static"}
 
     for board in enabled_boards(config):
         try:
             members, excluded, provider_meta = fetch_members_with_cache(board, client, member_cache, run_errors)
             codes = [member["code"] for member in members]
-            quotes = client.fetch_quotes(codes)
+            append_log(getattr(client, "logs", []), f"BOARD {board['name']} requesting stock quotes count={len(codes)}")
+            try:
+                quotes = client.fetch_quotes(codes)
+            except Exception as exc:  # noqa: BLE001
+                quotes = {}
+                run_errors.append(f"{board['name']} stock quotes failed: {type(exc).__name__}: {compact_text(str(exc))}")
             for member in members:
                 quote = quotes.get(member["code"])
                 if quote and quote.get("name") and not member.get("name"):
@@ -1195,13 +1390,23 @@ def build_pipeline(args: argparse.Namespace) -> int:
             kline_map = {}
             for code in codes:
                 try:
+                    append_log(getattr(client, "logs", []), f"BOARD {board['name']} requesting stock history code={code}")
                     kline_map[code] = client.fetch_stock_klines(code, args.history_days + 40)
                     time.sleep(args.request_pause)
                 except Exception as exc:  # noqa: BLE001
                     kline_map[code] = []
-                    run_errors.append(f"{board['name']} {code} quote history failed: {exc}")
-            source_changes = client.fetch_board_klines(board.get("provider_board") or {}, args.history_days + 40)
-            latest_change = client.fetch_board_latest_change(board.get("provider_board") or {})
+                    run_errors.append(f"{board['name']} {code} quote history failed: {type(exc).__name__}: {compact_text(str(exc))}")
+                if not kline_map[code]:
+                    quote_row = quote_to_daily_row(quotes.get(code, {}))
+                    if quote_row:
+                        kline_map[code] = [quote_row]
+                        run_errors.append(f"{board['name']} {code} used latest quote fallback as one-day history")
+            if board_is_custom(board):
+                source_changes = {}
+                latest_change = None
+            else:
+                source_changes = client.fetch_board_klines(board.get("provider_board") or {}, args.history_days + 40)
+                latest_change = client.fetch_board_latest_change(board.get("provider_board") or {})
             if latest_change is not None and source_changes:
                 source_changes[max(source_changes)] = latest_change
             records, snapshot = aggregate_board_history(
@@ -1216,11 +1421,14 @@ def build_pipeline(args: argparse.Namespace) -> int:
             for record in records:
                 if provider_meta.get("stale"):
                     record["error_flags"].append("provider_members_stale")
-            incoming_records.extend(records)
-            for record in records:
-                member_snapshots_by_date.setdefault(record["date"], {"date": record["date"], "boards": []})["boards"].append(snapshot)
+            if records:
+                incoming_records.extend(records)
+                for record in records:
+                    member_snapshots_by_date.setdefault(record["date"], {"date": record["date"], "boards": []})["boards"].append(snapshot)
+            else:
+                run_errors.append(f"{board['name']} produced no valid quote/history records")
         except Exception as exc:  # noqa: BLE001
-            run_errors.append(f"{board['name']} failed: {exc}")
+            run_errors.append(f"{board['name']} failed: {type(exc).__name__}: {compact_text(str(exc))}")
 
     update_failed = not incoming_records
     if update_failed:
@@ -1229,7 +1437,7 @@ def build_pipeline(args: argparse.Namespace) -> int:
         merged = merge_history(previous_history, incoming_records, max(args.history_days, 120))
         history = enrich_history(merged, previous_history)
 
-    latest = build_latest_payload(history, run_time, source, run_errors, update_failed, previous_latest)
+    latest = build_latest_payload(history, run_time, source, run_errors, update_failed, previous_latest, getattr(client, "logs", []))
     write_json(data_dir / "history.json", {"generated_at": run_time, "records": history})
     write_json(data_dir / "latest.json", latest)
     write_json(data_dir / "member_cache.json", member_cache)

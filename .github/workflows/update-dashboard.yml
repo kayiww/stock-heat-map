@@ -30,7 +30,7 @@ jobs:
         run: python -m unittest discover -s tests
 
       - name: Build static dashboard
-        run: python scripts/build_static.py --config boards.yml --output docs --history-days 180 --timeout 20 --retries 3 --request-pause 0.2
+        run: python scripts/build_static.py --config boards.yml --output docs --history-days 30 --timeout 20 --retries 3 --request-pause 0.2
 
       - name: Persist generated data
         run: |

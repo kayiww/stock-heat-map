@@ -77,7 +77,7 @@ Telegram 推送需要配置仓库 Secrets：
 
 ```bash
 python -m unittest discover -s tests
-python scripts/build_static.py --config boards.yml --output docs --history-days 180 --fixture
+python scripts/build_static.py --config boards.yml --output docs --history-days 30 --fixture
 ```
 
 去掉 `--fixture` 后会尝试请求真实行情源。

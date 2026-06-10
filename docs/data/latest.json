@@ -1,0 +1,27 @@
+{
+  "data_time": null,
+  "run_time": "2026-06-11T00:20:02+08:00",
+  "source": {
+    "provider": "eastmoney",
+    "mode": "github_actions_static"
+  },
+  "status": "failed",
+  "message": "今日更新失败，当前展示上一交易日数据",
+  "coverage": {
+    "overall": null,
+    "by_board": {}
+  },
+  "error_flags": [
+    "AI算力 failed: HTTP Error 502: Bad Gateway",
+    "半导体 failed: 半导体 has no provider members and no cache",
+    "半导体 standard members stale: HTTP Error 502: Bad Gateway",
+    "我的观察池 failed: HTTP Error 502: Bad Gateway"
+  ],
+  "boards": [],
+  "rankings": {
+    "strong": [],
+    "overheat": [],
+    "low": [],
+    "rotation": []
+  }
+}

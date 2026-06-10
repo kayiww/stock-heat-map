@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A股重点板块热度记录器</title>
+  <style>
+    :root { color-scheme: light; --bg:#f6f7f9; --text:#1f2933; --muted:#637083; --line:#d9dee8; --rise:#b42318; --fall:#027a48; --accent:#255e7e; --warn:#a15c07; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif; color:var(--text); background:var(--bg); }
+    header { padding:18px 16px 12px; background:#ffffff; border-bottom:1px solid var(--line); }
+    main { max-width:1180px; margin:0 auto; padding:14px 12px 38px; }
+    h1 { margin:0 0 8px; font-size:24px; letter-spacing:0; }
+    h2 { margin:24px 0 10px; font-size:18px; }
+    p { margin:0; color:var(--muted); line-height:1.55; }
+    a { color:var(--accent); text-decoration:none; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px; }
+    .pill { display:inline-flex; align-items:center; min-height:28px; padding:4px 9px; border:1px solid var(--line); border-radius:6px; background:#fff; font-size:13px; }
+    .pill.ok { border-color:#92c8ad; color:#075b39; }
+    .pill.warn { border-color:#e2bb74; color:var(--warn); }
+    .pill.bad { border-color:#e7a19c; color:#9b1c13; }
+    .notice { margin-top:12px; padding:10px 12px; border-left:4px solid var(--warn); background:#fff8e8; color:#5f3b07; }
+    .summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .metric { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .metric strong { display:block; font-size:20px; margin-top:4px; }
+    table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+    th,td { padding:10px 9px; border-bottom:1px solid var(--line); vertical-align:middle; font-size:14px; }
+    th { text-align:left; color:#4b596b; background:#f0f3f7; font-weight:650; }
+    td small { display:block; margin-top:3px; color:var(--muted); line-height:1.35; }
+    .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .rise { color:var(--rise); }
+    .fall { color:var(--fall); }
+    .badge { display:inline-flex; margin:2px 3px 2px 0; padding:3px 7px; border-radius:5px; background:#e8f1f5; color:#16445d; font-size:12px; white-space:nowrap; }
+    .badge.warn { background:#fff0d3; color:#8a4b04; }
+    .badge.neutral { background:#eef0f3; color:#596579; }
+    .spark { width:140px; height:42px; display:block; }
+    .rankings { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    .rank { border:1px solid var(--line); border-radius:8px; background:#fff; padding:12px; min-height:112px; }
+    .rank h3 { margin:0 0 8px; font-size:15px; }
+    .rank ol { margin:0; padding-left:22px; }
+    .rank li { margin:5px 0; color:#344054; }
+    .archive { display:flex; flex-wrap:wrap; gap:8px; }
+    .footer { margin-top:26px; color:var(--muted); font-size:13px; }
+    @media (max-width: 780px) {
+      h1 { font-size:21px; }
+      main { padding-left:8px; padding-right:8px; }
+      .summary,.rankings { grid-template-columns:1fr 1fr; }
+      table { display:block; overflow-x:auto; white-space:nowrap; }
+      th,td { padding:9px 8px; }
+    }
+    @media (max-width: 520px) {
+      .summary,.rankings { grid-template-columns:1fr; }
+      .pill { font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A股重点板块热度记录器</h1>
+    <p>仅用于板块热度记录、复盘和观察，不提供买入或卖出建议。</p>
+    <div class="meta">
+      <span class="pill bad">数据状态：failed</span>
+      <span class="pill">数据日期：-</span>
+      <span class="pill">运行时间：2026-06-11T00:20:02+08:00</span>
+      <a class="pill" href="data/latest.json">latest.json</a>
+      <a class="pill" href="data/history.csv">history.csv</a>
+    </div>
+    <div class="notice">今日更新失败，当前展示上一交易日数据。</div>
+  </header>
+  <main>
+    <section class="summary"><div class="metric">可判断板块<strong>0/0</strong></div><div class="metric">平均等权涨跌<strong class="">-</strong></div><div class="metric">过热警戒<strong>0</strong></div><div class="metric">低覆盖跳过<strong>0</strong></div></section>
+    <h2>今日摘要</h2><section class="rankings"><div class="rank"><h3>强势榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>过热榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>低位榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>高低切换候选</h3><p class="muted">暂无</p></div></section>
+    <h2>关注板块表</h2>
+    <table>
+      <thead><tr><th>板块</th><th class="num">等权涨跌</th><th class="num">近5日</th><th class="num">上涨占比</th><th class="num">量能</th><th class="num">覆盖率</th><th>状态</th><th>近60日趋势</th></tr></thead>
+      <tbody><tr><td colspan="8">暂无有效数据</td></tr></tbody>
+    </table>
+    <h2>历史归档</h2>
+    <div class="archive"><span class="muted">暂无归档</span></div>
+    <p class="footer">网页为静态文件，由 GitHub Actions 在收盘后生成；打开页面时不会实时请求行情接口。</p>
+  </main>
+</body>
+</html>

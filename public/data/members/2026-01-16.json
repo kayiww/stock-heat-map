@@ -519,6 +519,11 @@
       "excluded_members": [],
       "invalid_members": [
         {
+          "code": "000016.SZ",
+          "name": "*ST康佳A",
+          "reason": "no_quote"
+        },
+        {
           "code": "000021.SZ",
           "name": "深科技",
           "reason": "no_quote"
@@ -841,11 +846,6 @@
         {
           "code": "603650.SH",
           "name": "彤程新材",
-          "reason": "no_quote"
-        },
-        {
-          "code": "603688.SH",
-          "name": "石英股份",
           "reason": "no_quote"
         },
         {

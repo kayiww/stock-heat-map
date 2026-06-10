@@ -1,6 +1,6 @@
 {
   "data_time": "2026-06-10",
-  "run_time": "2026-06-10T23:40:00+08:00",
+  "run_time": "2026-06-10T23:59:21+08:00",
   "source": {
     "provider": "eastmoney",
     "mode": "github_actions_static"
@@ -14,6 +14,7 @@
     }
   },
   "error_flags": [
+    "AI算力 000016.SZ quote history failed: Remote end closed connection without response",
     "AI算力 000021.SZ quote history failed: Remote end closed connection without response",
     "AI算力 000034.SZ quote history failed: Remote end closed connection without response",
     "AI算力 000620.SZ quote history failed: Remote end closed connection without response",
@@ -79,7 +80,6 @@
     "AI算力 603316.SH quote history failed: Remote end closed connection without response",
     "AI算力 603353.SH quote history failed: Remote end closed connection without response",
     "AI算力 603650.SH quote history failed: Remote end closed connection without response",
-    "AI算力 603688.SH quote history failed: Remote end closed connection without response",
     "AI算力 603690.SH quote history failed: Remote end closed connection without response",
     "AI算力 603776.SH quote history failed: Remote end closed connection without response",
     "AI算力 603938.SH quote history failed: Remote end closed connection without response",
@@ -115,7 +115,9 @@
     "AI算力 688981.SH quote history failed: Remote end closed connection without response",
     "AI算力 920139.BJ quote history failed: Remote end closed connection without response",
     "AI算力 920186.BJ quote history failed: Remote end closed connection without response",
+    "AI算力 standard members stale: HTTP Error 502: Bad Gateway",
     "low_coverage",
+    "provider_members_stale",
     "半导体 failed: 半导体 has no provider members and no cache",
     "半导体 standard members stale: HTTP Error 502: Bad Gateway",
     "我的观察池 failed: HTTP Error 502: Bad Gateway"
@@ -131,23 +133,24 @@
       "valid_quote_count": 1,
       "invalid_quote_count": 101,
       "coverage": 0.0098,
-      "equal_weight_change_pct": -4.55,
-      "weighted_change_pct": -4.55,
+      "equal_weight_change_pct": -1.89,
+      "weighted_change_pct": -1.89,
       "advance_ratio": 0.0,
-      "turnover_amount": 118315568.16,
-      "turnover_vs_20d": 1.0223,
+      "turnover_amount": 2817370636.0,
+      "turnover_vs_20d": 1.1735,
       "source_board_change_pct": null,
       "error_flags": [
-        "low_coverage"
+        "low_coverage",
+        "provider_members_stale"
       ],
       "status": [],
       "eligible_for_signal": false,
-      "synthetic_index": 54.1494,
-      "change_5d_pct": -11.974,
-      "change_20d_pct": -8.68,
-      "change_60d_pct": -15.4995,
-      "position_20d": 0.0,
-      "position_60d": 0.0005,
+      "synthetic_index": 185.6081,
+      "change_5d_pct": 14.9581,
+      "change_20d_pct": -3.7687,
+      "change_60d_pct": 44.376,
+      "position_20d": 0.8105,
+      "position_60d": 0.918,
       "consecutive_up_days": 0,
       "consecutive_down_days": 1
     }

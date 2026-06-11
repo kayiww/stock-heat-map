@@ -6,33 +6,13 @@
       "board_name": "AI算力",
       "members": [
         {
-          "code": "000016.SZ",
-          "name": "*ST康佳A",
-          "source": "provider"
-        },
-        {
           "code": "000021.SZ",
           "name": "深科技",
           "source": "provider"
         },
         {
-          "code": "000034.SZ",
-          "name": "神州数码",
-          "source": "provider"
-        },
-        {
           "code": "000620.SZ",
           "name": "盈新发展",
-          "source": "provider"
-        },
-        {
-          "code": "000670.SZ",
-          "name": "盈方微",
-          "source": "provider"
-        },
-        {
-          "code": "000818.SZ",
-          "name": "航锦科技",
           "source": "provider"
         },
         {
@@ -48,11 +28,6 @@
         {
           "code": "001309.SZ",
           "name": "德明利",
-          "source": "provider"
-        },
-        {
-          "code": "001389.SZ",
-          "name": "广合科技",
           "source": "provider"
         },
         {
@@ -136,6 +111,11 @@
           "source": "provider"
         },
         {
+          "code": "300053.SZ",
+          "name": "航宇微",
+          "source": "provider"
+        },
+        {
           "code": "300054.SZ",
           "name": "鼎龙股份",
           "source": "provider"
@@ -143,6 +123,11 @@
         {
           "code": "300131.SZ",
           "name": "英唐智控",
+          "source": "provider"
+        },
+        {
+          "code": "300223.SZ",
+          "name": "北京君正",
           "source": "provider"
         },
         {
@@ -161,8 +146,8 @@
           "source": "include"
         },
         {
-          "code": "300398.SZ",
-          "name": "飞凯材料",
+          "code": "300316.SZ",
+          "name": "晶盛机电",
           "source": "provider"
         },
         {
@@ -236,8 +221,8 @@
           "source": "provider"
         },
         {
-          "code": "301099.SZ",
-          "name": "雅创电子",
+          "code": "300903.SZ",
+          "name": "科翔股份",
           "source": "provider"
         },
         {
@@ -266,8 +251,18 @@
           "source": "provider"
         },
         {
+          "code": "301379.SZ",
+          "name": "天山电子",
+          "source": "provider"
+        },
+        {
           "code": "301592.SZ",
           "name": "六九一二",
+          "source": "provider"
+        },
+        {
+          "code": "301666.SZ",
+          "name": "大普微-UW",
           "source": "provider"
         },
         {
@@ -283,11 +278,6 @@
         {
           "code": "600206.SH",
           "name": "有研新材",
-          "source": "provider"
-        },
-        {
-          "code": "600584.SH",
-          "name": "长电科技",
           "source": "provider"
         },
         {
@@ -361,11 +351,6 @@
           "source": "provider"
         },
         {
-          "code": "605178.SH",
-          "name": "时空科技",
-          "source": "provider"
-        },
-        {
           "code": "688008.SH",
           "name": "澜起科技",
           "source": "provider"
@@ -377,7 +362,12 @@
         },
         {
           "code": "688019.SH",
-          "name": "DR安集科",
+          "name": "安集科技",
+          "source": "provider"
+        },
+        {
+          "code": "688053.SH",
+          "name": "ST思科瑞",
           "source": "provider"
         },
         {
@@ -387,7 +377,12 @@
         },
         {
           "code": "688120.SH",
-          "name": "DR华海清",
+          "name": "华海清科",
+          "source": "provider"
+        },
+        {
+          "code": "688122.SH",
+          "name": "西部超导",
           "source": "provider"
         },
         {
@@ -403,6 +398,11 @@
         {
           "code": "688135.SH",
           "name": "利扬芯片",
+          "source": "provider"
+        },
+        {
+          "code": "688170.SH",
+          "name": "德龙激光",
           "source": "provider"
         },
         {
@@ -436,6 +436,11 @@
           "source": "provider"
         },
         {
+          "code": "688396.SH",
+          "name": "华润微",
+          "source": "provider"
+        },
+        {
           "code": "688403.SH",
           "name": "汇成股份",
           "source": "provider"
@@ -446,18 +451,18 @@
           "source": "provider"
         },
         {
-          "code": "688432.SH",
-          "name": "有研硅",
-          "source": "provider"
-        },
-        {
           "code": "688439.SH",
           "name": "振华风光",
           "source": "provider"
         },
         {
           "code": "688449.SH",
-          "name": "XD联芸科",
+          "name": "联芸科技",
+          "source": "provider"
+        },
+        {
+          "code": "688478.SH",
+          "name": "晶升股份",
           "source": "provider"
         },
         {
@@ -496,6 +501,11 @@
           "source": "provider"
         },
         {
+          "code": "688766.SH",
+          "name": "普冉股份",
+          "source": "provider"
+        },
+        {
           "code": "688783.SH",
           "name": "西安奕材-U",
           "source": "provider"
@@ -503,16 +513,6 @@
         {
           "code": "688981.SH",
           "name": "中芯国际",
-          "source": "provider"
-        },
-        {
-          "code": "920139.BJ",
-          "name": "华岭股份",
-          "source": "provider"
-        },
-        {
-          "code": "920186.BJ",
-          "name": "中科仪",
           "source": "provider"
         }
       ],

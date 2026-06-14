@@ -20,6 +20,8 @@
     .pill.warn { border-color:#e2bb74; color:var(--warn); }
     .pill.bad { border-color:#e7a19c; color:#9b1c13; }
     .notice { margin-top:12px; padding:10px 12px; border-left:4px solid var(--warn); background:#fff8e8; color:#5f3b07; }
+    .notice.ok { border-left-color:#2e7d55; background:#edf8f1; color:#075b39; }
+    .notice.bad { border-left-color:#b42318; background:#fff1f0; color:#9b1c13; }
     .summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:14px; }
     .metric { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
     .metric strong { display:block; font-size:20px; margin-top:4px; }
@@ -27,9 +29,30 @@
     th,td { padding:10px 9px; border-bottom:1px solid var(--line); vertical-align:middle; font-size:14px; }
     th { text-align:left; color:#4b596b; background:#f0f3f7; font-weight:650; }
     td small { display:block; margin-top:3px; color:var(--muted); line-height:1.35; }
+    .muted { color:var(--muted); }
     .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
     .rise { color:var(--rise); }
     .fall { color:var(--fall); }
+    .board-toggle { display:inline-flex; align-items:center; gap:7px; max-width:100%; padding:0; border:0; background:transparent; color:var(--accent); font:inherit; text-align:left; cursor:pointer; }
+    .board-toggle strong { font-weight:700; }
+    .board-toggle:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+    .toggle-mark { flex:0 0 auto; padding:2px 6px; border:1px solid var(--line); border-radius:5px; color:var(--muted); font-size:12px; background:#fff; }
+    .board-detail-cell { padding:0; background:#fbfcfe; }
+    .board-detail { padding:12px; white-space:normal; }
+    .board-detail-header { display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    .board-detail-header h3 { margin:0; font-size:15px; }
+    .member-heatmap { display:flex; flex-wrap:wrap; gap:5px; align-items:flex-start; margin:10px 0 12px; }
+    .heat-tile { --tile-size:34px; width:calc(var(--tile-size) * var(--tile-scale, 1)); height:calc(var(--tile-size) * var(--tile-scale, 1)); min-width:30px; max-width:58px; min-height:30px; max-height:58px; padding:3px; border:1px solid rgba(0,0,0,.12); border-radius:5px; color:#fff; background:#8a94a6; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; line-height:1.05; font-size:10px; }
+    .heat-tile span,.heat-tile small { display:block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:inherit; }
+    .heat-tile.rise { background:#b42318; }
+    .heat-tile.fall { background:#027a48; }
+    .heat-tile.flat { background:#667085; }
+    .heat-tile.no-data { background:#d0d5dd; color:#344054; }
+    .heat-tile:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .member-inspector { min-height:38px; padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:#fff; color:#344054; }
+    .member-table-wrap { overflow-x:auto; margin-top:10px; }
+    .member-table { min-width:760px; }
+    .member-table th,.member-table td { font-size:13px; padding:8px; }
     .badge { display:inline-flex; margin:2px 3px 2px 0; padding:3px 7px; border-radius:5px; background:#e8f1f5; color:#16445d; font-size:12px; white-space:nowrap; }
     .badge.warn { background:#fff0d3; color:#8a4b04; }
     .badge.neutral { background:#eef0f3; color:#596579; }
@@ -46,6 +69,9 @@
       main { padding-left:8px; padding-right:8px; }
       .summary,.rankings { grid-template-columns:1fr 1fr; }
       table { display:block; overflow-x:auto; white-space:nowrap; }
+      .board-detail { min-width:min(760px, 92vw); }
+      .member-heatmap { max-height:260px; overflow:auto; padding-right:2px; }
+      .heat-tile { --tile-size:32px; }
       th,td { padding:9px 8px; }
     }
     @media (max-width: 520px) {
@@ -59,25 +85,189 @@
     <h1>A股重点板块热度记录器</h1>
     <p>仅用于板块热度记录、复盘和观察，不提供买入或卖出建议。</p>
     <div class="meta">
-      <span class="pill ok">数据状态：ok</span>
-      <span class="pill">数据日期：2026-06-12</span>
-      <span class="pill">运行时间：2026-06-12T19:50:31+08:00</span>
+      <span class="pill warn">数据状态：partial</span>
+      <span class="pill">数据日期：2026-06-15</span>
+      <span class="pill">运行时间：2026-06-15T00:29:38+08:00</span>
       <a class="pill" href="data/latest.json">latest.json</a>
       <a class="pill" href="data/history.csv">history.csv</a>
     </div>
-    
+    <div class="notice">数据源异常：AI算力：标准板块成分股接口暂时失败，已跳过该板块。；部分板块有效报价覆盖率不足，已跳过状态判断。；部分板块使用了缓存或手动配置的成分股。；部分股票历史行情暂不可用，已用最新报价生成最小可用数据。；半导体：标准板块成分股接口暂时失败，已使用手动配置股票继续计算。</div>
   </header>
   <main>
-    <section class="summary"><div class="metric">可判断板块<strong>3/3</strong></div><div class="metric">平均等权涨跌<strong class="rise">+0.98%</strong></div><div class="metric">过热警戒<strong>0</strong></div><div class="metric">低覆盖跳过<strong>0</strong></div></section>
-    <h2>今日摘要</h2><section class="rankings"><div class="rank"><h3>强势榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>过热榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>低位榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>高低切换候选</h3><ol><li>我的观察池 <span class="rise">+2.35%</span></li></ol></div></section>
+    <section class="summary"><div class="metric">可判断板块<strong>0/1</strong></div><div class="metric">平均等权涨跌<strong class="">-</strong></div><div class="metric">过热警戒<strong>0</strong></div><div class="metric">低覆盖跳过<strong>1</strong></div></section>
+    <h2>今日摘要</h2><section class="rankings"><div class="rank"><h3>强势榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>过热榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>低位榜</h3><p class="muted">暂无</p></div><div class="rank"><h3>高低切换候选</h3><p class="muted">暂无</p></div></section>
     <h2>关注板块表</h2>
     <table>
       <thead><tr><th>板块</th><th class="num">等权涨跌</th><th class="num">近5日</th><th class="num">上涨占比</th><th class="num">量能</th><th class="num">覆盖率</th><th>状态</th><th>近60日趋势</th></tr></thead>
-      <tbody><tr><td><strong>AI算力</strong><small>重点观察算力基础设施、服务器、光模块和相关硬件链。</small></td><td class="num fall">-0.32%</td><td class="num">-1.55%</td><td class="num">41%</td><td class="num">1.03x</td><td class="num">100%</td><td><span class="badge neutral">观察</span></td><td><svg class="spark" viewBox="0 0 140 42" role="img" aria-label="trend"><polyline fill="none" stroke="#b42318" stroke-width="2.2" points="0.0,40.4 4.5,42.0 9.0,36.4 13.5,34.1 18.1,27.2 22.6,23.2 27.1,23.1 31.6,14.9 36.1,15.7 40.6,10.3 45.2,13.0 49.7,13.8 54.2,10.8 58.7,8.1 63.2,3.8 67.7,12.0 72.3,7.1 76.8,0.0 81.3,3.4 85.8,6.4 90.3,2.8 94.8,11.3 99.4,16.9 103.9,15.6 108.4,13.0 112.9,9.5 117.4,13.8 121.9,21.8 126.5,14.3 131.0,16.7 135.5,15.7 140.0,16.2" /></svg></td></tr><tr><td><strong>半导体</strong><small>观察国产替代、设备、材料、设计和制造链。</small></td><td class="num rise">+0.91%</td><td class="num">+2.70%</td><td class="num">52%</td><td class="num">1.09x</td><td class="num">98%</td><td><span class="badge neutral">观察</span></td><td><svg class="spark" viewBox="0 0 140 42" role="img" aria-label="trend"><polyline fill="none" stroke="#b42318" stroke-width="2.2" points="0.0,42.0 4.8,37.0 9.7,31.7 14.5,28.0 19.3,28.3 24.1,19.7 29.0,19.3 33.8,14.5 38.6,15.6 43.4,15.6 48.3,14.2 53.1,9.2 57.9,2.8 62.8,14.3 67.6,9.0 72.4,0.0 77.2,5.8 82.1,8.8 86.9,5.7 91.7,18.2 96.6,25.0 101.4,25.4 106.2,21.7 111.0,19.8 115.9,23.9 120.7,32.6 125.5,22.9 130.3,24.3 135.2,20.8 140.0,19.2" /></svg></td></tr><tr><td><strong>我的观察池</strong><small>示例自定义股票池，可替换为自己的重点股票组合。</small></td><td class="num rise">+2.35%</td><td class="num">+1.76%</td><td class="num">100%</td><td class="num">1.19x</td><td class="num">100%</td><td><span class="badge">高低切换候选</span></td><td><svg class="spark" viewBox="0 0 140 42" role="img" aria-label="trend"><polyline fill="none" stroke="#027a48" stroke-width="2.2" points="0.0,5.8 4.5,7.1 9.0,0.2 13.5,5.8 18.1,0.0 22.6,3.3 27.1,9.3 31.6,7.7 36.1,14.3 40.6,16.0 45.2,20.1 49.7,23.3 54.2,28.7 58.7,28.3 63.2,31.9 67.7,34.5 72.3,37.3 76.8,40.9 81.3,40.9 85.8,33.2 90.3,37.5 94.8,24.7 99.4,27.1 103.9,21.0 108.4,28.1 112.9,38.8 117.4,37.8 121.9,42.0 126.5,39.0 131.0,38.1 135.5,40.4 140.0,29.9" /></svg></td></tr></tbody>
+      <tbody><tr class="board-row" data-board-id="semiconductor"><td><button class="board-toggle" type="button" data-board-id="semiconductor" aria-expanded="false" aria-controls="detail-semiconductor"><strong>半导体</strong><span class="toggle-mark">展开</span></button><small>观察国产替代、设备、材料、设计和制造链。</small></td><td class="num ">+0.00%</td><td class="num">+8.22%</td><td class="num">0%</td><td class="num">0.00x</td><td class="num">1%</td><td><span class="badge warn">质量跳过</span></td><td><svg class="spark" viewBox="0 0 140 42" role="img" aria-label="trend"><polyline fill="none" stroke="#b42318" stroke-width="2.2" points="0.0,42.0 4.7,37.0 9.3,31.9 14.0,28.1 18.7,28.4 23.3,19.8 28.0,19.4 32.7,14.6 37.3,15.6 42.0,15.6 46.7,14.2 51.3,9.1 56.0,2.8 60.7,14.3 65.3,8.9 70.0,0.0 74.7,5.8 79.3,8.7 84.0,5.7 88.7,18.2 93.3,25.0 98.0,25.4 102.7,21.7 107.3,19.8 112.0,23.9 116.7,32.6 121.3,22.9 126.0,24.2 130.7,20.7 135.3,19.0 140.0,19.0" /></svg></td></tr><tr class="board-detail-row" data-board-id="semiconductor" id="detail-semiconductor" hidden><td class="board-detail-cell" colspan="8"><div class="board-detail" data-detail-board-id="semiconductor"><p class="muted">正在读取成分股详情...</p></div></td></tr></tbody>
     </table>
     <h2>历史归档</h2>
-    <div class="archive"><a class="pill" href="archive/2026-06-12.html">2026-06-12</a><a class="pill" href="archive/2026-06-11.html">2026-06-11</a><a class="pill" href="archive/2026-06-10.html">2026-06-10</a><a class="pill" href="archive/2026-06-09.html">2026-06-09</a><a class="pill" href="archive/2026-06-08.html">2026-06-08</a><a class="pill" href="archive/2026-06-05.html">2026-06-05</a><a class="pill" href="archive/2026-06-04.html">2026-06-04</a><a class="pill" href="archive/2026-06-03.html">2026-06-03</a><a class="pill" href="archive/2026-06-02.html">2026-06-02</a><a class="pill" href="archive/2026-06-01.html">2026-06-01</a><a class="pill" href="archive/2026-05-29.html">2026-05-29</a><a class="pill" href="archive/2026-05-28.html">2026-05-28</a><a class="pill" href="archive/2026-05-27.html">2026-05-27</a><a class="pill" href="archive/2026-05-26.html">2026-05-26</a><a class="pill" href="archive/2026-05-25.html">2026-05-25</a><a class="pill" href="archive/2026-05-22.html">2026-05-22</a><a class="pill" href="archive/2026-05-21.html">2026-05-21</a><a class="pill" href="archive/2026-05-20.html">2026-05-20</a><a class="pill" href="archive/2026-05-19.html">2026-05-19</a><a class="pill" href="archive/2026-05-18.html">2026-05-18</a><a class="pill" href="archive/2026-05-15.html">2026-05-15</a><a class="pill" href="archive/2026-05-14.html">2026-05-14</a><a class="pill" href="archive/2026-05-13.html">2026-05-13</a><a class="pill" href="archive/2026-05-12.html">2026-05-12</a><a class="pill" href="archive/2026-05-11.html">2026-05-11</a><a class="pill" href="archive/2026-05-08.html">2026-05-08</a><a class="pill" href="archive/2026-05-07.html">2026-05-07</a><a class="pill" href="archive/2026-05-06.html">2026-05-06</a><a class="pill" href="archive/2026-04-30.html">2026-04-30</a><a class="pill" href="archive/2026-04-29.html">2026-04-29</a></div>
+    <div class="archive"><a class="pill" href="archive/2026-06-15.html">2026-06-15</a><a class="pill" href="archive/2026-06-12.html">2026-06-12</a><a class="pill" href="archive/2026-06-11.html">2026-06-11</a><a class="pill" href="archive/2026-06-10.html">2026-06-10</a><a class="pill" href="archive/2026-06-09.html">2026-06-09</a><a class="pill" href="archive/2026-06-08.html">2026-06-08</a><a class="pill" href="archive/2026-06-05.html">2026-06-05</a><a class="pill" href="archive/2026-06-04.html">2026-06-04</a><a class="pill" href="archive/2026-06-03.html">2026-06-03</a><a class="pill" href="archive/2026-06-02.html">2026-06-02</a><a class="pill" href="archive/2026-06-01.html">2026-06-01</a><a class="pill" href="archive/2026-05-29.html">2026-05-29</a><a class="pill" href="archive/2026-05-28.html">2026-05-28</a><a class="pill" href="archive/2026-05-27.html">2026-05-27</a><a class="pill" href="archive/2026-05-26.html">2026-05-26</a><a class="pill" href="archive/2026-05-25.html">2026-05-25</a><a class="pill" href="archive/2026-05-22.html">2026-05-22</a><a class="pill" href="archive/2026-05-21.html">2026-05-21</a><a class="pill" href="archive/2026-05-20.html">2026-05-20</a><a class="pill" href="archive/2026-05-19.html">2026-05-19</a><a class="pill" href="archive/2026-05-18.html">2026-05-18</a><a class="pill" href="archive/2026-05-15.html">2026-05-15</a><a class="pill" href="archive/2026-05-14.html">2026-05-14</a><a class="pill" href="archive/2026-05-13.html">2026-05-13</a><a class="pill" href="archive/2026-05-12.html">2026-05-12</a><a class="pill" href="archive/2026-05-11.html">2026-05-11</a><a class="pill" href="archive/2026-05-08.html">2026-05-08</a><a class="pill" href="archive/2026-05-07.html">2026-05-07</a><a class="pill" href="archive/2026-05-06.html">2026-05-06</a><a class="pill" href="archive/2026-04-30.html">2026-04-30</a></div>
     <p class="footer">网页为静态文件，由 GitHub Actions 在收盘后生成；打开页面时不会实时请求行情接口。</p>
   </main>
+  
+<script>
+(() => {
+  const DATA_TIME = "2026-06-15";
+  const state = { payload: null, loading: null };
+  const asNumber = (value) => (value === null || value === undefined || value === "" ? NaN : Number(value));
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+  const pct = (value) => {
+    const number = asNumber(value);
+    return Number.isFinite(number) ? `${number >= 0 ? "+" : ""}${number.toFixed(2)}%` : "-";
+  };
+  const pctClass = (value) => {
+    const number = asNumber(value);
+    if (!Number.isFinite(number) || Math.abs(number) < 0.0001) return "";
+    return number > 0 ? "rise" : "fall";
+  };
+  const money = (value) => {
+    const number = asNumber(value);
+    if (!Number.isFinite(number)) return "-";
+    if (Math.abs(number) >= 100000000) return `${(number / 100000000).toFixed(1)}亿`;
+    if (Math.abs(number) >= 10000) return `${(number / 10000).toFixed(1)}万`;
+    return number.toFixed(0);
+  };
+  const multiple = (value) => {
+    const number = asNumber(value);
+    return Number.isFinite(number) ? `${number.toFixed(2)}x` : "-";
+  };
+  const tileClass = (member) => {
+    const change = asNumber(member.day_change_pct);
+    if (!Number.isFinite(change) || member.quote_status !== "ok") return "no-data";
+    if (change > 0) return "rise";
+    if (change < 0) return "fall";
+    return "flat";
+  };
+  const memberTitle = (member) => [
+    `${member.name || member.code} ${member.code}`,
+    `今日 ${pct(member.day_change_pct)}`,
+    `近5日 ${pct(member.change_5d_pct)}`,
+    `成交额 ${money(member.turnover_amount)}`,
+    `量能 ${multiple(member.turnover_vs_20d)}`,
+    `行情源 ${member.data_source || "-"}`,
+    `成员来源 ${member.member_source || member.source || "-"}`
+  ].join("\n");
+
+  async function loadMembers() {
+    if (!DATA_TIME) throw new Error("暂无数据日期");
+    if (state.payload) return state.payload;
+    if (!state.loading) {
+      state.loading = fetch(`data/members/${encodeURIComponent(DATA_TIME)}.json`, { cache: "no-store" }).then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      });
+    }
+    state.payload = await state.loading;
+    return state.payload;
+  }
+
+  function inspectorHtml(member) {
+    if (!member) return "点击热力图方块查看股票详情。";
+    return `<strong>${escapeHtml(member.name || member.code)}</strong> ${escapeHtml(member.code)}
+      <span class="${pctClass(member.day_change_pct)}">今日 ${pct(member.day_change_pct)}</span>
+      <span class="${pctClass(member.change_5d_pct)}">近5日 ${pct(member.change_5d_pct)}</span>
+      <span>成交额 ${money(member.turnover_amount)}</span>
+      <span>量能 ${multiple(member.turnover_vs_20d)}</span>
+      <span>行情源 ${escapeHtml(member.data_source || "-")}</span>
+      <span>成员来源 ${escapeHtml(member.member_source || member.source || "-")}</span>`;
+  }
+
+  function renderBoard(board) {
+    const members = Array.isArray(board.members) ? board.members : [];
+    if (!members.length) {
+      return `<p class="muted">${escapeHtml(board.board_name || "该板块")} 暂无可展示的成分股详情。</p>`;
+    }
+    const maxTurnover = Math.max(0, ...members.map((member) => asNumber(member.turnover_amount)).filter(Number.isFinite));
+    const tiles = members.map((member, index) => {
+      const amount = asNumber(member.turnover_amount);
+      const scale = maxTurnover > 0 && Number.isFinite(amount) && amount > 0 ? 0.85 + Math.sqrt(amount / maxTurnover) * 0.65 : 1;
+      const label = (member.name || member.code || "").slice(0, 4);
+      return `<button class="heat-tile ${tileClass(member)}" type="button" data-member-index="${index}" style="--tile-scale:${scale.toFixed(2)}" title="${escapeHtml(memberTitle(member))}">
+        <span>${escapeHtml(label)}</span><small>${pct(member.day_change_pct)}</small>
+      </button>`;
+    }).join("");
+    const rows = members.map((member) => `<tr>
+      <td>${escapeHtml(member.code)}</td>
+      <td>${escapeHtml(member.name || "")}</td>
+      <td class="num ${pctClass(member.day_change_pct)}">${pct(member.day_change_pct)}</td>
+      <td class="num ${pctClass(member.change_5d_pct)}">${pct(member.change_5d_pct)}</td>
+      <td class="num">${money(member.turnover_amount)}</td>
+      <td class="num">${multiple(member.turnover_vs_20d)}</td>
+      <td>${escapeHtml(member.data_source || "-")}</td>
+      <td>${escapeHtml(member.member_source || member.source || "-")}</td>
+    </tr>`).join("");
+    const invalidCount = Array.isArray(board.invalid_members) ? board.invalid_members.length : 0;
+    return `<div class="board-detail-header">
+        <h3>${escapeHtml(board.board_name || "")} 成分股</h3>
+        <span class="pill">成员 ${members.length} · 无报价 ${invalidCount}</span>
+      </div>
+      <div class="member-heatmap" role="list" aria-label="${escapeHtml(board.board_name || "")} 成分股热力图">${tiles}</div>
+      <div class="member-inspector">${inspectorHtml(null)}</div>
+      <div class="member-table-wrap">
+        <table class="member-table">
+          <thead><tr><th>代码</th><th>名称</th><th class="num">今日</th><th class="num">近5日</th><th class="num">成交额</th><th class="num">量能</th><th>行情源</th><th>成员来源</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  function bindTiles(root, board) {
+    const members = Array.isArray(board.members) ? board.members : [];
+    const inspector = root.querySelector(".member-inspector");
+    root.querySelectorAll(".heat-tile").forEach((button) => {
+      button.addEventListener("click", () => {
+        const member = members[Number(button.dataset.memberIndex)];
+        if (inspector) inspector.innerHTML = inspectorHtml(member);
+      });
+    });
+  }
+
+  async function openBoard(button, row) {
+    const boardId = button.dataset.boardId;
+    const target = row.querySelector(".board-detail");
+    if (!target) return;
+    row.hidden = false;
+    button.setAttribute("aria-expanded", "true");
+    button.querySelector(".toggle-mark").textContent = "收起";
+    if (target.dataset.loaded === "true") return;
+    target.innerHTML = '<p class="muted">正在读取成分股详情...</p>';
+    try {
+      const payload = await loadMembers();
+      const board = (payload.boards || []).find((item) => String(item.board_id) === String(boardId));
+      if (!board) {
+        target.innerHTML = '<p class="muted">未找到该板块的成分股快照。</p>';
+        return;
+      }
+      target.innerHTML = renderBoard(board);
+      target.dataset.loaded = "true";
+      bindTiles(target, board);
+    } catch (error) {
+      target.innerHTML = `<p class="muted">无法读取成分股详情：${escapeHtml(error.message || error)}</p>`;
+    }
+  }
+
+  document.querySelectorAll(".board-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const row = Array.from(document.querySelectorAll(".board-detail-row")).find((item) => item.dataset.boardId === button.dataset.boardId);
+      if (!row) return;
+      if (!row.hidden) {
+        row.hidden = true;
+        button.setAttribute("aria-expanded", "false");
+        button.querySelector(".toggle-mark").textContent = "展开";
+        return;
+      }
+      openBoard(button, row);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

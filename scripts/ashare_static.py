@@ -38,6 +38,20 @@ def now_iso() -> str:
     return dt.datetime.now(CN_TZ).replace(microsecond=0).isoformat()
 
 
+def current_cn_date() -> dt.date:
+    return dt.datetime.now(CN_TZ).date()
+
+
+def parse_iso_date(value: str | None) -> dt.date:
+    if not value:
+        return current_cn_date()
+    return dt.date.fromisoformat(value)
+
+
+def is_non_trading_date(value: dt.date) -> bool:
+    return value.weekday() >= 5
+
+
 def ensure_dir(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
@@ -274,6 +288,8 @@ class EastmoneyClient:
         self.timeout = timeout
         self.retries = max(1, retries)
         self.logs: list[str] = []
+        self.eastmoney_stock_history_failures = 0
+        self.eastmoney_stock_history_circuit_open = False
 
     def request_json(self, url: str, params: dict[str, Any], source: str, operation: str, target: str) -> dict[str, Any]:
         text = self.request_text(url, params, source, operation, target)
@@ -413,6 +429,7 @@ class EastmoneyClient:
                 for row in payload.get("data", {}).get("diff") or []:
                     parsed = parse_eastmoney_quote_row(row)
                     if parsed:
+                        parsed["data_source"] = "eastmoney"
                         quotes[parsed["code"]] = parsed
             except Exception as exc:  # noqa: BLE001
                 append_log(self.logs, f"FALLBACK source=tencent operation=stock_quotes target={','.join(chunk)} reason={compact_text(str(exc))}")
@@ -422,6 +439,18 @@ class EastmoneyClient:
         return quotes
 
     def fetch_stock_klines(self, code: str, limit: int) -> list[dict[str, Any]]:
+        try:
+            rows = self.fetch_tencent_stock_klines(code, limit)
+            if rows:
+                return rows
+            append_log(self.logs, f"FALLBACK source=eastmoney operation=stock_history target={code} reason=tencent returned empty rows")
+        except Exception as exc:  # noqa: BLE001
+            append_log(self.logs, f"FALLBACK source=eastmoney operation=stock_history target={code} reason={compact_text(str(exc))}")
+
+        if self.eastmoney_stock_history_circuit_open:
+            append_log(self.logs, f"SKIP source=eastmoney operation=stock_history target={code} reason=circuit_open")
+            return []
+
         try:
             payload = self.request_json(
                 "https://push2his.eastmoney.com/api/qt/stock/kline/get",
@@ -443,13 +472,26 @@ class EastmoneyClient:
             for row in rows:
                 parsed = parse_kline_row(row)
                 if parsed:
+                    parsed["data_source"] = "eastmoney"
                     parsed_rows.append(parsed)
             if parsed_rows:
+                self.eastmoney_stock_history_failures = 0
                 return parsed_rows
-            append_log(self.logs, f"FALLBACK source=tencent operation=stock_history target={code} reason=eastmoney returned empty rows")
+            self.record_eastmoney_stock_history_failure(code, "empty rows")
         except Exception as exc:  # noqa: BLE001
-            append_log(self.logs, f"FALLBACK source=tencent operation=stock_history target={code} reason={compact_text(str(exc))}")
-        return self.fetch_tencent_stock_klines(code, limit)
+            self.record_eastmoney_stock_history_failure(code, str(exc))
+        return []
+
+    def record_eastmoney_stock_history_failure(self, code: str, reason: str) -> None:
+        self.eastmoney_stock_history_failures += 1
+        append_log(
+            self.logs,
+            f"FETCH fail source=eastmoney operation=stock_history target={code} "
+            f"consecutive_failures={self.eastmoney_stock_history_failures} reason={compact_text(reason)}",
+        )
+        if self.eastmoney_stock_history_failures >= 3:
+            self.eastmoney_stock_history_circuit_open = True
+            append_log(self.logs, "CIRCUIT open source=eastmoney operation=stock_history threshold=3")
 
     def fetch_board_klines(self, provider: dict[str, Any], limit: int) -> dict[str, float]:
         code = str(provider.get("code") or "").strip().upper()
@@ -494,6 +536,7 @@ class EastmoneyClient:
         for match in pattern.finditer(raw_text):
             parsed = parse_tencent_quote(match.group(1), match.group(2))
             if parsed:
+                parsed["data_source"] = "tencent"
                 quotes[parsed["code"]] = parsed
         return quotes
 
@@ -529,6 +572,7 @@ class EastmoneyClient:
                     "low": to_float(row[4]),
                     "turnover_amount": to_float(row[5]) or 0,
                     "change_pct": change_pct,
+                    "data_source": "tencent",
                 }
             )
             previous_close = close
@@ -591,6 +635,7 @@ class FixtureClient:
                         "close": round(10 + index * 0.03 + seed, 3),
                         "change_pct": change,
                         "turnover_amount": round((80_000_000 + seed * 4_000_000) * (1 + abs(change) / 10), 2),
+                        "data_source": "fixture",
                     }
                 )
             day += dt.timedelta(days=1)
@@ -691,6 +736,7 @@ def quote_to_daily_row(quote: dict[str, Any]) -> dict[str, Any] | None:
         "low": None,
         "turnover_amount": to_float(quote.get("turnover_amount")) or 0,
         "change_pct": change_pct,
+        "data_source": quote.get("data_source") or "latest_quote",
     }
 
 
@@ -760,6 +806,81 @@ def fetch_members_with_cache(
     return members, excluded, provider_meta
 
 
+def member_source_type(source: Any) -> str:
+    raw = str(source or "").strip()
+    return {
+        "provider": "provider_board",
+        "include": "include",
+        "custom": "custom_members",
+    }.get(raw, raw)
+
+
+def stock_change_5d(rows: list[dict[str, Any]], index: int) -> float | None:
+    changes = [
+        to_float(row.get("change_pct"))
+        for row in rows[max(0, index - 4) : index + 1]
+        if to_float(row.get("change_pct")) is not None
+    ]
+    return rounded(compound_change([float(change) for change in changes if change is not None]))
+
+
+def stock_turnover_vs_20d(rows: list[dict[str, Any]], index: int) -> float | None:
+    current = to_float(rows[index].get("turnover_amount"))
+    if current is None or current <= 0:
+        return None
+    previous = [
+        to_float(row.get("turnover_amount")) or 0
+        for row in rows[max(0, index - 20) : index]
+        if (to_float(row.get("turnover_amount")) or 0) > 0
+    ]
+    if not previous:
+        return None
+    return rounded_ratio(current / statistics.fmean(previous))
+
+
+def build_member_snapshot(
+    board: dict[str, Any],
+    members: list[dict[str, Any]],
+    excluded_members: list[dict[str, Any]],
+    invalid_members: list[dict[str, Any]],
+    quotes: dict[str, dict[str, Any]],
+    rows_by_code: dict[str, list[dict[str, Any]]],
+    row_index_by_code_date: dict[tuple[str, str], int],
+    date: str,
+) -> dict[str, Any]:
+    snapshot_members = []
+    for member in members:
+        code = member["code"]
+        rows = rows_by_code.get(code) or []
+        index = row_index_by_code_date.get((code, date))
+        row = rows[index] if index is not None else None
+        quote = quotes.get(code, {})
+        day_change = to_float(row.get("change_pct")) if row else None
+        turnover_amount = to_float(row.get("turnover_amount")) if row else None
+        snapshot_members.append(
+            {
+                "code": code,
+                "name": quote.get("name") or member.get("name") or "",
+                "day_change_pct": rounded(day_change),
+                "change_5d_pct": stock_change_5d(rows, index) if index is not None else None,
+                "turnover_amount": round(turnover_amount, 2) if turnover_amount is not None else None,
+                "turnover_vs_20d": stock_turnover_vs_20d(rows, index) if index is not None else None,
+                "data_source": (row or {}).get("data_source") or quote.get("data_source") or "",
+                "source": member_source_type(member.get("source")),
+                "member_source": member_source_type(member.get("source")),
+                "quote_status": "ok" if day_change is not None else "no_data",
+            }
+        )
+    return {
+        "date": date,
+        "board_id": board["id"],
+        "board_name": board["name"],
+        "members": snapshot_members,
+        "excluded_members": excluded_members,
+        "invalid_members": invalid_members,
+    }
+
+
 def aggregate_board_history(
     board: dict[str, Any],
     members: list[dict[str, Any]],
@@ -768,19 +889,24 @@ def aggregate_board_history(
     kline_map: dict[str, list[dict[str, Any]]],
     source_board_changes: dict[str, float],
     history_days: int,
-) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], dict[str, dict[str, Any]]]:
     member_count = len(members)
     by_date: dict[str, list[tuple[dict[str, Any], dict[str, Any]]]] = {}
+    rows_by_code: dict[str, list[dict[str, Any]]] = {}
+    row_index_by_code_date: dict[tuple[str, str], int] = {}
     invalid_members = []
     for member in members:
-        rows = kline_map.get(member["code"]) or []
+        rows = sorted(kline_map.get(member["code"]) or [], key=lambda item: item.get("date") or "")
+        rows_by_code[member["code"]] = rows
         if not rows:
             invalid_members.append({"code": member["code"], "name": member.get("name") or "", "reason": "no_quote"})
             continue
-        for row in rows:
+        for index, row in enumerate(rows):
+            row_index_by_code_date[(member["code"], row["date"])] = index
             by_date.setdefault(row["date"], []).append((member, row))
     dates = sorted(by_date)[-history_days:]
     records: list[dict[str, Any]] = []
+    snapshots_by_date: dict[str, dict[str, Any]] = {}
     for date in dates:
         rows = by_date[date]
         valid = []
@@ -831,21 +957,17 @@ def aggregate_board_history(
                 "eligible_for_signal": coverage >= MIN_COVERAGE,
             }
         )
-    member_snapshot = {
-        "board_id": board["id"],
-        "board_name": board["name"],
-        "members": [
-            {
-                "code": member["code"],
-                "name": quotes.get(member["code"], {}).get("name") or member.get("name") or "",
-                "source": member.get("source") or "",
-            }
-            for member in members
-        ],
-        "excluded_members": excluded_members,
-        "invalid_members": invalid_members,
-    }
-    return records, member_snapshot
+        snapshots_by_date[date] = build_member_snapshot(
+            board,
+            members,
+            excluded_members,
+            invalid_members,
+            quotes,
+            rows_by_code,
+            row_index_by_code_date,
+            date,
+        )
+    return records, snapshots_by_date
 
 
 def merge_history(existing: list[dict[str, Any]], incoming: list[dict[str, Any]], max_days: int) -> list[dict[str, Any]]:
@@ -1029,6 +1151,8 @@ def build_latest_payload(
     update_failed: bool,
     previous_latest: dict[str, Any] | None,
     fetch_logs: list[str] | None = None,
+    status_override: str | None = None,
+    message_override: str | None = None,
 ) -> dict[str, Any]:
     data_date, records = latest_records(history)
     status = "ok"
@@ -1036,15 +1160,31 @@ def build_latest_payload(
         status = "failed"
     elif run_errors:
         status = "partial"
+    if status_override:
+        status = status_override
     if update_failed and previous_latest and previous_latest.get("data_time"):
         data_date = previous_latest.get("data_time")
     coverage_values = [record.get("coverage", 0) for record in records]
+    if message_override:
+        message = message_override
+    elif status == "ok":
+        message = "数据已更新"
+    elif status == "partial":
+        message = "数据已部分更新，存在数据源异常"
+    elif status == "non_trading_day":
+        message = "今日非交易日，当前展示上一交易日数据"
+    elif status == "stale_ok":
+        message = "今日行情尚未更新，当前展示上一交易日数据"
+    elif data_date:
+        message = "数据源异常，当前展示上一交易日数据"
+    else:
+        message = "数据源异常，暂无有效数据"
     return {
         "data_time": data_date,
         "run_time": run_time,
         "source": source,
         "status": status,
-        "message": "今日更新失败，当前展示上一交易日数据" if update_failed else "数据已更新",
+        "message": message,
         "coverage": {
             "overall": rounded_ratio(statistics.fmean(coverage_values)) if coverage_values else None,
             "by_board": {record["board_id"]: record.get("coverage") for record in records},
@@ -1159,25 +1299,198 @@ def status_badges(statuses: list[str], flags: list[str]) -> str:
     return "".join(f'<span class="badge">{html.escape(status)}</span>' for status in statuses)
 
 
+MEMBER_DETAIL_SCRIPT = r"""
+<script>
+(() => {
+  const DATA_TIME = __DATA_TIME__;
+  const state = { payload: null, loading: null };
+  const asNumber = (value) => (value === null || value === undefined || value === "" ? NaN : Number(value));
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+  const pct = (value) => {
+    const number = asNumber(value);
+    return Number.isFinite(number) ? `${number >= 0 ? "+" : ""}${number.toFixed(2)}%` : "-";
+  };
+  const pctClass = (value) => {
+    const number = asNumber(value);
+    if (!Number.isFinite(number) || Math.abs(number) < 0.0001) return "";
+    return number > 0 ? "rise" : "fall";
+  };
+  const money = (value) => {
+    const number = asNumber(value);
+    if (!Number.isFinite(number)) return "-";
+    if (Math.abs(number) >= 100000000) return `${(number / 100000000).toFixed(1)}亿`;
+    if (Math.abs(number) >= 10000) return `${(number / 10000).toFixed(1)}万`;
+    return number.toFixed(0);
+  };
+  const multiple = (value) => {
+    const number = asNumber(value);
+    return Number.isFinite(number) ? `${number.toFixed(2)}x` : "-";
+  };
+  const tileClass = (member) => {
+    const change = asNumber(member.day_change_pct);
+    if (!Number.isFinite(change) || member.quote_status !== "ok") return "no-data";
+    if (change > 0) return "rise";
+    if (change < 0) return "fall";
+    return "flat";
+  };
+  const memberTitle = (member) => [
+    `${member.name || member.code} ${member.code}`,
+    `今日 ${pct(member.day_change_pct)}`,
+    `近5日 ${pct(member.change_5d_pct)}`,
+    `成交额 ${money(member.turnover_amount)}`,
+    `量能 ${multiple(member.turnover_vs_20d)}`,
+    `行情源 ${member.data_source || "-"}`,
+    `成员来源 ${member.member_source || member.source || "-"}`
+  ].join("\n");
+
+  async function loadMembers() {
+    if (!DATA_TIME) throw new Error("暂无数据日期");
+    if (state.payload) return state.payload;
+    if (!state.loading) {
+      state.loading = fetch(`data/members/${encodeURIComponent(DATA_TIME)}.json`, { cache: "no-store" }).then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      });
+    }
+    state.payload = await state.loading;
+    return state.payload;
+  }
+
+  function inspectorHtml(member) {
+    if (!member) return "点击热力图方块查看股票详情。";
+    return `<strong>${escapeHtml(member.name || member.code)}</strong> ${escapeHtml(member.code)}
+      <span class="${pctClass(member.day_change_pct)}">今日 ${pct(member.day_change_pct)}</span>
+      <span class="${pctClass(member.change_5d_pct)}">近5日 ${pct(member.change_5d_pct)}</span>
+      <span>成交额 ${money(member.turnover_amount)}</span>
+      <span>量能 ${multiple(member.turnover_vs_20d)}</span>
+      <span>行情源 ${escapeHtml(member.data_source || "-")}</span>
+      <span>成员来源 ${escapeHtml(member.member_source || member.source || "-")}</span>`;
+  }
+
+  function renderBoard(board) {
+    const members = Array.isArray(board.members) ? board.members : [];
+    if (!members.length) {
+      return `<p class="muted">${escapeHtml(board.board_name || "该板块")} 暂无可展示的成分股详情。</p>`;
+    }
+    const maxTurnover = Math.max(0, ...members.map((member) => asNumber(member.turnover_amount)).filter(Number.isFinite));
+    const tiles = members.map((member, index) => {
+      const amount = asNumber(member.turnover_amount);
+      const scale = maxTurnover > 0 && Number.isFinite(amount) && amount > 0 ? 0.85 + Math.sqrt(amount / maxTurnover) * 0.65 : 1;
+      const label = (member.name || member.code || "").slice(0, 4);
+      return `<button class="heat-tile ${tileClass(member)}" type="button" data-member-index="${index}" style="--tile-scale:${scale.toFixed(2)}" title="${escapeHtml(memberTitle(member))}">
+        <span>${escapeHtml(label)}</span><small>${pct(member.day_change_pct)}</small>
+      </button>`;
+    }).join("");
+    const rows = members.map((member) => `<tr>
+      <td>${escapeHtml(member.code)}</td>
+      <td>${escapeHtml(member.name || "")}</td>
+      <td class="num ${pctClass(member.day_change_pct)}">${pct(member.day_change_pct)}</td>
+      <td class="num ${pctClass(member.change_5d_pct)}">${pct(member.change_5d_pct)}</td>
+      <td class="num">${money(member.turnover_amount)}</td>
+      <td class="num">${multiple(member.turnover_vs_20d)}</td>
+      <td>${escapeHtml(member.data_source || "-")}</td>
+      <td>${escapeHtml(member.member_source || member.source || "-")}</td>
+    </tr>`).join("");
+    const invalidCount = Array.isArray(board.invalid_members) ? board.invalid_members.length : 0;
+    return `<div class="board-detail-header">
+        <h3>${escapeHtml(board.board_name || "")} 成分股</h3>
+        <span class="pill">成员 ${members.length} · 无报价 ${invalidCount}</span>
+      </div>
+      <div class="member-heatmap" role="list" aria-label="${escapeHtml(board.board_name || "")} 成分股热力图">${tiles}</div>
+      <div class="member-inspector">${inspectorHtml(null)}</div>
+      <div class="member-table-wrap">
+        <table class="member-table">
+          <thead><tr><th>代码</th><th>名称</th><th class="num">今日</th><th class="num">近5日</th><th class="num">成交额</th><th class="num">量能</th><th>行情源</th><th>成员来源</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
+  function bindTiles(root, board) {
+    const members = Array.isArray(board.members) ? board.members : [];
+    const inspector = root.querySelector(".member-inspector");
+    root.querySelectorAll(".heat-tile").forEach((button) => {
+      button.addEventListener("click", () => {
+        const member = members[Number(button.dataset.memberIndex)];
+        if (inspector) inspector.innerHTML = inspectorHtml(member);
+      });
+    });
+  }
+
+  async function openBoard(button, row) {
+    const boardId = button.dataset.boardId;
+    const target = row.querySelector(".board-detail");
+    if (!target) return;
+    row.hidden = false;
+    button.setAttribute("aria-expanded", "true");
+    button.querySelector(".toggle-mark").textContent = "收起";
+    if (target.dataset.loaded === "true") return;
+    target.innerHTML = '<p class="muted">正在读取成分股详情...</p>';
+    try {
+      const payload = await loadMembers();
+      const board = (payload.boards || []).find((item) => String(item.board_id) === String(boardId));
+      if (!board) {
+        target.innerHTML = '<p class="muted">未找到该板块的成分股快照。</p>';
+        return;
+      }
+      target.innerHTML = renderBoard(board);
+      target.dataset.loaded = "true";
+      bindTiles(target, board);
+    } catch (error) {
+      target.innerHTML = `<p class="muted">无法读取成分股详情：${escapeHtml(error.message || error)}</p>`;
+    }
+  }
+
+  document.querySelectorAll(".board-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const row = Array.from(document.querySelectorAll(".board-detail-row")).find((item) => item.dataset.boardId === button.dataset.boardId);
+      if (!row) return;
+      if (!row.hidden) {
+        row.hidden = true;
+        button.setAttribute("aria-expanded", "false");
+        button.querySelector(".toggle-mark").textContent = "展开";
+        return;
+      }
+      openBoard(button, row);
+    });
+  });
+})();
+</script>
+"""
+
+
 def render_index_html(latest: dict[str, Any], history: list[dict[str, Any]]) -> str:
     boards = latest.get("boards") or []
-    status_class = "bad" if latest.get("status") == "failed" else "warn" if latest.get("status") == "partial" else "ok"
+    status_value = latest.get("status")
+    status_class = "bad" if status_value == "failed" else "warn" if status_value in {"partial", "non_trading_day", "stale_ok"} else "ok"
     rows = []
     for record in boards:
+        board_id = str(record["board_id"])
+        safe_board_id = html.escape(board_id, quote=True)
+        safe_board_name = html.escape(record["board_name"])
         rows.append(
-            "<tr>"
-            f"<td><strong>{html.escape(record['board_name'])}</strong><small>{html.escape(record.get('note') or '')}</small></td>"
+            f'<tr class="board-row" data-board-id="{safe_board_id}">'
+            f'<td><button class="board-toggle" type="button" data-board-id="{safe_board_id}" aria-expanded="false" aria-controls="detail-{safe_board_id}"><strong>{safe_board_name}</strong><span class="toggle-mark">展开</span></button><small>{html.escape(record.get("note") or "")}</small></td>'
             f"<td class=\"num {change_class(record.get('equal_weight_change_pct'))}\">{pct_text(record.get('equal_weight_change_pct'))}</td>"
             f"<td class=\"num\">{pct_text(record.get('change_5d_pct'))}</td>"
             f"<td class=\"num\">{ratio_text(record.get('advance_ratio'))}</td>"
             f"<td class=\"num\">{multiple_text(record.get('turnover_vs_20d'))}</td>"
             f"<td class=\"num\">{ratio_text(record.get('coverage'))}</td>"
             f"<td>{status_badges(record.get('status') or [], record.get('error_flags') or [])}</td>"
-            f"<td>{sparkline(history, record['board_id'])}</td>"
+            f"<td>{sparkline(history, board_id)}</td>"
             "</tr>"
+            f'<tr class="board-detail-row" data-board-id="{safe_board_id}" id="detail-{safe_board_id}" hidden><td class="board-detail-cell" colspan="8"><div class="board-detail" data-detail-board-id="{safe_board_id}"><p class="muted">正在读取成分股详情...</p></div></td></tr>'
         )
     ranking_html = render_rankings(latest.get("rankings") or {})
     archive_links = render_archive_links(history)
+    data_time_json = json.dumps(str(latest.get("data_time") or ""), ensure_ascii=False)
+    member_detail_script = MEMBER_DETAIL_SCRIPT.replace("__DATA_TIME__", data_time_json)
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -1200,6 +1513,8 @@ def render_index_html(latest: dict[str, Any], history: list[dict[str, Any]]) -> 
     .pill.warn {{ border-color:#e2bb74; color:var(--warn); }}
     .pill.bad {{ border-color:#e7a19c; color:#9b1c13; }}
     .notice {{ margin-top:12px; padding:10px 12px; border-left:4px solid var(--warn); background:#fff8e8; color:#5f3b07; }}
+    .notice.ok {{ border-left-color:#2e7d55; background:#edf8f1; color:#075b39; }}
+    .notice.bad {{ border-left-color:#b42318; background:#fff1f0; color:#9b1c13; }}
     .summary {{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:14px; }}
     .metric {{ padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }}
     .metric strong {{ display:block; font-size:20px; margin-top:4px; }}
@@ -1207,9 +1522,30 @@ def render_index_html(latest: dict[str, Any], history: list[dict[str, Any]]) -> 
     th,td {{ padding:10px 9px; border-bottom:1px solid var(--line); vertical-align:middle; font-size:14px; }}
     th {{ text-align:left; color:#4b596b; background:#f0f3f7; font-weight:650; }}
     td small {{ display:block; margin-top:3px; color:var(--muted); line-height:1.35; }}
+    .muted {{ color:var(--muted); }}
     .num {{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }}
     .rise {{ color:var(--rise); }}
     .fall {{ color:var(--fall); }}
+    .board-toggle {{ display:inline-flex; align-items:center; gap:7px; max-width:100%; padding:0; border:0; background:transparent; color:var(--accent); font:inherit; text-align:left; cursor:pointer; }}
+    .board-toggle strong {{ font-weight:700; }}
+    .board-toggle:focus-visible {{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }}
+    .toggle-mark {{ flex:0 0 auto; padding:2px 6px; border:1px solid var(--line); border-radius:5px; color:var(--muted); font-size:12px; background:#fff; }}
+    .board-detail-cell {{ padding:0; background:#fbfcfe; }}
+    .board-detail {{ padding:12px; white-space:normal; }}
+    .board-detail-header {{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; margin-bottom:10px; }}
+    .board-detail-header h3 {{ margin:0; font-size:15px; }}
+    .member-heatmap {{ display:flex; flex-wrap:wrap; gap:5px; align-items:flex-start; margin:10px 0 12px; }}
+    .heat-tile {{ --tile-size:34px; width:calc(var(--tile-size) * var(--tile-scale, 1)); height:calc(var(--tile-size) * var(--tile-scale, 1)); min-width:30px; max-width:58px; min-height:30px; max-height:58px; padding:3px; border:1px solid rgba(0,0,0,.12); border-radius:5px; color:#fff; background:#8a94a6; overflow:hidden; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; line-height:1.05; font-size:10px; }}
+    .heat-tile span,.heat-tile small {{ display:block; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:inherit; }}
+    .heat-tile.rise {{ background:#b42318; }}
+    .heat-tile.fall {{ background:#027a48; }}
+    .heat-tile.flat {{ background:#667085; }}
+    .heat-tile.no-data {{ background:#d0d5dd; color:#344054; }}
+    .heat-tile:focus-visible {{ outline:2px solid var(--accent); outline-offset:2px; }}
+    .member-inspector {{ min-height:38px; padding:9px 10px; border:1px solid var(--line); border-radius:7px; background:#fff; color:#344054; }}
+    .member-table-wrap {{ overflow-x:auto; margin-top:10px; }}
+    .member-table {{ min-width:760px; }}
+    .member-table th,.member-table td {{ font-size:13px; padding:8px; }}
     .badge {{ display:inline-flex; margin:2px 3px 2px 0; padding:3px 7px; border-radius:5px; background:#e8f1f5; color:#16445d; font-size:12px; white-space:nowrap; }}
     .badge.warn {{ background:#fff0d3; color:#8a4b04; }}
     .badge.neutral {{ background:#eef0f3; color:#596579; }}
@@ -1226,6 +1562,9 @@ def render_index_html(latest: dict[str, Any], history: list[dict[str, Any]]) -> 
       main {{ padding-left:8px; padding-right:8px; }}
       .summary,.rankings {{ grid-template-columns:1fr 1fr; }}
       table {{ display:block; overflow-x:auto; white-space:nowrap; }}
+      .board-detail {{ min-width:min(760px, 92vw); }}
+      .member-heatmap {{ max-height:260px; overflow:auto; padding-right:2px; }}
+      .heat-tile {{ --tile-size:32px; }}
       th,td {{ padding:9px 8px; }}
     }}
     @media (max-width: 520px) {{
@@ -1259,17 +1598,67 @@ def render_index_html(latest: dict[str, Any], history: list[dict[str, Any]]) -> 
     <div class="archive">{archive_links}</div>
     <p class="footer">网页为静态文件，由 GitHub Actions 在收盘后生成；打开页面时不会实时请求行情接口。</p>
   </main>
+  {member_detail_script}
 </body>
 </html>"""
 
 
+def strip_html_like_text(value: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", str(value))
+    return compact_text(text, 120)
+
+
+def user_facing_error_messages(latest: dict[str, Any]) -> list[str]:
+    raw_errors = [str(error) for error in (latest.get("error_flags") or [])]
+    visible_boards = {str(board.get("board_name") or "") for board in (latest.get("boards") or [])}
+    messages: list[str] = []
+
+    def add(message: str) -> None:
+        if message not in messages:
+            messages.append(message)
+
+    for error in raw_errors:
+        board_name = ""
+        if " 成分股抓取失败" in error:
+            board_name = error.split(" 成分股抓取失败", 1)[0].strip()
+        elif " failed:" in error:
+            board_name = error.split(" failed:", 1)[0].strip()
+
+        if "成分股抓取失败" in error or "has no provider members" in error:
+            if board_name and board_name in visible_boards:
+                add(f"{board_name}：标准板块成分股接口暂时失败，已使用手动配置股票继续计算。")
+            elif board_name:
+                add(f"{board_name}：标准板块成分股接口暂时失败，已跳过该板块。")
+            else:
+                add("部分标准板块成分股接口暂时失败，已跳过受影响板块。")
+        elif error == "provider_members_stale":
+            add("部分板块使用了缓存或手动配置的成分股。")
+        elif error == "low_coverage":
+            add("部分板块有效报价覆盖率不足，已跳过状态判断。")
+        elif "used latest quote fallback" in error:
+            add("部分股票历史行情暂不可用，已用最新报价生成最小可用数据。")
+        elif "stock quotes failed" in error or "quote history failed" in error:
+            if board_name:
+                add(f"{board_name}：部分个股行情暂时失败，已尽量使用备用数据源。")
+            else:
+                add("部分个股行情暂时失败，已尽量使用备用数据源。")
+
+    return [strip_html_like_text(message) for message in messages[:6]]
+
+
 def render_notice(latest: dict[str, Any]) -> str:
-    if latest.get("status") == "failed":
-        return '<div class="notice">今日更新失败，当前展示上一交易日数据。</div>'
-    errors = latest.get("error_flags") or []
-    if errors:
-        escaped = "；".join(html.escape(str(error)) for error in errors[:5])
-        return f'<div class="notice">存在数据质量提示：{escaped}</div>'
+    status = latest.get("status")
+    message = html.escape(str(latest.get("message") or ""))
+    if status == "ok":
+        return f'<div class="notice ok">{message or "数据已更新"}</div>'
+    if status in {"non_trading_day", "stale_ok"}:
+        return f'<div class="notice">{message or "今日非交易日，当前展示上一交易日数据"}</div>'
+    if status == "failed":
+        return f'<div class="notice bad">{message or "数据源异常，当前展示上一交易日数据"}</div>'
+    messages = user_facing_error_messages(latest)
+    if messages:
+        escaped = "；".join(html.escape(message) for message in messages)
+        return f'<div class="notice">数据源异常：{escaped}</div>'
     return ""
 
 
@@ -1355,6 +1744,11 @@ def render_site(output_dir: Path, latest: dict[str, Any], history: list[dict[str
         (archive_dir / f"{date}.html").write_text(render_archive_page(date, date_records), encoding="utf-8")
 
 
+def latest_record_date(records: list[dict[str, Any]]) -> str | None:
+    dates = sorted({str(record.get("date")) for record in records if record.get("date")})
+    return dates[-1] if dates else None
+
+
 def build_pipeline(args: argparse.Namespace) -> int:
     config = load_config(Path(args.config))
     output_dir = Path(args.output)
@@ -1368,10 +1762,37 @@ def build_pipeline(args: argparse.Namespace) -> int:
     member_cache = read_json(data_dir / "member_cache.json", {})
     client: Any = FixtureClient() if args.fixture else EastmoneyClient(timeout=args.timeout, retries=args.retries)
     run_time = now_iso()
+    as_of_date = parse_iso_date(getattr(args, "as_of_date", None))
+    as_of_date_text = as_of_date.isoformat()
     run_errors: list[str] = []
     incoming_records: list[dict[str, Any]] = []
     member_snapshots_by_date: dict[str, dict[str, Any]] = {}
-    source = {"provider": "fixture" if args.fixture else "eastmoney", "fallback_provider": None if args.fixture else "tencent", "mode": "github_actions_static"}
+    source = {
+        "provider": "fixture" if args.fixture else "eastmoney",
+        "fallback_provider": None if args.fixture else "tencent",
+        "mode": "github_actions_static",
+        "as_of_date": as_of_date_text,
+    }
+
+    if not args.fixture and is_non_trading_date(as_of_date):
+        history = previous_history
+        latest = build_latest_payload(
+            history,
+            run_time,
+            source,
+            [],
+            False,
+            previous_latest,
+            getattr(client, "logs", []),
+            status_override="non_trading_day",
+            message_override="今日非交易日，当前展示上一交易日数据",
+        )
+        write_json(data_dir / "history.json", previous_history_payload if previous_history_payload.get("records") is not None else {"generated_at": run_time, "records": history})
+        write_json(data_dir / "latest.json", latest)
+        write_json(data_dir / "member_cache.json", member_cache)
+        write_history_csv(data_dir / "history.csv", history)
+        render_site(output_dir, latest, history)
+        return 0
 
     for board in enabled_boards(config):
         try:
@@ -1409,7 +1830,7 @@ def build_pipeline(args: argparse.Namespace) -> int:
                 latest_change = client.fetch_board_latest_change(board.get("provider_board") or {})
             if latest_change is not None and source_changes:
                 source_changes[max(source_changes)] = latest_change
-            records, snapshot = aggregate_board_history(
+            records, snapshots = aggregate_board_history(
                 board,
                 members,
                 excluded,
@@ -1423,28 +1844,51 @@ def build_pipeline(args: argparse.Namespace) -> int:
                     record["error_flags"].append("provider_members_stale")
             if records:
                 incoming_records.extend(records)
-                for record in records:
-                    member_snapshots_by_date.setdefault(record["date"], {"date": record["date"], "boards": []})["boards"].append(snapshot)
+                for date, snapshot in snapshots.items():
+                    member_snapshots_by_date.setdefault(date, {"date": date, "boards": []})["boards"].append(snapshot)
             else:
                 run_errors.append(f"{board['name']} produced no valid quote/history records")
         except Exception as exc:  # noqa: BLE001
             run_errors.append(f"{board['name']} failed: {type(exc).__name__}: {compact_text(str(exc))}")
 
     update_failed = not incoming_records
-    if update_failed:
+    incoming_latest_date = latest_record_date(incoming_records)
+    stale_ok = bool(incoming_latest_date and incoming_latest_date < as_of_date_text and not args.fixture)
+    source["latest_fetched_date"] = incoming_latest_date
+
+    if stale_ok and previous_history:
+        history = previous_history
+    elif update_failed:
         history = previous_history
     else:
         merged = merge_history(previous_history, incoming_records, max(args.history_days, 120))
         history = enrich_history(merged, previous_history)
 
-    latest = build_latest_payload(history, run_time, source, run_errors, update_failed, previous_latest, getattr(client, "logs", []))
-    write_json(data_dir / "history.json", {"generated_at": run_time, "records": history})
+    status_override = "stale_ok" if stale_ok else None
+    message_override = "今日行情尚未更新，当前展示上一交易日数据" if stale_ok else None
+    latest = build_latest_payload(
+        history,
+        run_time,
+        source,
+        run_errors,
+        update_failed and not stale_ok,
+        previous_latest,
+        getattr(client, "logs", []),
+        status_override=status_override,
+        message_override=message_override,
+    )
+    if stale_ok and previous_history_payload.get("records") is not None:
+        write_json(data_dir / "history.json", previous_history_payload)
+    else:
+        write_json(data_dir / "history.json", {"generated_at": run_time, "records": history})
     write_json(data_dir / "latest.json", latest)
     write_json(data_dir / "member_cache.json", member_cache)
     write_history_csv(data_dir / "history.csv", history)
 
-    for date, snapshot in member_snapshots_by_date.items():
-        write_json(members_dir / f"{date}.json", snapshot)
+    should_write_member_snapshots = not (stale_ok and previous_history)
+    if should_write_member_snapshots:
+        for date, snapshot in member_snapshots_by_date.items():
+            write_json(members_dir / f"{date}.json", snapshot)
     if latest.get("data_time") and latest["data_time"] not in member_snapshots_by_date:
         existing_snapshot = members_dir / f"{latest['data_time']}.json"
         if not existing_snapshot.exists():
@@ -1462,6 +1906,7 @@ def make_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--timeout", type=int, default=20)
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--request-pause", type=float, default=0.05)
+    parser.add_argument("--as-of-date", default=None, help="Override current China date as YYYY-MM-DD for tests")
     parser.add_argument("--fixture", action="store_true", help="Use deterministic sample data for local tests")
     return parser
 

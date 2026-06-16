@@ -1,6 +1,6 @@
 {
   "data_time": "2026-06-16",
-  "run_time": "2026-06-16T20:27:59+08:00",
+  "run_time": "2026-06-16T21:02:39+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -342,7 +342,7 @@
       "advance_ratio": 0.7647,
       "turnover_amount": 848161535.0,
       "turnover_vs_20d": 0.8972,
-      "source_board_change_pct": 2.02,
+      "source_board_change_pct": null,
       "error_flags": [
         "provider_members_stale"
       ],

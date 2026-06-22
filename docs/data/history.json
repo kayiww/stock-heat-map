@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T21:13:56+08:00",
+  "generated_at": "2026-06-22T21:42:58+08:00",
   "records": [
     {
       "date": "2026-04-27",
@@ -584,12 +584,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 5.4977,
-      "weighted_change_pct": 6.3637,
+      "weighted_change_pct": 6.3845,
       "advance_ratio": 0.9,
       "turnover_amount": 1011478238.0,
       "turnover_vs_20d": 0.7524,
-      "source_board_change_pct": 5.33,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 118.8231,
@@ -672,12 +674,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -0.0901,
-      "weighted_change_pct": 1.3875,
+      "weighted_change_pct": 1.6108,
       "advance_ratio": 0.37,
       "turnover_amount": 898310978.0,
       "turnover_vs_20d": 0.6896,
-      "source_board_change_pct": -0.15,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 118.716,
@@ -760,12 +764,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 3.9983,
-      "weighted_change_pct": 4.3279,
+      "weighted_change_pct": 4.4459,
       "advance_ratio": 0.89,
       "turnover_amount": 972633943.0,
       "turnover_vs_20d": 0.7733,
-      "source_board_change_pct": 3.83,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.4626,
@@ -850,12 +856,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -1.4857,
-      "weighted_change_pct": -1.2586,
+      "weighted_change_pct": -1.1443,
       "advance_ratio": 0.23,
       "turnover_amount": 906081493.0,
       "turnover_vs_20d": 0.7371,
-      "source_board_change_pct": -1.67,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 121.6283,
@@ -938,12 +946,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -0.305,
-      "weighted_change_pct": -0.3312,
+      "weighted_change_pct": -0.1297,
       "advance_ratio": 0.4,
       "turnover_amount": 1081758285.0,
       "turnover_vs_20d": 0.9016,
-      "source_board_change_pct": -0.49,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -1030,12 +1040,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 2.3983,
-      "weighted_change_pct": 2.0893,
+      "weighted_change_pct": 2.1174,
       "advance_ratio": 0.73,
       "turnover_amount": 947511163.0,
       "turnover_vs_20d": 0.7962,
-      "source_board_change_pct": 2.24,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 124.1655,
@@ -1118,12 +1130,14 @@
       "invalid_quote_count": 3,
       "coverage": 0.9706,
       "equal_weight_change_pct": 2.0713,
-      "weighted_change_pct": 1.364,
+      "weighted_change_pct": 1.4304,
       "advance_ratio": 0.6566,
       "turnover_amount": 1054460407.0,
       "turnover_vs_20d": 0.9002,
-      "source_board_change_pct": 1.91,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -1210,12 +1224,14 @@
       "invalid_quote_count": 3,
       "coverage": 0.9706,
       "equal_weight_change_pct": 2.7293,
-      "weighted_change_pct": 3.2163,
+      "weighted_change_pct": 2.6703,
       "advance_ratio": 0.7374,
       "turnover_amount": 1208296641.0,
       "turnover_vs_20d": 1.0389,
-      "source_board_change_pct": 2.87,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -1302,12 +1318,14 @@
       "invalid_quote_count": 3,
       "coverage": 0.9706,
       "equal_weight_change_pct": -5.2817,
-      "weighted_change_pct": -3.731,
+      "weighted_change_pct": -3.3501,
       "advance_ratio": 0.0808,
       "turnover_amount": 1323848614.0,
       "turnover_vs_20d": 1.1354,
-      "source_board_change_pct": -5.17,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.3198,
@@ -1390,12 +1408,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 2.7913,
-      "weighted_change_pct": 3.8602,
+      "weighted_change_pct": 3.9012,
       "advance_ratio": 0.85,
       "turnover_amount": 1029157042.0,
       "turnover_vs_20d": 0.8752,
-      "source_board_change_pct": 3.0,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 126.762,
@@ -1478,12 +1498,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 4.8254,
-      "weighted_change_pct": 6.0491,
+      "weighted_change_pct": 5.5597,
       "advance_ratio": 0.83,
       "turnover_amount": 1288313636.0,
       "turnover_vs_20d": 1.1037,
-      "source_board_change_pct": 4.37,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -1570,12 +1592,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -2.5915,
-      "weighted_change_pct": -0.6502,
+      "weighted_change_pct": -0.2673,
       "advance_ratio": 0.18,
       "turnover_amount": 1074380406.0,
       "turnover_vs_20d": 0.9152,
-      "source_board_change_pct": -2.2,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 129.4352,
@@ -1658,12 +1682,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -1.6278,
-      "weighted_change_pct": -1.0468,
+      "weighted_change_pct": -1.1723,
       "advance_ratio": 0.31,
       "turnover_amount": 1066724327.0,
       "turnover_vs_20d": 0.9127,
-      "source_board_change_pct": -1.88,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -1750,12 +1776,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 2.7045,
-      "weighted_change_pct": 2.2191,
+      "weighted_change_pct": 1.8817,
       "advance_ratio": 0.7,
       "turnover_amount": 1153304035.0,
       "turnover_vs_20d": 0.9911,
-      "source_board_change_pct": 2.51,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 130.7719,
@@ -1838,12 +1866,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -5.2353,
-      "weighted_change_pct": -3.4702,
+      "weighted_change_pct": -3.1548,
       "advance_ratio": 0.1,
       "turnover_amount": 1116072750.0,
       "turnover_vs_20d": 1.1573,
-      "source_board_change_pct": -5.24,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.9256,
@@ -1924,12 +1954,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -3.5646,
-      "weighted_change_pct": -4.3893,
+      "weighted_change_pct": -4.3524,
       "advance_ratio": 0.14,
       "turnover_amount": 878704223.0,
       "turnover_vs_20d": 0.887,
-      "source_board_change_pct": -3.39,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -2014,12 +2046,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 1.3985,
-      "weighted_change_pct": 2.5085,
+      "weighted_change_pct": 2.8593,
       "advance_ratio": 0.58,
       "turnover_amount": 785089737.0,
       "turnover_vs_20d": 0.7779,
-      "source_board_change_pct": 1.33,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 121.1795,
@@ -2102,12 +2136,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 1.917,
-      "weighted_change_pct": 3.003,
+      "weighted_change_pct": 3.1152,
       "advance_ratio": 0.77,
       "turnover_amount": 924619411.0,
       "turnover_vs_20d": 0.914,
-      "source_board_change_pct": 1.68,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.5025,
@@ -2188,12 +2224,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 2.9215,
-      "weighted_change_pct": 2.7382,
+      "weighted_change_pct": 2.4618,
       "advance_ratio": 0.76,
       "turnover_amount": 904332681.0,
       "turnover_vs_20d": 0.8961,
-      "source_board_change_pct": 2.69,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 127.1106,
@@ -2277,12 +2315,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -2.5429,
-      "weighted_change_pct": -5.0556,
+      "weighted_change_pct": -4.9772,
       "advance_ratio": 0.2,
       "turnover_amount": 925498643.0,
       "turnover_vs_20d": 0.9117,
-      "source_board_change_pct": -2.13,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.8783,
@@ -2365,12 +2405,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -5.1612,
-      "weighted_change_pct": -4.0689,
+      "weighted_change_pct": -3.88,
       "advance_ratio": 0.04,
       "turnover_amount": 801969326.0,
       "turnover_vs_20d": 0.7805,
-      "source_board_change_pct": -4.81,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -2457,12 +2499,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 6.1263,
-      "weighted_change_pct": 5.6322,
+      "weighted_change_pct": 5.4594,
       "advance_ratio": 0.95,
       "turnover_amount": 871075825.0,
       "turnover_vs_20d": 0.8565,
-      "source_board_change_pct": 5.64,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 124.6822,
@@ -2547,12 +2591,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -0.7963,
-      "weighted_change_pct": -0.9986,
+      "weighted_change_pct": -1.0164,
       "advance_ratio": 0.4,
       "turnover_amount": 992427565.0,
       "turnover_vs_20d": 0.9771,
-      "source_board_change_pct": -1.23,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.6893,
@@ -2635,12 +2681,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 1.5843,
-      "weighted_change_pct": 0.7217,
+      "weighted_change_pct": 0.6344,
       "advance_ratio": 0.54,
       "turnover_amount": 940010173.0,
       "turnover_vs_20d": 0.9246,
-      "source_board_change_pct": 1.18,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 125.6489,
@@ -2723,12 +2771,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -1.6472,
-      "weighted_change_pct": -0.1026,
+      "weighted_change_pct": 0.0947,
       "advance_ratio": 0.35,
       "turnover_amount": 1191471912.0,
       "turnover_vs_20d": 1.17,
-      "source_board_change_pct": -1.53,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.5792,
@@ -2811,12 +2861,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 6.0129,
-      "weighted_change_pct": 6.6375,
+      "weighted_change_pct": 6.491,
       "advance_ratio": 0.95,
       "turnover_amount": 1023803917.0,
       "turnover_vs_20d": 0.9999,
-      "source_board_change_pct": 5.65,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 131.0099,
@@ -2899,12 +2951,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 2.2153,
-      "weighted_change_pct": 1.7053,
+      "weighted_change_pct": 1.7349,
       "advance_ratio": 0.76,
       "turnover_amount": 938603251.0,
       "turnover_vs_20d": 0.9133,
-      "source_board_change_pct": 2.02,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -2992,12 +3046,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 4.5255,
-      "weighted_change_pct": 5.5129,
+      "weighted_change_pct": 5.3087,
       "advance_ratio": 0.88,
       "turnover_amount": 1114616629.0,
       "turnover_vs_20d": 1.0907,
-      "source_board_change_pct": 4.25,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3085,12 +3141,14 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": 1.7597,
-      "weighted_change_pct": 3.3756,
+      "weighted_change_pct": 3.3781,
       "advance_ratio": 0.67,
       "turnover_amount": 1073524504.0,
       "turnover_vs_20d": 1.0554,
-      "source_board_change_pct": 1.3,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3208,12 +3266,14 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": 3.3344,
-      "weighted_change_pct": 3.6646,
+      "weighted_change_pct": 3.6274,
       "advance_ratio": 0.6863,
       "turnover_amount": 1097177582.0,
       "turnover_vs_20d": 1.0921,
-      "source_board_change_pct": 2.26,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],

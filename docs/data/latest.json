@@ -1,6 +1,6 @@
 {
   "data_time": "2026-06-30",
-  "run_time": "2026-06-30T18:43:52+08:00",
+  "run_time": "2026-06-30T19:17:56+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -180,7 +180,7 @@
     "FETCH ok source=tencent operation=stock_history target=688261.SH status=200 bytes=6212 attempt=1",
     "BOARD 半导体 requesting stock history code=688270.SH",
     "FETCH start source=tencent operation=stock_history target=688270.SH",
-    "FETCH ok source=tencent operation=stock_history target=688270.SH status=200 bytes=6491 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=688270.SH status=200 bytes=6430 attempt=1",
     "BOARD 半导体 requesting stock history code=688347.SH",
     "FETCH start source=tencent operation=stock_history target=688347.SH",
     "FETCH ok source=tencent operation=stock_history target=688347.SH status=200 bytes=6623 attempt=1",
@@ -336,11 +336,11 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": 6.1098,
-      "weighted_change_pct": 4.5553,
+      "weighted_change_pct": 4.7303,
       "advance_ratio": 0.9706,
       "turnover_amount": 1114325414.0,
       "turnover_vs_20d": 1.3182,
-      "source_board_change_pct": 4.5,
+      "source_board_change_pct": null,
       "error_flags": [],
       "status": [
         "强势延续"

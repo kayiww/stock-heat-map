@@ -668,7 +668,7 @@
         },
         {
           "code": "601133.SH",
-          "name": "XD柏诚股",
+          "name": "柏诚股份",
           "day_change_pct": -3.7791,
           "change_5d_pct": -14.6051,
           "turnover_amount": 177496.0,
@@ -1016,7 +1016,7 @@
         },
         {
           "code": "688385.SH",
-          "name": "XD复旦微",
+          "name": "复旦微电",
           "day_change_pct": -2.5662,
           "change_5d_pct": -1.5916,
           "turnover_amount": 19982575.0,
@@ -1197,38 +1197,38 @@
         {
           "code": "920139.BJ",
           "name": "华岭股份",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 59735.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920186.BJ",
           "name": "中科仪",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 80539.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920249.BJ",
           "name": "利尔达",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 156132.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],
@@ -1446,14 +1446,14 @@
         {
           "code": "301583.SZ",
           "name": "����˹",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 0.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "301611.SZ",
@@ -1829,9 +1829,9 @@
         },
         {
           "code": "688209.SH",
-          "name": "Ӣ��о",
-          "day_change_pct": -2.1083,
-          "change_5d_pct": 7.8926,
+          "name": "XDӢ��о",
+          "day_change_pct": -2.1131,
+          "change_5d_pct": 7.9123,
           "turnover_amount": 14771751.0,
           "turnover_vs_20d": 0.887,
           "data_source": "tencent",
@@ -1997,7 +1997,7 @@
         },
         {
           "code": "688385.SH",
-          "name": "XD����΢",
+          "name": "����΢��",
           "day_change_pct": -2.5662,
           "change_5d_pct": -1.5916,
           "turnover_amount": 19982575.0,
@@ -2406,38 +2406,38 @@
         {
           "code": "920012.BJ",
           "name": "�����²�",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 19464.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920139.BJ",
           "name": "����ɷ�",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 59735.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920179.BJ",
           "name": "����ʯӢ",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 52590.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],

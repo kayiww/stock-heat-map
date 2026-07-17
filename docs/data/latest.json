@@ -1,6 +1,6 @@
 {
   "data_time": "2026-07-17",
-  "run_time": "2026-07-17T17:29:02+08:00",
+  "run_time": "2026-07-17T18:07:54+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -306,7 +306,7 @@
     "FETCH start source=eastmoney operation=board_latest_change target=BK1036",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=2",
-    "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=NA error=URLError: <urlopen error _ssl.c:993: The handshake operation timed out> attempt=3",
+    "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "BOARD 我的观察池 requesting stock quotes count=3",
     "FETCH start source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH",
     "FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",
@@ -337,11 +337,11 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": -7.3847,
-      "weighted_change_pct": -7.8004,
+      "weighted_change_pct": -7.6884,
       "advance_ratio": 0.0196,
       "turnover_amount": 659516402.0,
       "turnover_vs_20d": 0.8651,
-      "source_board_change_pct": -8.99,
+      "source_board_change_pct": null,
       "error_flags": [],
       "status": [
         "调整中"
@@ -367,7 +367,7 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": -9.3128,
-      "weighted_change_pct": -6.5626,
+      "weighted_change_pct": -8.9579,
       "advance_ratio": 0.03,
       "turnover_amount": 1472585492.0,
       "turnover_vs_20d": 0.9484,

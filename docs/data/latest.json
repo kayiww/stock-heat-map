@@ -1,6 +1,6 @@
 {
   "data_time": "2026-07-20",
-  "run_time": "2026-07-20T18:27:47+08:00",
+  "run_time": "2026-07-20T19:10:17+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -11,16 +11,14 @@
   "status": "partial",
   "message": "数据已部分更新，存在数据源异常",
   "coverage": {
-    "overall": 1.0,
+    "overall": 0.9967,
     "by_board": {
-      "ai_compute": 1.0,
+      "ai_compute": 0.9902,
       "semiconductor": 1.0,
       "custom_watch": 1.0
     }
   },
   "error_flags": [
-    "AI算力 688825.SH used latest quote fallback as one-day history",
-    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
@@ -254,7 +252,7 @@
     "FETCH ok source=tencent operation=stock_history target=688661.SH status=200 bytes=6590 attempt=1",
     "BOARD 半导体 requesting stock history code=688689.SH",
     "FETCH start source=tencent operation=stock_history target=688689.SH",
-    "FETCH ok source=tencent operation=stock_history target=688689.SH status=200 bytes=6236 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=688689.SH status=200 bytes=6179 attempt=1",
     "BOARD 半导体 requesting stock history code=688693.SH",
     "FETCH start source=tencent operation=stock_history target=688693.SH",
     "FETCH ok source=tencent operation=stock_history target=688693.SH status=200 bytes=6357 attempt=1",
@@ -301,9 +299,9 @@
     "FETCH start source=tencent operation=stock_history target=920179.BJ",
     "FETCH ok source=tencent operation=stock_history target=920179.BJ status=200 bytes=1558 attempt=1",
     "FETCH start source=eastmoney operation=board_history target=BK1036",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=URLError: <urlopen error _ssl.c:993: The handshake operation timed out> attempt=1",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=URLError: <urlopen error _ssl.c:993: The handshake operation timed out> attempt=2",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=URLError: <urlopen error _ssl.c:993: The handshake operation timed out> attempt=3",
+    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=1",
+    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=2",
+    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=3",
     "FETCH start source=eastmoney operation=board_latest_change target=BK1036",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=2",
@@ -334,28 +332,26 @@
       "priority": 10,
       "note": "重点观察算力基础设施、服务器、光模块和相关硬件链。",
       "member_count": 102,
-      "valid_quote_count": 102,
-      "invalid_quote_count": 0,
-      "coverage": 1.0,
-      "equal_weight_change_pct": -5.8585,
-      "weighted_change_pct": -5.3601,
-      "advance_ratio": 0.1275,
-      "turnover_amount": 700378244.0,
-      "turnover_vs_20d": 0.9254,
+      "valid_quote_count": 101,
+      "invalid_quote_count": 1,
+      "coverage": 0.9902,
+      "equal_weight_change_pct": -4.8206,
+      "weighted_change_pct": -1.8318,
+      "advance_ratio": 0.1584,
+      "turnover_amount": 859577763.0,
+      "turnover_vs_20d": 0.9376,
       "source_board_change_pct": null,
-      "error_flags": [
-        "provider_members_stale"
-      ],
+      "error_flags": [],
       "status": [
         "调整中"
       ],
       "eligible_for_signal": true,
-      "synthetic_index": 107.2875,
-      "change_5d_pct": -21.1108,
-      "change_20d_pct": -23.0171,
-      "change_60d_pct": 7.2875,
+      "synthetic_index": 108.3882,
+      "change_5d_pct": -20.652,
+      "change_20d_pct": -22.3226,
+      "change_60d_pct": 8.3882,
       "position_20d": 0.0,
-      "position_60d": 0.1035,
+      "position_60d": 0.1253,
       "consecutive_up_days": 0,
       "consecutive_down_days": 4
     },

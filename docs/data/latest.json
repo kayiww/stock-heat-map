@@ -1,6 +1,6 @@
 {
   "data_time": "2026-07-21",
-  "run_time": "2026-07-21T18:05:25+08:00",
+  "run_time": "2026-07-21T18:32:01+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -336,11 +336,11 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": 11.1075,
-      "weighted_change_pct": 12.4538,
+      "weighted_change_pct": 11.6274,
       "advance_ratio": 0.9804,
       "turnover_amount": 1247733271.0,
       "turnover_vs_20d": 1.1186,
-      "source_board_change_pct": 9.12,
+      "source_board_change_pct": null,
       "error_flags": [],
       "status": [
         "调整中",

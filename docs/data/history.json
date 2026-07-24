@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T17:58:34+08:00",
+  "generated_at": "2026-07-24T18:27:06+08:00",
   "records": [
     {
       "date": "2026-04-27",
@@ -2746,7 +2746,9 @@
       "turnover_amount": 1044700067.0,
       "turnover_vs_20d": 1.2044,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 123.0807,
@@ -2834,7 +2836,9 @@
       "turnover_amount": 845429951.0,
       "turnover_vs_20d": 0.972,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 129.8453,
@@ -2922,7 +2926,9 @@
       "turnover_amount": 792102982.0,
       "turnover_vs_20d": 0.9162,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3015,7 +3021,9 @@
       "turnover_amount": 936151436.0,
       "turnover_vs_20d": 1.0886,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3108,7 +3116,9 @@
       "turnover_amount": 900886651.0,
       "turnover_vs_20d": 1.0563,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3231,7 +3241,9 @@
       "turnover_amount": 941750456.0,
       "turnover_vs_20d": 1.1226,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3322,7 +3334,9 @@
       "turnover_amount": 811076881.0,
       "turnover_vs_20d": 0.9651,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 140.331,
@@ -3408,7 +3422,9 @@
       "turnover_amount": 914922750.0,
       "turnover_vs_20d": 1.1181,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 146.8247,
@@ -3498,7 +3514,9 @@
       "turnover_amount": 1036555909.0,
       "turnover_vs_20d": 1.278,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3590,7 +3608,9 @@
       "turnover_amount": 1034664548.0,
       "turnover_vs_20d": 1.2542,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 152.8668,
@@ -3676,7 +3696,9 @@
       "turnover_amount": 1177818579.0,
       "turnover_vs_20d": 1.438,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续",
         "过热警戒"
@@ -3768,7 +3790,9 @@
       "turnover_amount": 1032669812.0,
       "turnover_vs_20d": 1.2559,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "强势延续"
       ],
@@ -3858,7 +3882,9 @@
       "turnover_amount": 1057131602.0,
       "turnover_vs_20d": 1.2646,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 164.1785,
@@ -3950,7 +3976,9 @@
       "turnover_amount": 965581314.0,
       "turnover_vs_20d": 1.1195,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4040,7 +4068,9 @@
       "turnover_amount": 860526515.0,
       "turnover_vs_20d": 0.9773,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4132,7 +4162,9 @@
       "turnover_amount": 832043018.0,
       "turnover_vs_20d": 0.9384,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4224,7 +4256,9 @@
       "turnover_amount": 734162329.0,
       "turnover_vs_20d": 0.8207,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4314,7 +4348,9 @@
       "turnover_amount": 830164432.0,
       "turnover_vs_20d": 0.9265,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4405,7 +4441,9 @@
       "turnover_amount": 991887459.0,
       "turnover_vs_20d": 1.1102,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 157.0396,
@@ -4493,7 +4531,9 @@
       "turnover_amount": 1037429976.0,
       "turnover_vs_20d": 1.1329,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [],
       "eligible_for_signal": true,
       "synthetic_index": 150.7824,
@@ -4581,7 +4621,9 @@
       "turnover_amount": 855663314.0,
       "turnover_vs_20d": 0.9114,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4673,7 +4715,9 @@
       "turnover_amount": 836436167.0,
       "turnover_vs_20d": 0.8999,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4766,7 +4810,9 @@
       "turnover_amount": 744509480.0,
       "turnover_vs_20d": 0.8014,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4858,7 +4904,9 @@
       "turnover_amount": 760189483.0,
       "turnover_vs_20d": 0.8204,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -4948,7 +4996,9 @@
       "turnover_amount": 838772020.0,
       "turnover_vs_20d": 0.9139,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -5041,7 +5091,9 @@
       "turnover_amount": 872697877.0,
       "turnover_vs_20d": 0.9541,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -5131,7 +5183,9 @@
       "turnover_amount": 992179993.0,
       "turnover_vs_20d": 1.0888,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中",
         "低位观察",
@@ -5225,7 +5279,9 @@
       "turnover_amount": 826645515.0,
       "turnover_vs_20d": 0.8982,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -5317,7 +5373,9 @@
       "turnover_amount": 581964133.0,
       "turnover_vs_20d": 0.6354,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],
@@ -5407,7 +5465,9 @@
       "turnover_amount": 559536184.0,
       "turnover_vs_20d": 0.6265,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "低位观察"
       ],

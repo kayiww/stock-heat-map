@@ -1,6 +1,6 @@
 {
   "data_time": "2026-07-24",
-  "run_time": "2026-07-24T17:58:34+08:00",
+  "run_time": "2026-07-24T18:27:06+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -20,6 +20,7 @@
   },
   "error_flags": [
     "AI算力 688825.SH used latest quote fallback as one-day history",
+    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
@@ -342,7 +343,9 @@
       "turnover_amount": 559536184.0,
       "turnover_vs_20d": 0.6265,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "低位观察"
       ],

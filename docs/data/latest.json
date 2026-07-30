@@ -1,6 +1,6 @@
 {
   "data_time": "2026-07-30",
-  "run_time": "2026-07-30T18:01:07+08:00",
+  "run_time": "2026-07-30T18:32:23+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -19,8 +19,10 @@
     }
   },
   "error_flags": [
+    "provider_members_stale",
     "半导体 301707.SZ used latest quote fallback as one-day history",
-    "半导体 301717.SZ used latest quote fallback as one-day history"
+    "半导体 301717.SZ used latest quote fallback as one-day history",
+    "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
   "fetch_logs": [
     "FETCH start source=tencent operation=stock_history target=300456.SZ",
@@ -336,11 +338,11 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": -4.4211,
-      "weighted_change_pct": -4.6077,
+      "weighted_change_pct": -5.025,
       "advance_ratio": 0.0686,
       "turnover_amount": 1499363645.0,
       "turnover_vs_20d": 1.4966,
-      "source_board_change_pct": -6.23,
+      "source_board_change_pct": null,
       "error_flags": [],
       "status": [
         "调整中"
@@ -366,12 +368,14 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": -4.0184,
-      "weighted_change_pct": -0.8643,
+      "weighted_change_pct": -3.2344,
       "advance_ratio": 0.06,
       "turnover_amount": 1920484407.0,
       "turnover_vs_20d": 1.2363,
       "source_board_change_pct": null,
-      "error_flags": [],
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "调整中"
       ],

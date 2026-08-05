@@ -1,6 +1,6 @@
 {
   "data_time": "2026-08-05",
-  "run_time": "2026-08-05T18:13:10+08:00",
+  "run_time": "2026-08-05T18:44:15+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -19,6 +19,7 @@
     }
   },
   "error_flags": [
+    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 301707.SZ used latest quote fallback as one-day history",
     "半导体 301717.SZ used latest quote fallback as one-day history",
@@ -296,7 +297,7 @@
     "FETCH ok source=tencent operation=stock_history target=688981.SH status=200 bytes=6559 attempt=1",
     "BOARD 半导体 requesting stock history code=920012.BJ",
     "FETCH start source=tencent operation=stock_history target=920012.BJ",
-    "FETCH ok source=tencent operation=stock_history target=920012.BJ status=200 bytes=1552 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=920012.BJ status=200 bytes=1551 attempt=1",
     "BOARD 半导体 requesting stock history code=920139.BJ",
     "FETCH start source=tencent operation=stock_history target=920139.BJ",
     "FETCH ok source=tencent operation=stock_history target=920139.BJ status=200 bytes=1576 attempt=1",
@@ -338,12 +339,14 @@
       "invalid_quote_count": 0,
       "coverage": 1.0,
       "equal_weight_change_pct": 7.4298,
-      "weighted_change_pct": 4.7769,
+      "weighted_change_pct": 5.1441,
       "advance_ratio": 0.9804,
       "turnover_amount": 906113001.0,
       "turnover_vs_20d": 1.019,
-      "source_board_change_pct": 6.32,
-      "error_flags": [],
+      "source_board_change_pct": null,
+      "error_flags": [
+        "provider_members_stale"
+      ],
       "status": [
         "低位观察"
       ],

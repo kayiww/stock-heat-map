@@ -284,7 +284,7 @@
         },
         {
           "code": "300223.SZ",
-          "name": "北京君正",
+          "name": "君正股份",
           "day_change_pct": 1.9658,
           "change_5d_pct": 3.3375,
           "turnover_amount": 294079.0,
@@ -1221,14 +1221,14 @@
         {
           "code": "920186.BJ",
           "name": "中科仪",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 54999.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],
@@ -2201,9 +2201,9 @@
         },
         {
           "code": "688584.SH",
-          "name": "�Ϻ��Ͼ�",
-          "day_change_pct": 1.6684,
-          "change_5d_pct": 8.1731,
+          "name": "XD�Ϻ���",
+          "day_change_pct": 1.6742,
+          "change_5d_pct": 8.2031,
           "turnover_amount": 10380880.0,
           "turnover_vs_20d": 0.4421,
           "data_source": "tencent",
@@ -2430,14 +2430,14 @@
         {
           "code": "920179.BJ",
           "name": "����ʯӢ",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 56303.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],

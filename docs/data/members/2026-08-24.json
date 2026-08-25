@@ -1196,7 +1196,7 @@
         },
         {
           "code": "688826.SH",
-          "name": "C频准",
+          "name": "频准激光",
           "day_change_pct": 3.33,
           "change_5d_pct": -15.0174,
           "turnover_amount": 1642389.0,
@@ -1209,26 +1209,26 @@
         {
           "code": "920139.BJ",
           "name": "华岭股份",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 24866.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920186.BJ",
           "name": "中科仪",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 35415.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],
@@ -2430,14 +2430,14 @@
         {
           "code": "920179.BJ",
           "name": "����ʯӢ",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 22090.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],

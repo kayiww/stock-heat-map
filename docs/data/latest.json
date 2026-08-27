@@ -1,6 +1,6 @@
 {
   "data_time": "2026-08-26",
-  "run_time": "2026-08-28T02:23:40+08:00",
+  "run_time": "2026-08-28T03:02:20+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -19,6 +19,7 @@
     }
   },
   "error_flags": [
+    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
@@ -305,7 +306,7 @@
     "FETCH start source=eastmoney operation=board_latest_change target=BK1036",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",
     "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=2",
-    "FETCH ok source=eastmoney operation=board_latest_change target=BK1036 status=200 bytes=87 attempt=3",
+    "FETCH fail source=eastmoney operation=board_latest_change target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "BOARD 我的观察池 requesting stock quotes count=3",
     "FETCH start source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH",
     "FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",

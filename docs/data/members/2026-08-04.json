@@ -8,7 +8,7 @@
       "members": [
         {
           "code": "000016.SZ",
-          "name": "*ST����A",
+          "name": "*ST康佳A",
           "day_change_pct": 0.3891,
           "change_5d_pct": 0.7812,
           "turnover_amount": 156353.0,
@@ -19,8 +19,20 @@
           "quote_status": "ok"
         },
         {
+          "code": "000021.SZ",
+          "name": "深科技",
+          "day_change_pct": 5.8824,
+          "change_5d_pct": -7.634,
+          "turnover_amount": 1305718.0,
+          "turnover_vs_20d": 0.7042,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "000034.SZ",
-          "name": "��������",
+          "name": "神州数码",
           "day_change_pct": 4.2714,
           "change_5d_pct": -3.6005,
           "turnover_amount": 434731.0,
@@ -31,20 +43,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "000670.SZ",
-          "name": "ӯ��΢",
-          "day_change_pct": 0.149,
-          "change_5d_pct": 0.9009,
-          "turnover_amount": 427679.0,
-          "turnover_vs_20d": 0.8838,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "000818.SZ",
-          "name": "�����Ƽ�",
+          "name": "航锦科技",
           "day_change_pct": 1.6418,
           "change_5d_pct": 10.9121,
           "turnover_amount": 342074.0,
@@ -55,24 +55,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "001298.SZ",
-          "name": "���Ϻ�",
-          "day_change_pct": 1.4423,
-          "change_5d_pct": 6.2303,
-          "turnover_amount": 81703.0,
-          "turnover_vs_20d": 0.6318,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "001309.SZ",
-          "name": "������",
-          "day_change_pct": 4.3496,
-          "change_5d_pct": 0.7581,
-          "turnover_amount": 247688.0,
-          "turnover_vs_20d": 1.2545,
+          "code": "001287.SZ",
+          "name": "中电港",
+          "day_change_pct": 4.1608,
+          "change_5d_pct": 3.9641,
+          "turnover_amount": 228973.0,
+          "turnover_vs_20d": 0.531,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -80,7 +68,7 @@
         },
         {
           "code": "001389.SZ",
-          "name": "��ϿƼ�",
+          "name": "广合科技",
           "day_change_pct": 8.6072,
           "change_5d_pct": 1.2735,
           "turnover_amount": 97024.0,
@@ -92,7 +80,7 @@
         },
         {
           "code": "002049.SZ",
-          "name": "�Ϲ��΢",
+          "name": "紫光国微",
           "day_change_pct": 2.2621,
           "change_5d_pct": 2.7107,
           "turnover_amount": 219506.0,
@@ -104,7 +92,7 @@
         },
         {
           "code": "002072.SZ",
-          "name": "�����",
+          "name": "凯瑞德",
           "day_change_pct": 3.2951,
           "change_5d_pct": 5.5637,
           "turnover_amount": 52534.0,
@@ -116,7 +104,7 @@
         },
         {
           "code": "002077.SZ",
-          "name": "��۹ɷ�",
+          "name": "大港股份",
           "day_change_pct": 3.9029,
           "change_5d_pct": 2.1313,
           "turnover_amount": 388399.0,
@@ -128,7 +116,7 @@
         },
         {
           "code": "002119.SZ",
-          "name": "��ǿ����",
+          "name": "康强电子",
           "day_change_pct": 5.5729,
           "change_5d_pct": -7.8636,
           "turnover_amount": 360209.0,
@@ -139,36 +127,36 @@
           "quote_status": "ok"
         },
         {
-          "code": "002213.SZ",
-          "name": "��Ϊ�ɷ�",
-          "day_change_pct": 5.1282,
-          "change_5d_pct": -2.4173,
-          "turnover_amount": 133276.0,
-          "turnover_vs_20d": 0.9129,
+          "code": "002156.SZ",
+          "name": "通富微电",
+          "day_change_pct": 8.2976,
+          "change_5d_pct": -19.4203,
+          "turnover_amount": 1426086.0,
+          "turnover_vs_20d": 0.7043,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "ok"
         },
         {
-          "code": "002371.SZ",
-          "name": "��������",
-          "day_change_pct": 7.1262,
-          "change_5d_pct": -3.9161,
-          "turnover_amount": 145006.0,
-          "turnover_vs_20d": 0.938,
+          "code": "002185.SZ",
+          "name": "华天科技",
+          "day_change_pct": 5.1456,
+          "change_5d_pct": -11.1048,
+          "turnover_amount": 3135976.0,
+          "turnover_vs_20d": 0.5891,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "ok"
         },
         {
-          "code": "002413.SZ",
-          "name": "�׿Ʒ���",
-          "day_change_pct": 2.214,
-          "change_5d_pct": 5.4569,
-          "turnover_amount": 420466.0,
-          "turnover_vs_20d": 0.699,
+          "code": "002409.SZ",
+          "name": "雅克科技",
+          "day_change_pct": 7.0879,
+          "change_5d_pct": -22.2015,
+          "turnover_amount": 401298.0,
+          "turnover_vs_20d": 1.0087,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -176,7 +164,7 @@
         },
         {
           "code": "002415.SZ",
-          "name": "��������",
+          "name": "海康威视",
           "day_change_pct": 1.8182,
           "change_5d_pct": 6.9963,
           "turnover_amount": 1144505.0,
@@ -188,7 +176,7 @@
         },
         {
           "code": "002559.SZ",
-          "name": "�����ɷ�",
+          "name": "亚威股份",
           "day_change_pct": 2.7964,
           "change_5d_pct": 1.9978,
           "turnover_amount": 279149.0,
@@ -200,7 +188,7 @@
         },
         {
           "code": "002579.SZ",
-          "name": "�о�����",
+          "name": "中京电子",
           "day_change_pct": 9.972,
           "change_5d_pct": 0.0848,
           "turnover_amount": 358818.0,
@@ -211,32 +199,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "002654.SZ",
-          "name": "����Ƽ�",
-          "day_change_pct": 5.3182,
-          "change_5d_pct": 5.7793,
-          "turnover_amount": 514532.0,
-          "turnover_vs_20d": 0.8883,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "002916.SZ",
-          "name": "���ϵ�·",
-          "day_change_pct": 9.9997,
-          "change_5d_pct": 4.5395,
-          "turnover_amount": 105098.0,
-          "turnover_vs_20d": 0.7665,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "002935.SZ",
-          "name": "��µ���",
+          "name": "天奥电子",
           "day_change_pct": 2.1879,
           "change_5d_pct": 6.2918,
           "turnover_amount": 46301.0,
@@ -247,8 +211,32 @@
           "quote_status": "ok"
         },
         {
+          "code": "002975.SZ",
+          "name": "博杰股份",
+          "day_change_pct": 9.9957,
+          "change_5d_pct": -3.4881,
+          "turnover_amount": 69021.0,
+          "turnover_vs_20d": 0.6467,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "300037.SZ",
+          "name": "新宙邦",
+          "day_change_pct": 4.2644,
+          "change_5d_pct": 8.149,
+          "turnover_amount": 169806.0,
+          "turnover_vs_20d": 0.705,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "300042.SZ",
-          "name": "�ʿƿƼ�",
+          "name": "朗科科技",
           "day_change_pct": 6.2484,
           "change_5d_pct": 5.0694,
           "turnover_amount": 183612.0,
@@ -260,7 +248,7 @@
         },
         {
           "code": "300054.SZ",
-          "name": "�����ɷ�",
+          "name": "鼎龙股份",
           "day_change_pct": 11.3672,
           "change_5d_pct": -1.7669,
           "turnover_amount": 510451.0,
@@ -271,8 +259,20 @@
           "quote_status": "ok"
         },
         {
+          "code": "300131.SZ",
+          "name": "英唐智控",
+          "day_change_pct": 13.0501,
+          "change_5d_pct": 6.1254,
+          "turnover_amount": 787880.0,
+          "turnover_vs_20d": 1.0231,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "300151.SZ",
-          "name": "����Ƽ�",
+          "name": "昌红科技",
           "day_change_pct": 6.7114,
           "change_5d_pct": 3.6957,
           "turnover_amount": 181225.0,
@@ -284,7 +284,7 @@
         },
         {
           "code": "300184.SZ",
-          "name": "��Դ��Ϣ",
+          "name": "力源信息",
           "day_change_pct": 4.4003,
           "change_5d_pct": 5.9545,
           "turnover_amount": 633022.0,
@@ -296,7 +296,7 @@
         },
         {
           "code": "300223.SZ",
-          "name": "�����ɷ�",
+          "name": "君正股份",
           "day_change_pct": 6.1008,
           "change_5d_pct": -0.6609,
           "turnover_amount": 423299.0,
@@ -308,7 +308,7 @@
         },
         {
           "code": "300236.SZ",
-          "name": "�Ϻ�����",
+          "name": "上海新阳",
           "day_change_pct": 6.3787,
           "change_5d_pct": 1.9378,
           "turnover_amount": 100154.0,
@@ -320,7 +320,7 @@
         },
         {
           "code": "300308.SZ",
-          "name": "�м���",
+          "name": "中际旭创",
           "day_change_pct": 13.2399,
           "change_5d_pct": 12.554,
           "turnover_amount": 505913.0,
@@ -332,7 +332,7 @@
         },
         {
           "code": "300316.SZ",
-          "name": "��ʢ����",
+          "name": "晶盛机电",
           "day_change_pct": 2.4328,
           "change_5d_pct": 4.0042,
           "turnover_amount": 132792.0,
@@ -343,12 +343,24 @@
           "quote_status": "ok"
         },
         {
-          "code": "300455.SZ",
-          "name": "������װ",
-          "day_change_pct": 2.3454,
-          "change_5d_pct": 11.8229,
-          "turnover_amount": 76020.0,
-          "turnover_vs_20d": 0.7938,
+          "code": "300319.SZ",
+          "name": "麦捷科技",
+          "day_change_pct": 5.9441,
+          "change_5d_pct": 2.5728,
+          "turnover_amount": 946475.0,
+          "turnover_vs_20d": 1.037,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "300398.SZ",
+          "name": "飞凯材料",
+          "day_change_pct": 7.0714,
+          "change_5d_pct": -2.845,
+          "turnover_amount": 390026.0,
+          "turnover_vs_20d": 0.8011,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -356,7 +368,7 @@
         },
         {
           "code": "300475.SZ",
-          "name": "��ũо��",
+          "name": "香农芯创",
           "day_change_pct": 6.0957,
           "change_5d_pct": -3.4427,
           "turnover_amount": 300841.0,
@@ -368,7 +380,7 @@
         },
         {
           "code": "300487.SZ",
-          "name": "�����Ƽ�",
+          "name": "蓝晓科技",
           "day_change_pct": 12.3472,
           "change_5d_pct": 5.1044,
           "turnover_amount": 126131.0,
@@ -380,7 +392,7 @@
         },
         {
           "code": "300567.SZ",
-          "name": "�������",
+          "name": "精测电子",
           "day_change_pct": 9.2934,
           "change_5d_pct": -12.8367,
           "turnover_amount": 119446.0,
@@ -392,7 +404,7 @@
         },
         {
           "code": "300650.SZ",
-          "name": "̫���ɷ�",
+          "name": "太龙股份",
           "day_change_pct": 2.0036,
           "change_5d_pct": 9.1618,
           "turnover_amount": 57620.0,
@@ -403,8 +415,20 @@
           "quote_status": "ok"
         },
         {
+          "code": "300655.SZ",
+          "name": "晶瑞电材",
+          "day_change_pct": 4.3215,
+          "change_5d_pct": -2.8962,
+          "turnover_amount": 593888.0,
+          "turnover_vs_20d": 0.7356,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "300661.SZ",
-          "name": "ʥ��ɷ�",
+          "name": "圣邦股份",
           "day_change_pct": 7.5847,
           "change_5d_pct": 6.9165,
           "turnover_amount": 184782.0,
@@ -416,7 +440,7 @@
         },
         {
           "code": "300666.SZ",
-          "name": "�������",
+          "name": "江丰电子",
           "day_change_pct": 8.1455,
           "change_5d_pct": -10.2861,
           "turnover_amount": 170874.0,
@@ -427,8 +451,20 @@
           "quote_status": "ok"
         },
         {
+          "code": "300671.SZ",
+          "name": "富满微",
+          "day_change_pct": 9.4487,
+          "change_5d_pct": -13.8115,
+          "turnover_amount": 186815.0,
+          "turnover_vs_20d": 0.951,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "300672.SZ",
-          "name": "����΢",
+          "name": "国科微",
           "day_change_pct": 9.1532,
           "change_5d_pct": -1.7765,
           "turnover_amount": 123190.0,
@@ -440,7 +476,7 @@
         },
         {
           "code": "300706.SZ",
-          "name": "��ʯ��",
+          "name": "阿石创",
           "day_change_pct": 7.2089,
           "change_5d_pct": -4.7208,
           "turnover_amount": 103124.0,
@@ -452,7 +488,7 @@
         },
         {
           "code": "300751.SZ",
-          "name": "��Ϊ�ɷ�",
+          "name": "迈为股份",
           "day_change_pct": 6.8261,
           "change_5d_pct": -7.3636,
           "turnover_amount": 80364.0,
@@ -464,7 +500,7 @@
         },
         {
           "code": "300857.SZ",
-          "name": "Э������",
+          "name": "协创数据",
           "day_change_pct": 17.6758,
           "change_5d_pct": 13.0341,
           "turnover_amount": 375454.0,
@@ -476,7 +512,7 @@
         },
         {
           "code": "300903.SZ",
-          "name": "����ɷ�",
+          "name": "科翔股份",
           "day_change_pct": 6.5969,
           "change_5d_pct": -18.7587,
           "turnover_amount": 256567.0,
@@ -488,7 +524,7 @@
         },
         {
           "code": "300975.SZ",
-          "name": "�������",
+          "name": "商络电子",
           "day_change_pct": 6.8654,
           "change_5d_pct": -3.782,
           "turnover_amount": 485340.0,
@@ -500,7 +536,7 @@
         },
         {
           "code": "301099.SZ",
-          "name": "�Ŵ�����",
+          "name": "雅创电子",
           "day_change_pct": 6.5546,
           "change_5d_pct": -3.2905,
           "turnover_amount": 87357.0,
@@ -512,7 +548,7 @@
         },
         {
           "code": "301132.SZ",
-          "name": "�����Ƽ�",
+          "name": "满坤科技",
           "day_change_pct": 8.7205,
           "change_5d_pct": 9.228,
           "turnover_amount": 57921.0,
@@ -524,7 +560,7 @@
         },
         {
           "code": "301265.SZ",
-          "name": "���¿Ƽ�",
+          "name": "华新科技",
           "day_change_pct": 5.572,
           "change_5d_pct": -1.3296,
           "turnover_amount": 63035.0,
@@ -536,7 +572,7 @@
         },
         {
           "code": "301308.SZ",
-          "name": "������",
+          "name": "江波龙",
           "day_change_pct": 5.0813,
           "change_5d_pct": 1.8333,
           "turnover_amount": 184630.0,
@@ -548,7 +584,7 @@
         },
         {
           "code": "301348.SZ",
-          "name": "��������",
+          "name": "蓝箭电子",
           "day_change_pct": 3.6836,
           "change_5d_pct": 6.0976,
           "turnover_amount": 120453.0,
@@ -560,7 +596,7 @@
         },
         {
           "code": "301379.SZ",
-          "name": "��ɽ����",
+          "name": "天山电子",
           "day_change_pct": 7.2276,
           "change_5d_pct": -5.6926,
           "turnover_amount": 202815.0,
@@ -572,7 +608,7 @@
         },
         {
           "code": "301563.SZ",
-          "name": "�ƺ�о��",
+          "name": "云汉芯城",
           "day_change_pct": 5.3656,
           "change_5d_pct": 3.9274,
           "turnover_amount": 19525.0,
@@ -583,36 +619,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "301583.SZ",
-          "name": "����˹",
-          "day_change_pct": -0.5556,
-          "change_5d_pct": -12.0845,
-          "turnover_amount": 139967.0,
-          "turnover_vs_20d": 0.8667,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "301592.SZ",
-          "name": "����һ��",
-          "day_change_pct": 5.3701,
-          "change_5d_pct": 5.4491,
-          "turnover_amount": 16369.0,
-          "turnover_vs_20d": 1.0074,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "600141.SH",
-          "name": "�˷�����",
-          "day_change_pct": 5.09,
-          "change_5d_pct": 5.5652,
-          "turnover_amount": 434292.0,
-          "turnover_vs_20d": 1.1103,
+          "code": "301666.SZ",
+          "name": "大普微-UW",
+          "day_change_pct": 8.3474,
+          "change_5d_pct": -6.1711,
+          "turnover_amount": 39207.0,
+          "turnover_vs_20d": 1.0644,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -620,7 +632,7 @@
         },
         {
           "code": "600171.SH",
-          "name": "�Ϻ�����",
+          "name": "上海贝岭",
           "day_change_pct": 1.5184,
           "change_5d_pct": 4.9327,
           "turnover_amount": 150480.0,
@@ -631,24 +643,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "600183.SH",
-          "name": "����Ƽ�",
-          "day_change_pct": 9.9971,
-          "change_5d_pct": -1.023,
-          "turnover_amount": 609875.0,
-          "turnover_vs_20d": 0.8576,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "600206.SH",
-          "name": "�����²�",
-          "day_change_pct": 9.1823,
-          "change_5d_pct": -16.8212,
-          "turnover_amount": 967576.0,
-          "turnover_vs_20d": 0.8609,
+          "code": "600584.SH",
+          "name": "长电科技",
+          "day_change_pct": 7.2295,
+          "change_5d_pct": -14.864,
+          "turnover_amount": 1435993.0,
+          "turnover_vs_20d": 0.6977,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -656,7 +656,7 @@
         },
         {
           "code": "600605.SH",
-          "name": "��ͨ��Դ",
+          "name": "汇通能源",
           "day_change_pct": 0.7201,
           "change_5d_pct": -9.3927,
           "turnover_amount": 32203.0,
@@ -667,20 +667,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "600667.SH",
-          "name": "̫��ʵҵ",
-          "day_change_pct": 5.344,
-          "change_5d_pct": -6.6413,
-          "turnover_amount": 3595757.0,
-          "turnover_vs_20d": 1.1384,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "601133.SH",
-          "name": "�سϹɷ�",
+          "name": "柏诚股份",
           "day_change_pct": 5.8904,
           "change_5d_pct": -14.428,
           "turnover_amount": 184701.0,
@@ -692,7 +680,7 @@
         },
         {
           "code": "603019.SH",
-          "name": "�п����",
+          "name": "中科曙光",
           "day_change_pct": 2.2225,
           "change_5d_pct": -7.1118,
           "turnover_amount": 461857.0,
@@ -703,20 +691,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "603078.SH",
-          "name": "����΢",
-          "day_change_pct": 6.0435,
-          "change_5d_pct": -11.9938,
-          "turnover_amount": 189019.0,
-          "turnover_vs_20d": 0.6114,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "603203.SH",
-          "name": "�������",
+          "name": "快克智能",
           "day_change_pct": 10.0,
           "change_5d_pct": -1.9091,
           "turnover_amount": 98733.0,
@@ -728,7 +704,7 @@
         },
         {
           "code": "603283.SH",
-          "name": "���ڹɷ�",
+          "name": "赛腾股份",
           "day_change_pct": 7.1838,
           "change_5d_pct": -6.2813,
           "turnover_amount": 211600.0,
@@ -740,7 +716,7 @@
         },
         {
           "code": "603316.SH",
-          "name": "�ϰ�ɷ�",
+          "name": "诚邦股份",
           "day_change_pct": 4.6798,
           "change_5d_pct": 1.432,
           "turnover_amount": 145802.0,
@@ -751,20 +727,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "603335.SH",
-          "name": "������",
-          "day_change_pct": 1.5025,
-          "change_5d_pct": 7.8014,
-          "turnover_amount": 165387.0,
-          "turnover_vs_20d": 0.8954,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "603353.SH",
-          "name": "��˳ʯ��",
+          "name": "和顺石油",
           "day_change_pct": 3.4234,
           "change_5d_pct": 1.8092,
           "turnover_amount": 35664.0,
@@ -775,12 +739,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "603650.SH",
-          "name": "ͮ���²�",
-          "day_change_pct": 5.9681,
-          "change_5d_pct": -16.8727,
-          "turnover_amount": 171030.0,
-          "turnover_vs_20d": 0.673,
+          "code": "603459.SH",
+          "name": "红板科技",
+          "day_change_pct": 10.0038,
+          "change_5d_pct": -1.0277,
+          "turnover_amount": 167033.0,
+          "turnover_vs_20d": 0.942,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -788,7 +752,7 @@
         },
         {
           "code": "603690.SH",
-          "name": "�����Ƽ�",
+          "name": "至纯科技",
           "day_change_pct": 3.0189,
           "change_5d_pct": -16.0,
           "turnover_amount": 482406.0,
@@ -800,7 +764,7 @@
         },
         {
           "code": "603776.SH",
-          "name": "������",
+          "name": "永安行",
           "day_change_pct": 0.5774,
           "change_5d_pct": 2.2958,
           "turnover_amount": 12446.0,
@@ -811,32 +775,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "603938.SH",
-          "name": "���ڹɷ�",
-          "day_change_pct": 10.0029,
-          "change_5d_pct": -5.0051,
-          "turnover_amount": 140905.0,
-          "turnover_vs_20d": 0.8129,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "603986.SH",
-          "name": "���״���",
-          "day_change_pct": 4.4844,
-          "change_5d_pct": -8.86,
-          "turnover_amount": 632232.0,
-          "turnover_vs_20d": 0.9481,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "603991.SH",
-          "name": "���ȹɷ�",
+          "name": "领先股份",
           "day_change_pct": 6.0661,
           "change_5d_pct": -2.7476,
           "turnover_amount": 31958.0,
@@ -848,7 +788,7 @@
         },
         {
           "code": "605178.SH",
-          "name": "ʱ�տƼ�",
+          "name": "时空科技",
           "day_change_pct": 1.5299,
           "change_5d_pct": -6.4253,
           "turnover_amount": 39018.0,
@@ -860,7 +800,7 @@
         },
         {
           "code": "605358.SH",
-          "name": "����΢",
+          "name": "立昂微",
           "day_change_pct": 6.8042,
           "change_5d_pct": -4.6077,
           "turnover_amount": 412190.0,
@@ -871,20 +811,8 @@
           "quote_status": "ok"
         },
         {
-          "code": "605589.SH",
-          "name": "ʥȪ����",
-          "day_change_pct": 9.9939,
-          "change_5d_pct": 0.3047,
-          "turnover_amount": 379282.0,
-          "turnover_vs_20d": 0.9741,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
           "code": "688012.SH",
-          "name": "��΢��˾",
+          "name": "中微公司",
           "day_change_pct": 2.5464,
           "change_5d_pct": -17.0392,
           "turnover_amount": 31297652.0,
@@ -895,24 +823,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "688019.SH",
-          "name": "�����Ƽ�",
-          "day_change_pct": 4.956,
-          "change_5d_pct": -10.0158,
-          "turnover_amount": 9459818.0,
-          "turnover_vs_20d": 0.8533,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "688053.SH",
-          "name": "ST˼����",
-          "day_change_pct": 3.5432,
-          "change_5d_pct": 10.202,
-          "turnover_amount": 498608.0,
-          "turnover_vs_20d": 0.5101,
+          "code": "688035.SH",
+          "name": "德邦科技",
+          "day_change_pct": 7.2516,
+          "change_5d_pct": -2.6266,
+          "turnover_amount": 4726451.0,
+          "turnover_vs_20d": 0.679,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -920,7 +836,7 @@
         },
         {
           "code": "688072.SH",
-          "name": "�ؾ��Ƽ�",
+          "name": "拓荆科技",
           "day_change_pct": 2.1356,
           "change_5d_pct": -14.8592,
           "turnover_amount": 8940811.0,
@@ -932,7 +848,7 @@
         },
         {
           "code": "688110.SH",
-          "name": "��о�ɷ�",
+          "name": "东芯股份",
           "day_change_pct": 4.8198,
           "change_5d_pct": -3.9811,
           "turnover_amount": 19871605.0,
@@ -944,7 +860,7 @@
         },
         {
           "code": "688120.SH",
-          "name": "�������",
+          "name": "华海清科",
           "day_change_pct": 0.4934,
           "change_5d_pct": -11.5853,
           "turnover_amount": 17024505.0,
@@ -956,7 +872,7 @@
         },
         {
           "code": "688122.SH",
-          "name": "��������",
+          "name": "西部超导",
           "day_change_pct": -0.8318,
           "change_5d_pct": 7.1714,
           "turnover_amount": 12162606.0,
@@ -967,8 +883,32 @@
           "quote_status": "ok"
         },
         {
+          "code": "688123.SH",
+          "name": "聚辰股份",
+          "day_change_pct": 9.2233,
+          "change_5d_pct": -3.5494,
+          "turnover_amount": 8950917.0,
+          "turnover_vs_20d": 0.6281,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "688126.SH",
+          "name": "沪硅产业",
+          "day_change_pct": 3.0277,
+          "change_5d_pct": -5.8498,
+          "turnover_amount": 87315132.0,
+          "turnover_vs_20d": 0.6174,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "688135.SH",
-          "name": "����оƬ",
+          "name": "利扬芯片",
           "day_change_pct": 5.7533,
           "change_5d_pct": -0.1841,
           "turnover_amount": 12277493.0,
@@ -980,7 +920,7 @@
         },
         {
           "code": "688167.SH",
-          "name": "���Ƽ�",
+          "name": "炬光科技",
           "day_change_pct": 13.6563,
           "change_5d_pct": 5.4613,
           "turnover_amount": 11390132.0,
@@ -992,7 +932,7 @@
         },
         {
           "code": "688170.SH",
-          "name": "��������",
+          "name": "德龙激光",
           "day_change_pct": 7.9392,
           "change_5d_pct": -2.2509,
           "turnover_amount": 4495608.0,
@@ -1004,7 +944,7 @@
         },
         {
           "code": "688206.SH",
-          "name": "���׵���",
+          "name": "概伦电子",
           "day_change_pct": 2.9737,
           "change_5d_pct": 0.463,
           "turnover_amount": 6879940.0,
@@ -1016,7 +956,7 @@
         },
         {
           "code": "688216.SH",
-          "name": "���ɿƼ�",
+          "name": "气派科技",
           "day_change_pct": 8.5166,
           "change_5d_pct": 0.1476,
           "turnover_amount": 5055917.0,
@@ -1028,7 +968,7 @@
         },
         {
           "code": "688262.SH",
-          "name": "��о�Ƽ�",
+          "name": "国芯科技",
           "day_change_pct": 5.4789,
           "change_5d_pct": 5.523,
           "turnover_amount": 12285639.0,
@@ -1040,7 +980,7 @@
         },
         {
           "code": "688328.SH",
-          "name": "��ƴ�",
+          "name": "深科达",
           "day_change_pct": 14.7612,
           "change_5d_pct": -4.7998,
           "turnover_amount": 9871928.0,
@@ -1051,8 +991,20 @@
           "quote_status": "ok"
         },
         {
+          "code": "688347.SH",
+          "name": "华虹宏力",
+          "day_change_pct": 7.9499,
+          "change_5d_pct": -15.6762,
+          "turnover_amount": 24467324.0,
+          "turnover_vs_20d": 0.8326,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "688380.SH",
-          "name": "��΢�뵼",
+          "name": "中微半导",
           "day_change_pct": 6.0746,
           "change_5d_pct": 2.0028,
           "turnover_amount": 10238606.0,
@@ -1064,7 +1016,7 @@
         },
         {
           "code": "688385.SH",
-          "name": "����΢��",
+          "name": "复旦微电",
           "day_change_pct": 4.8347,
           "change_5d_pct": 5.0083,
           "turnover_amount": 13865594.0,
@@ -1075,24 +1027,12 @@
           "quote_status": "ok"
         },
         {
-          "code": "688392.SH",
-          "name": "���ɳ���",
-          "day_change_pct": 6.8571,
-          "change_5d_pct": -11.6203,
-          "turnover_amount": 3906359.0,
-          "turnover_vs_20d": 0.7364,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "688403.SH",
-          "name": "��ɹɷ�",
-          "day_change_pct": 10.8033,
-          "change_5d_pct": -10.7939,
-          "turnover_amount": 60159989.0,
-          "turnover_vs_20d": 0.8038,
+          "code": "688396.SH",
+          "name": "华润微",
+          "day_change_pct": 4.456,
+          "change_5d_pct": -3.4243,
+          "turnover_amount": 23331130.0,
+          "turnover_vs_20d": 0.7684,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -1100,7 +1040,7 @@
         },
         {
           "code": "688416.SH",
-          "name": "��˸�ɷ�",
+          "name": "恒烁股份",
           "day_change_pct": 5.7925,
           "change_5d_pct": -0.1426,
           "turnover_amount": 6397782.0,
@@ -1112,7 +1052,7 @@
         },
         {
           "code": "688432.SH",
-          "name": "���й�",
+          "name": "有研硅",
           "day_change_pct": 5.06,
           "change_5d_pct": -29.9075,
           "turnover_amount": 49944632.0,
@@ -1123,36 +1063,24 @@
           "quote_status": "ok"
         },
         {
-          "code": "688439.SH",
-          "name": "�񻪷��",
-          "day_change_pct": 0.1752,
-          "change_5d_pct": 6.7751,
-          "turnover_amount": 1449969.0,
-          "turnover_vs_20d": 0.5886,
+          "code": "688449.SH",
+          "name": "联芸科技",
+          "day_change_pct": 8.4559,
+          "change_5d_pct": 1.5685,
+          "turnover_amount": 10024003.0,
+          "turnover_vs_20d": 0.851,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "ok"
         },
         {
-          "code": "688503.SH",
-          "name": "�ۺͲ���",
-          "day_change_pct": 5.4975,
-          "change_5d_pct": -5.6662,
-          "turnover_amount": 10128706.0,
-          "turnover_vs_20d": 0.6439,
-          "data_source": "tencent",
-          "source": "provider_board",
-          "member_source": "provider_board",
-          "quote_status": "ok"
-        },
-        {
-          "code": "688596.SH",
-          "name": "�����Ƽ�",
-          "day_change_pct": 10.0,
-          "change_5d_pct": -2.6846,
-          "turnover_amount": 42328014.0,
-          "turnover_vs_20d": 1.1864,
+          "code": "688525.SH",
+          "name": "佰维存储",
+          "day_change_pct": 5.1886,
+          "change_5d_pct": 3.6746,
+          "turnover_amount": 31888706.0,
+          "turnover_vs_20d": 0.7949,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
@@ -1160,7 +1088,7 @@
         },
         {
           "code": "688627.SH",
-          "name": "���Ǵ�",
+          "name": "精智达",
           "day_change_pct": 8.3683,
           "change_5d_pct": -14.81,
           "turnover_amount": 5113849.0,
@@ -1171,8 +1099,56 @@
           "quote_status": "ok"
         },
         {
+          "code": "688652.SH",
+          "name": "京仪装备",
+          "day_change_pct": 12.5372,
+          "change_5d_pct": -9.9639,
+          "turnover_amount": 8046645.0,
+          "turnover_vs_20d": 0.9675,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "688709.SH",
+          "name": "成都华微",
+          "day_change_pct": 2.6667,
+          "change_5d_pct": 0.8333,
+          "turnover_amount": 5894839.0,
+          "turnover_vs_20d": 0.6549,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "688727.SH",
+          "name": "恒坤新材",
+          "day_change_pct": 5.1377,
+          "change_5d_pct": -5.2732,
+          "turnover_amount": 4042749.0,
+          "turnover_vs_20d": 0.6587,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "688766.SH",
+          "name": "普冉股份",
+          "day_change_pct": 7.3058,
+          "change_5d_pct": 8.3132,
+          "turnover_amount": 16448565.0,
+          "turnover_vs_20d": 1.1898,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
           "code": "688783.SH",
-          "name": "�����Ȳ�-U",
+          "name": "西安奕材-U",
           "day_change_pct": 8.1328,
           "change_5d_pct": -8.3363,
           "turnover_amount": 31874479.0,
@@ -1184,7 +1160,7 @@
         },
         {
           "code": "688809.SH",
-          "name": "ǿһ�ɷ�",
+          "name": "强一股份",
           "day_change_pct": 7.1444,
           "change_5d_pct": -0.7952,
           "turnover_amount": 1883258.0,
@@ -1195,37 +1171,61 @@
           "quote_status": "ok"
         },
         {
-          "code": "688835.SH",
-          "name": "�߿�����",
+          "code": "688825.SH",
+          "name": "长鑫科技",
+          "day_change_pct": 0.0182,
+          "change_5d_pct": 17.0213,
+          "turnover_amount": 508205571.0,
+          "turnover_vs_20d": 0.4283,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
+        },
+        {
+          "code": "688826.SH",
+          "name": "频准激光",
           "day_change_pct": null,
           "change_5d_pct": null,
           "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "no_data"
         },
         {
-          "code": "920139.BJ",
-          "name": "����ɷ�",
+          "code": "688835.SH",
+          "name": "高凯技术",
           "day_change_pct": null,
           "change_5d_pct": null,
           "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "no_data"
+        },
+        {
+          "code": "688981.SH",
+          "name": "中芯国际",
+          "day_change_pct": 3.9485,
+          "change_5d_pct": -11.4119,
+          "turnover_amount": 64430734.0,
+          "turnover_vs_20d": 0.7396,
+          "data_source": "tencent",
+          "source": "provider_board",
+          "member_source": "provider_board",
+          "quote_status": "ok"
         },
         {
           "code": "920186.BJ",
-          "name": "�п���",
+          "name": "中科仪",
           "day_change_pct": null,
           "change_5d_pct": null,
           "turnover_amount": null,
           "turnover_vs_20d": null,
-          "data_source": "tencent",
+          "data_source": "eastmoney",
           "source": "provider_board",
           "member_source": "provider_board",
           "quote_status": "no_data"

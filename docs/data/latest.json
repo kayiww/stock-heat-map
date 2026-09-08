@@ -1,6 +1,6 @@
 {
   "data_time": "2026-09-08",
-  "run_time": "2026-09-08T20:16:29+08:00",
+  "run_time": "2026-09-08T20:49:51+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -11,15 +11,14 @@
   "status": "partial",
   "message": "数据已部分更新，存在数据源异常",
   "coverage": {
-    "overall": 0.9967,
+    "overall": 0.9901,
     "by_board": {
-      "ai_compute": 1.0,
+      "ai_compute": 0.9804,
       "semiconductor": 0.99,
       "custom_watch": 1.0
     }
   },
   "error_flags": [
-    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
@@ -333,28 +332,26 @@
       "priority": 10,
       "note": "重点观察算力基础设施、服务器、光模块和相关硬件链。",
       "member_count": 102,
-      "valid_quote_count": 102,
-      "invalid_quote_count": 0,
-      "coverage": 1.0,
-      "equal_weight_change_pct": -0.1654,
-      "weighted_change_pct": -0.4592,
-      "advance_ratio": 0.3529,
-      "turnover_amount": 650506282.0,
-      "turnover_vs_20d": 0.7523,
-      "source_board_change_pct": null,
-      "error_flags": [
-        "provider_members_stale"
-      ],
+      "valid_quote_count": 100,
+      "invalid_quote_count": 2,
+      "coverage": 0.9804,
+      "equal_weight_change_pct": 1.0861,
+      "weighted_change_pct": 0.5444,
+      "advance_ratio": 0.55,
+      "turnover_amount": 525270321.0,
+      "turnover_vs_20d": 0.7168,
+      "source_board_change_pct": -0.01,
+      "error_flags": [],
       "status": [],
       "eligible_for_signal": true,
-      "synthetic_index": 115.2984,
-      "change_5d_pct": -0.7539,
-      "change_20d_pct": -1.1523,
-      "change_60d_pct": -11.0554,
-      "position_20d": 0.304,
-      "position_60d": 0.2932,
-      "consecutive_up_days": 0,
-      "consecutive_down_days": 1
+      "synthetic_index": 117.0292,
+      "change_5d_pct": -0.0175,
+      "change_20d_pct": -0.0113,
+      "change_60d_pct": -9.7202,
+      "position_20d": 0.3656,
+      "position_60d": 0.2782,
+      "consecutive_up_days": 2,
+      "consecutive_down_days": 0
     },
     {
       "date": "2026-09-08",

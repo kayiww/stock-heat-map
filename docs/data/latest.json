@@ -1,6 +1,6 @@
 {
   "data_time": "2026-09-10",
-  "run_time": "2026-09-10T20:21:31+08:00",
+  "run_time": "2026-09-10T20:52:44+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -19,7 +19,6 @@
     }
   },
   "error_flags": [
-    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
@@ -336,27 +335,23 @@
       "valid_quote_count": 100,
       "invalid_quote_count": 2,
       "coverage": 0.9804,
-      "equal_weight_change_pct": -0.2768,
-      "weighted_change_pct": -0.5046,
-      "advance_ratio": 0.27,
-      "turnover_amount": 266480221.0,
-      "turnover_vs_20d": 0.5499,
-      "source_board_change_pct": -0.18,
-      "error_flags": [
-        "provider_members_stale"
-      ],
-      "status": [
-        "低位观察"
-      ],
+      "equal_weight_change_pct": 0.5625,
+      "weighted_change_pct": -0.0344,
+      "advance_ratio": 0.42,
+      "turnover_amount": 423909328.0,
+      "turnover_vs_20d": 0.5478,
+      "source_board_change_pct": null,
+      "error_flags": [],
+      "status": [],
       "eligible_for_signal": true,
-      "synthetic_index": 114.1509,
-      "change_5d_pct": 0.7012,
-      "change_20d_pct": -1.9767,
-      "change_60d_pct": -16.7288,
-      "position_20d": 0.2684,
-      "position_60d": 0.2448,
-      "consecutive_up_days": 0,
-      "consecutive_down_days": 1
+      "synthetic_index": 115.1267,
+      "change_5d_pct": 0.9521,
+      "change_20d_pct": -1.8159,
+      "change_60d_pct": -16.017,
+      "position_20d": 0.3073,
+      "position_60d": 0.2664,
+      "consecutive_up_days": 1,
+      "consecutive_down_days": 0
     },
     {
       "date": "2026-09-10",
@@ -420,19 +415,7 @@
   "rankings": {
     "strong": [],
     "overheat": [],
-    "low": [
-      {
-        "board_id": "ai_compute",
-        "board_name": "AI算力",
-        "equal_weight_change_pct": -0.2768,
-        "change_5d_pct": 0.7012,
-        "position_60d": 0.2448,
-        "turnover_vs_20d": 0.5499,
-        "status": [
-          "低位观察"
-        ]
-      }
-    ],
+    "low": [],
     "rotation": []
   }
 }

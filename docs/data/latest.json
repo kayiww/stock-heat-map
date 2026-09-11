@@ -1,6 +1,6 @@
 {
   "data_time": "2026-09-11",
-  "run_time": "2026-09-11T20:20:19+08:00",
+  "run_time": "2026-09-11T20:47:12+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -337,7 +337,7 @@
       "invalid_quote_count": 2,
       "coverage": 0.9804,
       "equal_weight_change_pct": -1.5694,
-      "weighted_change_pct": -0.4362,
+      "weighted_change_pct": -0.1002,
       "advance_ratio": 0.15,
       "turnover_amount": 578180577.0,
       "turnover_vs_20d": 0.7805,

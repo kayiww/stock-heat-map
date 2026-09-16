@@ -1,6 +1,6 @@
 {
   "data_time": "2026-09-16",
-  "run_time": "2026-09-16T20:48:37+08:00",
+  "run_time": "2026-09-16T21:26:32+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -291,7 +291,7 @@
     "FETCH ok source=tencent operation=stock_history target=688783.SH status=200 bytes=6256 attempt=1",
     "BOARD 半导体 requesting stock history code=688797.SH",
     "FETCH start source=tencent operation=stock_history target=688797.SH",
-    "FETCH ok source=tencent operation=stock_history target=688797.SH status=200 bytes=5851 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=688797.SH status=200 bytes=5844 attempt=1",
     "BOARD 半导体 requesting stock history code=688820.SH",
     "FETCH start source=tencent operation=stock_history target=688820.SH",
     "FETCH ok source=tencent operation=stock_history target=688820.SH status=200 bytes=6535 attempt=1",
@@ -316,13 +316,13 @@
     "FETCH ok source=tencent operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=200 bytes=1606 attempt=1",
     "BOARD 我的观察池 requesting stock history code=000001.SZ",
     "FETCH start source=tencent operation=stock_history target=000001.SZ",
-    "FETCH ok source=tencent operation=stock_history target=000001.SZ status=200 bytes=6316 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=000001.SZ status=200 bytes=6309 attempt=1",
     "BOARD 我的观察池 requesting stock history code=300750.SZ",
     "FETCH start source=tencent operation=stock_history target=300750.SZ",
-    "FETCH ok source=tencent operation=stock_history target=300750.SZ status=200 bytes=6587 attempt=1",
+    "FETCH ok source=tencent operation=stock_history target=300750.SZ status=200 bytes=6580 attempt=1",
     "BOARD 我的观察池 requesting stock history code=600519.SH",
     "FETCH start source=tencent operation=stock_history target=600519.SH",
-    "FETCH ok source=tencent operation=stock_history target=600519.SH status=200 bytes=6817 attempt=1"
+    "FETCH ok source=tencent operation=stock_history target=600519.SH status=200 bytes=6810 attempt=1"
   ],
   "boards": [
     {
@@ -340,7 +340,7 @@
       "advance_ratio": 0.9902,
       "turnover_amount": 674178781.0,
       "turnover_vs_20d": 1.2683,
-      "source_board_change_pct": 4.21,
+      "source_board_change_pct": null,
       "error_flags": [],
       "status": [
         "强势延续",

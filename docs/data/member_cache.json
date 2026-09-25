@@ -1,6 +1,6 @@
 {
   "ai_compute": {
-    "updated_at": "2026-09-24T21:30:10+08:00",
+    "updated_at": "2026-09-25T20:56:47+08:00",
     "provider_board": {
       "source": "eastmoney",
       "code": "BK1137",
@@ -611,7 +611,7 @@
     ]
   },
   "semiconductor": {
-    "updated_at": "2026-08-06T18:49:26+08:00",
+    "updated_at": "2026-09-25T20:58:43+08:00",
     "provider_board": {
       "source": "eastmoney",
       "code": "BK1036",
@@ -620,604 +620,604 @@
     },
     "members": [
       {
-        "code": "688693.SH",
-        "name": "锴威特",
-        "source": "provider",
-        "market_cap": 3027541497.0
-      },
-      {
-        "code": "688432.SH",
-        "name": "有研硅",
-        "source": "provider",
-        "market_cap": 47323925325.0
-      },
-      {
-        "code": "688530.SH",
-        "name": "欧莱新材",
-        "source": "provider",
-        "market_cap": 4082057694.0
-      },
-      {
-        "code": "688727.SH",
-        "name": "恒坤新材",
-        "source": "provider",
-        "market_cap": 2566341638.0
-      },
-      {
-        "code": "688702.SH",
-        "name": "盛科通信-U",
-        "source": "provider",
-        "market_cap": 79170855206.0
-      },
-      {
-        "code": "600584.SH",
-        "name": "长电科技",
-        "source": "provider",
-        "market_cap": 135762883426.0
-      },
-      {
-        "code": "600206.SH",
-        "name": "有研新材",
-        "source": "provider",
-        "market_cap": 37070570408.0
-      },
-      {
-        "code": "688403.SH",
-        "name": "汇成股份",
-        "source": "provider",
-        "market_cap": 23417254872.0
-      },
-      {
-        "code": "688699.SH",
-        "name": "明微电子",
-        "source": "provider",
-        "market_cap": 6581865472.0
-      },
-      {
-        "code": "688362.SH",
-        "name": "甬矽电子",
-        "source": "provider",
-        "market_cap": 29726954945.0
-      },
-      {
-        "code": "688146.SH",
-        "name": "中船特气",
-        "source": "provider",
-        "market_cap": 44651019336.0
-      },
-      {
-        "code": "688661.SH",
-        "name": "和林微纳",
-        "source": "provider",
-        "market_cap": 15796333904.0
-      },
-      {
-        "code": "300666.SZ",
-        "name": "江丰电子",
-        "source": "provider",
-        "market_cap": 52762648378.0
-      },
-      {
-        "code": "688512.SH",
-        "name": "慧智微-U",
-        "source": "provider",
-        "market_cap": 4381698996.0
-      },
-      {
-        "code": "688220.SH",
-        "name": "翱捷科技-U",
-        "source": "provider",
-        "market_cap": 43377802189.0
-      },
-      {
-        "code": "600641.SH",
-        "name": "先导基电",
-        "source": "provider",
-        "market_cap": 26467114925.0
-      },
-      {
-        "code": "688783.SH",
-        "name": "西安奕材-U",
-        "source": "provider",
-        "market_cap": 8335900000.0
-      },
-      {
-        "code": "688584.SH",
-        "name": "上海合晶",
-        "source": "provider",
-        "market_cap": 9866448610.0
-      },
-      {
-        "code": "603991.SH",
-        "name": "领先股份",
-        "source": "provider",
-        "market_cap": 11618255980.0
-      },
-      {
-        "code": "688409.SH",
-        "name": "富创精密",
-        "source": "provider",
-        "market_cap": 56281539710.0
-      },
-      {
-        "code": "688252.SH",
-        "name": "天德钰",
-        "source": "provider",
-        "market_cap": 7755044625.0
-      },
-      {
-        "code": "688620.SH",
-        "name": "安凯微",
-        "source": "provider",
-        "market_cap": 5930960000.0
-      },
-      {
-        "code": "605111.SH",
-        "name": "新洁能",
-        "source": "provider",
-        "market_cap": 22897284419.0
-      },
-      {
-        "code": "688200.SH",
-        "name": "华峰测控",
-        "source": "provider",
-        "market_cap": 79326835495.0
-      },
-      {
-        "code": "688653.SH",
-        "name": "康希通信",
-        "source": "provider",
-        "market_cap": 4144991921.0
-      },
-      {
-        "code": "002156.SZ",
-        "name": "通富微电",
-        "source": "provider",
-        "market_cap": 92503887453.0
-      },
-      {
-        "code": "603061.SH",
-        "name": "金海通",
-        "source": "provider",
-        "market_cap": 26772510000.0
-      },
-      {
-        "code": "688508.SH",
-        "name": "芯朋微",
-        "source": "provider",
-        "market_cap": 10255955798.0
-      },
-      {
-        "code": "603068.SH",
-        "name": "博通集成",
-        "source": "provider",
-        "market_cap": 6314352470.0
-      },
-      {
-        "code": "300706.SZ",
-        "name": "阿石创",
-        "source": "provider",
-        "market_cap": 5815602748.0
-      },
-      {
-        "code": "688216.SH",
-        "name": "气派科技",
-        "source": "provider",
-        "market_cap": 3197875802.0
-      },
-      {
-        "code": "605358.SH",
-        "name": "立昂微",
-        "source": "provider",
-        "market_cap": 33575228738.0
-      },
-      {
-        "code": "688233.SH",
-        "name": "神工股份",
-        "source": "provider",
-        "market_cap": 18665508666.0
-      },
-      {
-        "code": "002185.SZ",
-        "name": "华天科技",
-        "source": "provider",
-        "market_cap": 57348969326.0
-      },
-      {
-        "code": "688689.SH",
-        "name": "银河微电",
-        "source": "provider",
-        "market_cap": 5593450151.0
-      },
-      {
-        "code": "301536.SZ",
-        "name": "星宸科技",
-        "source": "provider",
-        "market_cap": 22275998178.0
-      },
-      {
-        "code": "688352.SH",
-        "name": "颀中科技",
-        "source": "provider",
-        "market_cap": 5815015001.0
-      },
-      {
-        "code": "688478.SH",
-        "name": "晶升股份",
-        "source": "provider",
-        "market_cap": 6436790786.0
-      },
-      {
-        "code": "301369.SZ",
-        "name": "联动科技",
-        "source": "provider",
-        "market_cap": 7417811353.0
-      },
-      {
-        "code": "300671.SZ",
-        "name": "富满微",
-        "source": "provider",
-        "market_cap": 13503207848.0
-      },
-      {
-        "code": "688720.SH",
-        "name": "艾森股份",
-        "source": "provider",
-        "market_cap": 4877452526.0
-      },
-      {
         "code": "603375.SH",
         "name": "盛景微",
         "source": "provider",
-        "market_cap": 2365634657.0
-      },
-      {
-        "code": "688797.SH",
-        "name": "臻宝科技",
-        "source": "provider",
-        "market_cap": 9791814763.0
+        "market_cap": 3141210753.0
       },
       {
         "code": "002119.SZ",
         "name": "康强电子",
         "source": "provider",
-        "market_cap": 8672813240.0
+        "market_cap": 11112159240.0
       },
       {
-        "code": "688381.SH",
-        "name": "帝奥微",
+        "code": "688286.SH",
+        "name": "敏芯股份",
         "source": "provider",
-        "market_cap": 7630425000.0
+        "market_cap": 4369894472.0
       },
       {
-        "code": "300782.SZ",
-        "name": "卓胜微",
+        "code": "600641.SH",
+        "name": "先导基电",
         "source": "provider",
-        "market_cap": 33788898058.0
+        "market_cap": 47983278675.0
       },
       {
-        "code": "688368.SH",
-        "name": "晶丰明源",
+        "code": "603068.SH",
+        "name": "博通集成",
         "source": "provider",
-        "market_cap": 14560313312.0
+        "market_cap": 7363202845.0
       },
       {
-        "code": "688048.SH",
-        "name": "长光华芯",
+        "code": "301583.SZ",
+        "name": "托伦斯",
         "source": "provider",
-        "market_cap": 47207768735.0
+        "market_cap": 4374663515.0
       },
       {
-        "code": "300373.SZ",
-        "name": "扬杰科技",
+        "code": "688082.SH",
+        "name": "盛美上海",
         "source": "provider",
-        "market_cap": 50977269991.0
+        "market_cap": 146651868507.0
       },
       {
-        "code": "688605.SH",
-        "name": "先锋精科",
+        "code": "002077.SZ",
+        "name": "大港股份",
         "source": "provider",
-        "market_cap": 8093874231.0
+        "market_cap": 8513712686.0
       },
       {
-        "code": "301629.SZ",
-        "name": "矽电股份",
+        "code": "301707.SZ",
+        "name": "展芯股份",
         "source": "provider",
-        "market_cap": 4741617299.0
-      },
-      {
-        "code": "688535.SH",
-        "name": "华海诚科",
-        "source": "provider",
-        "market_cap": 13206490941.0
-      },
-      {
-        "code": "002409.SZ",
-        "name": "雅克科技",
-        "source": "provider",
-        "market_cap": 46188983542.0
-      },
-      {
-        "code": "688820.SH",
-        "name": "盛合晶微",
-        "source": "provider",
-        "market_cap": 23559714135.0
-      },
-      {
-        "code": "688721.SH",
-        "name": "龙图光罩",
-        "source": "provider",
-        "market_cap": 2163663567.0
-      },
-      {
-        "code": "688045.SH",
-        "name": "必易微",
-        "source": "provider",
-        "market_cap": 3741991957.0
-      },
-      {
-        "code": "688130.SH",
-        "name": "晶华微",
-        "source": "provider",
-        "market_cap": 1252724253.0
-      },
-      {
-        "code": "688729.SH",
-        "name": "屹唐股份",
-        "source": "provider",
-        "market_cap": 45261857665.0
-      },
-      {
-        "code": "688256.SH",
-        "name": "寒武纪",
-        "source": "provider",
-        "market_cap": 733940431737.0
-      },
-      {
-        "code": "688498.SH",
-        "name": "源杰科技",
-        "source": "provider",
-        "market_cap": 163815227952.0
+        "market_cap": 2102254748.0
       },
       {
         "code": "600360.SH",
         "name": "华微电子",
         "source": "provider",
-        "market_cap": 9958262302.0
+        "market_cap": 11206646198.0
       },
       {
-        "code": "688135.SH",
-        "name": "利扬芯片",
+        "code": "688049.SH",
+        "name": "炬芯科技",
         "source": "provider",
-        "market_cap": 5578177308.0
+        "market_cap": 8290351904.0
       },
       {
-        "code": "600520.SH",
-        "name": "三佳科技",
+        "code": "301297.SZ",
+        "name": "富乐德",
         "source": "provider",
-        "market_cap": 3794398500.0
+        "market_cap": 27321748769.0
       },
       {
-        "code": "688138.SH",
-        "name": "清溢光电",
+        "code": "688512.SH",
+        "name": "慧智微-U",
         "source": "provider",
-        "market_cap": 9868980000.0
-      },
-      {
-        "code": "688515.SH",
-        "name": "裕太微-U",
-        "source": "provider",
-        "market_cap": 7652758034.0
-      },
-      {
-        "code": "603005.SH",
-        "name": "晶方科技",
-        "source": "provider",
-        "market_cap": 21065146104.0
-      },
-      {
-        "code": "003026.SZ",
-        "name": "中晶科技",
-        "source": "provider",
-        "market_cap": 4147451619.0
-      },
-      {
-        "code": "300604.SZ",
-        "name": "长川科技",
-        "source": "provider",
-        "market_cap": 136332478791.0
-      },
-      {
-        "code": "920179.BJ",
-        "name": "凯德石英",
-        "source": "provider",
-        "market_cap": 3268392082.0
-      },
-      {
-        "code": "688601.SH",
-        "name": "力芯微",
-        "source": "provider",
-        "market_cap": 5361077270.0
-      },
-      {
-        "code": "688172.SH",
-        "name": "燕东微",
-        "source": "provider",
-        "market_cap": 64708746912.0
-      },
-      {
-        "code": "688234.SH",
-        "name": "天岳先进",
-        "source": "provider",
-        "market_cap": 41080375806.0
-      },
-      {
-        "code": "688347.SH",
-        "name": "华虹宏力",
-        "source": "provider",
-        "market_cap": 105240275000.0
-      },
-      {
-        "code": "688419.SH",
-        "name": "耐科装备",
-        "source": "provider",
-        "market_cap": 4741293580.0
-      },
-      {
-        "code": "300661.SZ",
-        "name": "圣邦股份",
-        "source": "provider",
-        "market_cap": 63937211145.0
-      },
-      {
-        "code": "688141.SH",
-        "name": "杰华特",
-        "source": "provider",
-        "market_cap": 58857034296.0
-      },
-      {
-        "code": "688173.SH",
-        "name": "希荻微",
-        "source": "provider",
-        "market_cap": 5615019146.0
-      },
-      {
-        "code": "603316.SH",
-        "name": "诚邦股份",
-        "source": "provider",
-        "market_cap": 3630987360.0
-      },
-      {
-        "code": "688458.SH",
-        "name": "美芯晟",
-        "source": "provider",
-        "market_cap": 3122199230.0
-      },
-      {
-        "code": "603893.SH",
-        "name": "瑞芯微",
-        "source": "provider",
-        "market_cap": 85847370350.0
-      },
-      {
-        "code": "301611.SZ",
-        "name": "珂玛科技",
-        "source": "provider",
-        "market_cap": 14008907492.0
-      },
-      {
-        "code": "688536.SH",
-        "name": "思瑞浦",
-        "source": "provider",
-        "market_cap": 32985762223.0
+        "market_cap": 5753362580.0
       },
       {
         "code": "688325.SH",
         "name": "赛微微电",
         "source": "provider",
-        "market_cap": 8945442669.0
+        "market_cap": 8943799041.0
       },
       {
-        "code": "688401.SH",
-        "name": "路维光电",
+        "code": "688259.SH",
+        "name": "创耀科技",
         "source": "provider",
-        "market_cap": 13370121175.0
+        "market_cap": 3724078000.0
       },
       {
-        "code": "688099.SH",
-        "name": "晶晨股份",
+        "code": "605358.SH",
+        "name": "立昂微",
         "source": "provider",
-        "market_cap": 41794383106.0
+        "market_cap": 37328117691.0
       },
       {
-        "code": "688691.SH",
-        "name": "灿芯股份",
+        "code": "300613.SZ",
+        "name": "富瀚微",
         "source": "provider",
-        "market_cap": 4801097658.0
+        "market_cap": 19086676236.0
       },
       {
         "code": "603690.SH",
         "name": "至纯科技",
         "source": "provider",
-        "market_cap": 9034126658.0
+        "market_cap": 9306031275.0
       },
       {
-        "code": "300077.SZ",
-        "name": "国民技术",
+        "code": "688432.SH",
+        "name": "有研硅",
         "source": "provider",
-        "market_cap": 10658291078.0
+        "market_cap": 68929141432.0
       },
       {
-        "code": "688110.SH",
-        "name": "东芯股份",
+        "code": "688200.SH",
+        "name": "华峰测控",
         "source": "provider",
-        "market_cap": 49502030053.0
+        "market_cap": 80060821359.0
       },
       {
-        "code": "600460.SH",
-        "name": "士兰微",
+        "code": "688605.SH",
+        "name": "先锋精科",
         "source": "provider",
-        "market_cap": 51852478690.0
+        "market_cap": 9382176301.0
       },
       {
-        "code": "002213.SZ",
-        "name": "大为股份",
+        "code": "301660.SZ",
+        "name": "粤芯半导",
         "source": "provider",
-        "market_cap": 6060968799.0
+        "market_cap": 28410752678.0
       },
       {
-        "code": "300672.SZ",
-        "name": "国科微",
+        "code": "688783.SH",
+        "name": "西安奕材-U",
         "source": "provider",
-        "market_cap": 30862844999.0
-      },
-      {
-        "code": "688147.SH",
-        "name": "微导纳米",
-        "source": "provider",
-        "market_cap": 45494164465.0
+        "market_cap": 8042799000.0
       },
       {
         "code": "688126.SH",
         "name": "沪硅产业",
         "source": "provider",
-        "market_cap": 73553531696.0
+        "market_cap": 70868923895.0
       },
       {
-        "code": "688332.SH",
-        "name": "中科蓝讯",
+        "code": "600745.SH",
+        "name": "*ST闻泰",
         "source": "provider",
-        "market_cap": 15481818045.0
+        "market_cap": 21706732003.0
       },
       {
-        "code": "688416.SH",
-        "name": "恒烁股份",
+        "code": "688795.SH",
+        "name": "摩尔线程-U",
         "source": "provider",
-        "market_cap": 7627165066.0
+        "market_cap": 24266480000.0
       },
       {
-        "code": "688728.SH",
-        "name": "格科微",
+        "code": "688270.SH",
+        "name": "ST臻镭",
         "source": "provider",
-        "market_cap": 41190847922.0
+        "market_cap": 17045378333.0
       },
       {
-        "code": "688249.SH",
-        "name": "晶合集成",
+        "code": "002213.SZ",
+        "name": "大为股份",
         "source": "provider",
-        "market_cap": 79681314454.0
+        "market_cap": 6050188579.0
+      },
+      {
+        "code": "688052.SH",
+        "name": "纳芯微",
+        "source": "provider",
+        "market_cap": 36284226593.0
+      },
+      {
+        "code": "688584.SH",
+        "name": "上海合晶",
+        "source": "provider",
+        "market_cap": 9972871682.0
+      },
+      {
+        "code": "301348.SZ",
+        "name": "蓝箭电子",
+        "source": "provider",
+        "market_cap": 4364876787.0
+      },
+      {
+        "code": "688801.SH",
+        "name": "燧原科技-U",
+        "source": "provider",
+        "market_cap": 8771159250.0
+      },
+      {
+        "code": "688279.SH",
+        "name": "峰岹科技",
+        "source": "provider",
+        "market_cap": 19980263565.0
+      },
+      {
+        "code": "688107.SH",
+        "name": "安路科技",
+        "source": "provider",
+        "market_cap": 12318101048.0
+      },
+      {
+        "code": "300053.SZ",
+        "name": "航宇微",
+        "source": "provider",
+        "market_cap": 8032683755.0
+      },
+      {
+        "code": "300831.SZ",
+        "name": "ST派瑞",
+        "source": "provider",
+        "market_cap": 2566175778.0
+      },
+      {
+        "code": "603316.SH",
+        "name": "诚邦股份",
+        "source": "provider",
+        "market_cap": 4516271760.0
+      },
+      {
+        "code": "688256.SH",
+        "name": "寒武纪",
+        "source": "provider",
+        "market_cap": 686381572652.0
+      },
+      {
+        "code": "300458.SZ",
+        "name": "全志科技",
+        "source": "provider",
+        "market_cap": 27200800446.0
+      },
+      {
+        "code": "688047.SH",
+        "name": "龙芯中科",
+        "source": "provider",
+        "market_cap": 41984700000.0
+      },
+      {
+        "code": "688981.SH",
+        "name": "中芯国际",
+        "source": "provider",
+        "market_cap": 240031257202.0
+      },
+      {
+        "code": "688391.SH",
+        "name": "钜泉科技",
+        "source": "provider",
+        "market_cap": 3124147510.0
+      },
+      {
+        "code": "920012.BJ",
+        "name": "创达新材",
+        "source": "provider",
+        "market_cap": 1055573797.0
+      },
+      {
+        "code": "600171.SH",
+        "name": "上海贝岭",
+        "source": "provider",
+        "market_cap": 16220165173.0
+      },
+      {
+        "code": "003026.SZ",
+        "name": "中晶科技",
+        "source": "provider",
+        "market_cap": 5124919284.0
+      },
+      {
+        "code": "002049.SZ",
+        "name": "紫光国微",
+        "source": "provider",
+        "market_cap": 51093063758.0
+      },
+      {
+        "code": "300782.SZ",
+        "name": "卓胜微",
+        "source": "provider",
+        "market_cap": 34750091165.0
+      },
+      {
+        "code": "688521.SH",
+        "name": "芯原股份",
+        "source": "provider",
+        "market_cap": 109101123384.0
+      },
+      {
+        "code": "300046.SZ",
+        "name": "台基股份",
+        "source": "provider",
+        "market_cap": 5868343315.0
+      },
+      {
+        "code": "688041.SH",
+        "name": "海光信息",
+        "source": "provider",
+        "market_cap": 577133147995.0
+      },
+      {
+        "code": "600520.SH",
+        "name": "三佳科技",
+        "source": "provider",
+        "market_cap": 4085909700.0
+      },
+      {
+        "code": "603160.SH",
+        "name": "汇顶科技",
+        "source": "provider",
+        "market_cap": 25349461872.0
+      },
+      {
+        "code": "688809.SH",
+        "name": "强一股份",
+        "source": "provider",
+        "market_cap": 12904129188.0
+      },
+      {
+        "code": "301717.SZ",
+        "name": "超纯应材",
+        "source": "provider",
+        "market_cap": 6459605349.0
+      },
+      {
+        "code": "300661.SZ",
+        "name": "圣邦股份",
+        "source": "provider",
+        "market_cap": 72612619590.0
+      },
+      {
+        "code": "688153.SH",
+        "name": "唯捷创芯",
+        "source": "provider",
+        "market_cap": 11081378701.0
+      },
+      {
+        "code": "688595.SH",
+        "name": "芯海科技",
+        "source": "provider",
+        "market_cap": 4560560098.0
+      },
+      {
+        "code": "603501.SH",
+        "name": "豪威集团",
+        "source": "provider",
+        "market_cap": 98254445091.0
+      },
+      {
+        "code": "688458.SH",
+        "name": "美芯晟",
+        "source": "provider",
+        "market_cap": 3670529025.0
+      },
+      {
+        "code": "688802.SH",
+        "name": "沐曦股份-U",
+        "source": "provider",
+        "market_cap": 18094932376.0
+      },
+      {
+        "code": "688691.SH",
+        "name": "灿芯股份",
+        "source": "provider",
+        "market_cap": 4695298394.0
+      },
+      {
+        "code": "603893.SH",
+        "name": "瑞芯微",
+        "source": "provider",
+        "market_cap": 92679080228.0
+      },
+      {
+        "code": "688385.SH",
+        "name": "复旦微电",
+        "source": "provider",
+        "market_cap": 32244689365.0
+      },
+      {
+        "code": "600877.SH",
+        "name": "电科芯片",
+        "source": "provider",
+        "market_cap": 14090307955.0
+      },
+      {
+        "code": "688653.SH",
+        "name": "康希通信",
+        "source": "provider",
+        "market_cap": 4869574478.0
+      },
+      {
+        "code": "688135.SH",
+        "name": "利扬芯片",
+        "source": "provider",
+        "market_cap": 9219260867.0
+      },
+      {
+        "code": "688037.SH",
+        "name": "芯源微",
+        "source": "provider",
+        "market_cap": 69720556664.0
+      },
+      {
+        "code": "688620.SH",
+        "name": "安凯微",
+        "source": "provider",
+        "market_cap": 7059920000.0
+      },
+      {
+        "code": "688721.SH",
+        "name": "龙图光罩",
+        "source": "provider",
+        "market_cap": 2293273798.0
+      },
+      {
+        "code": "688702.SH",
+        "name": "盛科通信-U",
+        "source": "provider",
+        "market_cap": 68669201781.0
       },
       {
         "code": "688582.SH",
         "name": "芯动联科",
         "source": "provider",
-        "market_cap": 16776622979.0
+        "market_cap": 15579440592.0
+      },
+      {
+        "code": "688498.SH",
+        "name": "XD源杰科",
+        "source": "provider",
+        "market_cap": 208920331564.0
+      },
+      {
+        "code": "688486.SH",
+        "name": "龙迅股份",
+        "source": "provider",
+        "market_cap": 9156255003.0
+      },
+      {
+        "code": "688797.SH",
+        "name": "臻宝科技",
+        "source": "provider",
+        "market_cap": 8062439334.0
+      },
+      {
+        "code": "688146.SH",
+        "name": "中船特气",
+        "source": "provider",
+        "market_cap": 30877339638.0
+      },
+      {
+        "code": "300077.SZ",
+        "name": "国民技术",
+        "source": "provider",
+        "market_cap": 12721491593.0
+      },
+      {
+        "code": "688061.SH",
+        "name": "灿瑞科技",
+        "source": "provider",
+        "market_cap": 5341207788.0
+      },
+      {
+        "code": "688591.SH",
+        "name": "泰凌微",
+        "source": "provider",
+        "market_cap": 6371519501.0
+      },
+      {
+        "code": "688709.SH",
+        "name": "成都华微",
+        "source": "provider",
+        "market_cap": 5634572238.0
       },
       {
         "code": "002371.SZ",
         "name": "北方华创",
         "source": "provider",
-        "market_cap": 538394062140.0
+        "market_cap": 473524456140.0
+      },
+      {
+        "code": "688652.SH",
+        "name": "京仪装备",
+        "source": "provider",
+        "market_cap": 17394037500.0
+      },
+      {
+        "code": "688213.SH",
+        "name": "思特威-W",
+        "source": "provider",
+        "market_cap": 30219020153.0
+      },
+      {
+        "code": "688220.SH",
+        "name": "翱捷科技-U",
+        "source": "provider",
+        "market_cap": 40725774553.0
+      },
+      {
+        "code": "688727.SH",
+        "name": "恒坤新材",
+        "source": "provider",
+        "market_cap": 2592815478.0
+      },
+      {
+        "code": "688347.SH",
+        "name": "华虹宏力",
+        "source": "provider",
+        "market_cap": 91376775000.0
+      },
+      {
+        "code": "603290.SH",
+        "name": "斯达半导",
+        "source": "provider",
+        "market_cap": 20582744403.0
+      },
+      {
+        "code": "688728.SH",
+        "name": "格科微",
+        "source": "provider",
+        "market_cap": 37396612088.0
+      },
+      {
+        "code": "300327.SZ",
+        "name": "中颖电子",
+        "source": "provider",
+        "market_cap": 8839560127.0
+      },
+      {
+        "code": "301536.SZ",
+        "name": "星宸科技",
+        "source": "provider",
+        "market_cap": 24549497779.0
+      },
+      {
+        "code": "603061.SH",
+        "name": "金海通",
+        "source": "provider",
+        "market_cap": 29044950000.0
+      },
+      {
+        "code": "688689.SH",
+        "name": "银河微电",
+        "source": "provider",
+        "market_cap": 6035419658.0
+      },
+      {
+        "code": "301629.SZ",
+        "name": "矽电股份",
+        "source": "provider",
+        "market_cap": 5265697004.0
+      },
+      {
+        "code": "603005.SH",
+        "name": "晶方科技",
+        "source": "provider",
+        "market_cap": 19245587044.0
+      },
+      {
+        "code": "688798.SH",
+        "name": "艾为电子",
+        "source": "provider",
+        "market_cap": 7681730494.0
+      },
+      {
+        "code": "688173.SH",
+        "name": "希荻微",
+        "source": "provider",
+        "market_cap": 5537944900.0
+      },
+      {
+        "code": "920139.BJ",
+        "name": "华岭股份",
+        "source": "provider",
+        "market_cap": 3980896281.0
+      },
+      {
+        "code": "688045.SH",
+        "name": "必易微",
+        "source": "provider",
+        "market_cap": 4275553994.0
+      },
+      {
+        "code": "688589.SH",
+        "name": "力合微",
+        "source": "provider",
+        "market_cap": 3021379889.0
+      },
+      {
+        "code": "688233.SH",
+        "name": "神工股份",
+        "source": "provider",
+        "market_cap": 17091883665.0
+      },
+      {
+        "code": "688252.SH",
+        "name": "天德钰",
+        "source": "provider",
+        "market_cap": 8720334990.0
       }
     ]
   }

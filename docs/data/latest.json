@@ -1,6 +1,6 @@
 {
   "data_time": "2026-10-06",
-  "run_time": "2026-10-06T00:20:51+08:00",
+  "run_time": "2026-10-06T01:05:28+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -17,7 +17,6 @@
     }
   },
   "error_flags": [
-    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "low_coverage",
     "provider_members_stale",
     "半导体 301660.SZ used latest quote fallback as one-day history",

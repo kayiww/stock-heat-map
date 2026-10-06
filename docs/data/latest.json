@@ -1,15 +1,15 @@
 {
   "data_time": "2026-10-06",
-  "run_time": "2026-10-06T22:25:58+08:00",
+  "run_time": "2026-10-06T23:02:22+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
     "mode": "github_actions_static",
     "as_of_date": "2026-10-06",
-    "latest_fetched_date": "2026-10-06"
+    "latest_fetched_date": "2026-09-30"
   },
-  "status": "partial",
-  "message": "数据已部分更新，存在数据源异常",
+  "status": "stale_ok",
+  "message": "今日行情尚未更新，当前展示上一交易日数据",
   "coverage": {
     "overall": 0.01,
     "by_board": {
@@ -20,10 +20,14 @@
     "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "low_coverage",
     "provider_members_stale",
-    "半导体 301660.SZ used latest quote fallback as one-day history",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
   "fetch_logs": [
+    "BOARD 半导体 requesting stock history code=300327.SZ",
+    "FETCH start source=tencent operation=stock_history target=300327.SZ",
+    "FETCH ok source=tencent operation=stock_history target=300327.SZ status=200 bytes=6256 attempt=1",
+    "BOARD 半导体 requesting stock history code=300373.SZ",
+    "FETCH start source=tencent operation=stock_history target=300373.SZ",
     "FETCH ok source=tencent operation=stock_history target=300373.SZ status=200 bytes=6255 attempt=1",
     "BOARD 半导体 requesting stock history code=300456.SZ",
     "FETCH start source=tencent operation=stock_history target=300456.SZ",
@@ -309,12 +313,7 @@
     "FETCH ok source=eastmoney operation=board_latest_change target=BK1036 status=200 bytes=87 attempt=1",
     "BOARD 我的观察池 requesting stock quotes count=3",
     "FETCH start source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH",
-    "FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=1",
-    "FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=2",
-    "FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
-    "FALLBACK source=tencent operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH reason=FETCH fail source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center>...",
-    "FETCH start source=tencent operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH",
-    "FETCH ok source=tencent operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=200 bytes=1607 attempt=1",
+    "FETCH ok source=eastmoney operation=stock_quotes target=000001.SZ,300750.SZ,600519.SH status=200 bytes=459 attempt=1",
     "BOARD 我的观察池 requesting stock history code=000001.SZ",
     "FETCH start source=tencent operation=stock_history target=000001.SZ",
     "FETCH ok source=tencent operation=stock_history target=000001.SZ status=200 bytes=6333 attempt=1",

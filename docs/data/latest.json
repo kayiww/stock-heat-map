@@ -1,11 +1,11 @@
 {
   "data_time": "2026-10-06",
-  "run_time": "2026-10-06T23:02:22+08:00",
+  "run_time": "2026-10-07T22:43:23+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
     "mode": "github_actions_static",
-    "as_of_date": "2026-10-06",
+    "as_of_date": "2026-10-07",
     "latest_fetched_date": "2026-09-30"
   },
   "status": "stale_ok",
@@ -23,6 +23,10 @@
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
   ],
   "fetch_logs": [
+    "FETCH ok source=tencent operation=stock_history target=300053.SZ status=200 bytes=6195 attempt=1",
+    "BOARD 半导体 requesting stock history code=300077.SZ",
+    "FETCH start source=tencent operation=stock_history target=300077.SZ",
+    "FETCH ok source=tencent operation=stock_history target=300077.SZ status=200 bytes=6212 attempt=1",
     "BOARD 半导体 requesting stock history code=300327.SZ",
     "FETCH start source=tencent operation=stock_history target=300327.SZ",
     "FETCH ok source=tencent operation=stock_history target=300327.SZ status=200 bytes=6256 attempt=1",
@@ -76,10 +80,8 @@
     "FETCH ok source=tencent operation=stock_history target=301660.SZ status=200 bytes=1525 attempt=1",
     "FALLBACK source=eastmoney operation=stock_history target=301660.SZ reason=tencent returned empty rows",
     "FETCH start source=eastmoney operation=stock_history target=301660.SZ",
-    "FETCH fail source=eastmoney operation=stock_history target=301660.SZ status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=1",
-    "FETCH fail source=eastmoney operation=stock_history target=301660.SZ status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=2",
-    "FETCH fail source=eastmoney operation=stock_history target=301660.SZ status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=3",
-    "FETCH fail source=eastmoney operation=stock_history target=301660.SZ consecutive_failures=1 reason=FETCH fail source=eastmoney operation=stock_history target=301660.SZ status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=3",
+    "FETCH ok source=eastmoney operation=stock_history target=301660.SZ status=200 bytes=173 attempt=1",
+    "FETCH fail source=eastmoney operation=stock_history target=301660.SZ consecutive_failures=1 reason=empty rows",
     "BOARD 半导体 requesting stock history code=600171.SH",
     "FETCH start source=tencent operation=stock_history target=600171.SH",
     "FETCH ok source=tencent operation=stock_history target=600171.SH status=200 bytes=6178 attempt=1",
@@ -306,9 +308,7 @@
     "FETCH start source=tencent operation=stock_history target=920181.BJ",
     "FETCH ok source=tencent operation=stock_history target=920181.BJ status=200 bytes=1666 attempt=1",
     "FETCH start source=eastmoney operation=board_history target=BK1036",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=1",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=2",
-    "FETCH fail source=eastmoney operation=board_history target=BK1036 status=NA error=RemoteDisconnected: Remote end closed connection without response attempt=3",
+    "FETCH ok source=eastmoney operation=board_history target=BK1036 status=200 bytes=6639 attempt=1",
     "FETCH start source=eastmoney operation=board_latest_change target=BK1036",
     "FETCH ok source=eastmoney operation=board_latest_change target=BK1036 status=200 bytes=87 attempt=1",
     "BOARD 我的观察池 requesting stock quotes count=3",

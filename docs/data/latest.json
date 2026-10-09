@@ -1,6 +1,6 @@
 {
   "data_time": "2026-10-09",
-  "run_time": "2026-10-09T22:37:23+08:00",
+  "run_time": "2026-10-09T23:13:47+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -19,7 +19,6 @@
     }
   },
   "error_flags": [
-    "AI算力 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1137 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3",
     "provider_members_stale",
     "半导体 301660.SZ used latest quote fallback as one-day history",
     "半导体 成分股抓取失败: FETCH fail source=eastmoney operation=board_members target=BK1036 status=502 error=HTTPError body=<html> <head><title>502 Bad Gateway</title></head> <body> <center><h1>502 Bad Gateway</h1></center> <hr><center>nginx/1.26.2</center> </body> </html> attempt=3"
@@ -337,25 +336,23 @@
       "valid_quote_count": 101,
       "invalid_quote_count": 1,
       "coverage": 0.9902,
-      "equal_weight_change_pct": -1.263,
-      "weighted_change_pct": -1.2565,
-      "advance_ratio": 0.2178,
-      "turnover_amount": 610819101.0,
-      "turnover_vs_20d": 1.2279,
-      "source_board_change_pct": -1.55,
-      "error_flags": [
-        "provider_members_stale"
-      ],
+      "equal_weight_change_pct": -0.3765,
+      "weighted_change_pct": -0.4853,
+      "advance_ratio": 0.2772,
+      "turnover_amount": 770230168.0,
+      "turnover_vs_20d": 1.2567,
+      "source_board_change_pct": null,
+      "error_flags": [],
       "status": [
         "调整中"
       ],
       "eligible_for_signal": true,
-      "synthetic_index": 105.5462,
-      "change_5d_pct": -10.8385,
-      "change_20d_pct": -7.1674,
-      "change_60d_pct": -31.6322,
+      "synthetic_index": 106.8193,
+      "change_5d_pct": -10.1142,
+      "change_20d_pct": -6.4251,
+      "change_60d_pct": -30.8075,
       "position_20d": 0.0,
-      "position_60d": 0.1448,
+      "position_60d": 0.1699,
       "consecutive_up_days": 0,
       "consecutive_down_days": 3
     },

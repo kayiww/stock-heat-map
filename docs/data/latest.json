@@ -1,6 +1,6 @@
 {
   "data_time": "2026-10-15",
-  "run_time": "2026-10-15T20:49:42+08:00",
+  "run_time": "2026-10-15T21:20:24+08:00",
   "source": {
     "provider": "eastmoney",
     "fallback_provider": "tencent",
@@ -337,11 +337,11 @@
       "invalid_quote_count": 1,
       "coverage": 0.9902,
       "equal_weight_change_pct": -3.6397,
-      "weighted_change_pct": -3.1869,
+      "weighted_change_pct": -2.3532,
       "advance_ratio": 0.0891,
       "turnover_amount": 615482097.0,
       "turnover_vs_20d": 1.1342,
-      "source_board_change_pct": -3.56,
+      "source_board_change_pct": null,
       "error_flags": [
         "provider_members_stale"
       ],

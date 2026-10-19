@@ -620,9 +620,9 @@
         },
         {
           "code": "600667.SH",
-          "name": "太极实业",
-          "day_change_pct": 2.0223,
-          "change_5d_pct": -10.3554,
+          "name": "XD太极实",
+          "day_change_pct": 2.0244,
+          "change_5d_pct": -10.3649,
           "turnover_amount": 1221782.0,
           "turnover_vs_20d": 0.6501,
           "data_source": "tencent",
@@ -1221,14 +1221,14 @@
         {
           "code": "920139.BJ",
           "name": "����ɷ�",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 29010.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],
@@ -2418,26 +2418,26 @@
         {
           "code": "920138.BJ",
           "name": "�����Ƽ�",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 16943.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         },
         {
           "code": "920139.BJ",
           "name": "����ɷ�",
-          "day_change_pct": 0.0,
-          "change_5d_pct": 0.0,
-          "turnover_amount": 29010.0,
+          "day_change_pct": null,
+          "change_5d_pct": null,
+          "turnover_amount": null,
           "turnover_vs_20d": null,
           "data_source": "tencent",
           "source": "provider_board",
           "member_source": "provider_board",
-          "quote_status": "ok"
+          "quote_status": "no_data"
         }
       ],
       "excluded_members": [],
